@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pages - Fractalide</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Orbitron|Montserrat:400,700|Droid+Serif:400,700,400italic,700italic|Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<link href="https://fractalide.github.io/fractalide-website-styx/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="page-top">
+<body>
+<nav class="navbar navbar-default navbar-fixed-top navbar-shrink" id="main-nav">
+<div class="container">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand page-scroll" href="https://fractalide.github.io/fractalide-website-styx/#page-top"><img src="https://fractalide.github.io/fractalide-website-styx/img/fractalide.svg"> FRACTALIDE</a>
+</div>
+<div class="collapse navbar-collapse" id="main-nav-collapse">
+<ul class="nav navbar-nav navbar-right">
+<li><a href="https://fractalide.github.io/fractalide-website-styx/#vision" class="page-scroll">Vision</a></li>
+<li><a href="https://fractalide.github.io/fractalide-website-styx/#whitepaper" class="page-scroll">Whitepaper</a></li>
+<li><a href="https://fractalide.github.io/fractalide-website-styx/#ico" class="page-scroll">ICO</a></li>
+<li><a href="https://fractalide.github.io/fractalide-website-styx/#team" class="page-scroll">Team</a></li>
+<li><a href="https://fractalide.github.io/fractalide-website-styx/faq.html">FAQ</a></li>
+<li><a href="https://fractalide.github.io/fractalide-website-styx/documentation/index.html">Documentation</a></li>
+<li><a href="https://github.com/fractalide/fractalide">GitHub</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container">
+  <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Pages</h1>
+      <p class="post-description" itemprop="description"><p>This post introduce how a styx site site generate pages.</p>
+</p>
+
+      <p class="post-date">
+        <time datetime="2016-09-14T00:00:00Z">2016-09-14</time>
+        
+      </p>
+    </header>
+
+    <div class="post-content clearfix" itemprop="articleBody">
+      <p>In <code>site.nix</code>, a page is declared as an attribute set in the <code>pages</code> attribute, example:</p>
+
+<pre><code class="nix">pages = {
+  about = {
+    path     = &quot;/about.html&quot;;
+    template = templates.page.full;
+    layout   = templates.layout;
+  } // data.about;
+};
+</code></pre>
+
+<p>Note: This example merges a data set in the page set, this is usual way to create pages from data.</p>
+
+<h2 id="basics">Basics</h2>
+
+<p>During site generation, styx evaluates <code>generatePage</code> on each <code>pages</code> page.<br/>
+<code>generatePage</code> definition is <code>page: pages.layout (page.template page)</code>, it simply evaluates a page set by its template, and evaluate that result with the layout.<br/>
+The generated page content is output in the page <code>path</code> file.</p>
+
+<p>A simple example of a page is:</p>
+
+<pre><code class="nix">pages = {
+  hello = {
+    layout = template: &quot;&lt;html&gt;&lt;body&gt;${template}&lt;/body&gt;&lt;/html&gt;&quot;;
+    template = page: ''
+      &lt;h1&gt;Styx example page&lt;/h1&gt;
+      ${page.content}
+    '';
+    content = &quot;&lt;p&gt;Hello world!&lt;/p&gt;&quot;;
+    path = &quot;/hello.html&quot;;
+  };
+}
+</code></pre>
+
+<p>Will generate <code>/hello.html</code> with the following contents:</p>
+
+<pre><code class="html">&lt;html&gt;&lt;body&gt;&lt;h1&gt;Styx example page&lt;/h1&gt;
+&lt;p&gt;Hello world!&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<h2 id="helperfunctions">Helper functions</h2>
+
+<p>The standard library provide helper functions to generate multiple type of pages:</p>
+
+<ul>
+<li><code>mkSplit</code>: to split a data list between multiple pages, used to create archive like pages.</li>
+<li><code>mkPageList</code>: to generate a list of pages from a list of data.</li>
+<li><code>mkMultipages</code>: to split a multipage data between multiple pages.</li>
+<li><code>mkTaxonomyPages</code>: to generate taxonomy pages from taxonomy data.</li>
+</ul>
+
+
+       
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="copyright">Copyright &copy;2017 Fractalide. All Rights Reserved.</span>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline social-buttons">
+          <li><a href="https://twitter.com/fractalide"><i class="fa fa-twitter"></i></a></li>
+
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline quicklinks">
+          <li><a href="#">Foo</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<script crossorigin="anonymous" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script crossorigin="anonymous" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<script crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/nix.min.js"></script>
+
+<script crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/rust.min.js"></script>
+
+<script crossorigin="anonymous" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/capnp.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://fractalide.github.io/fractalide-website-styx/js/classie.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="https://fractalide.github.io/fractalide-website-styx/js/cbpAnimatedHeader.js"></script>
+<script src="https://fractalide.github.io/fractalide-website-styx/js/site.js"></script>
+</body>
+</html>

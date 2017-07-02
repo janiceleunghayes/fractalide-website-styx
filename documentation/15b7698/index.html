@@ -1,0 +1,3586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="description" content="Fractalide documentation">
+<title>Fractalide documentation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Fractalide documentation</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_this">1.1. What is this?</a></li>
+<li><a href="#_features">1.2. Features</a></li>
+<li><a href="#_what_s_new_from_different_perspectives">1.3. What&#8217;s new from different perspectives</a></li>
+<li><a href="#_solved_problems">1.4. Solved problems</a></li>
+<li><a href="#_roadmap">1.5. Roadmap</a></li>
+<li><a href="#_the_mandatory_hello_like_world_example">1.6. The mandatory Hello-like World example.</a></li>
+</ul>
+</li>
+<li><a href="#_quick_start_to_building_an_not_logic_gate">2. Quick Start to Building an NOT logic gate</a></li>
+<li><a href="#nodes">3. Nodes collection</a>
+<ul class="sectlevel2">
+<li><a href="#_subgraphs">3.1. Subgraphs</a></li>
+<li><a href="#_agents">3.2. Agents</a></li>
+</ul>
+</li>
+<li><a href="#edges">4. Edge Collection</a>
+<ul class="sectlevel2">
+<li><a href="#_what_3">4.1. What?</a></li>
+<li><a href="#_why_3">4.2. Why?</a></li>
+<li><a href="#_who_3">4.3. Who?</a></li>
+<li><a href="#_where_3">4.4. Where?</a></li>
+<li><a href="#_how_3">4.5. How?</a></li>
+</ul>
+</li>
+<li><a href="#services">5. Services</a>
+<ul class="sectlevel2">
+<li><a href="#_what_4">5.1. What?</a></li>
+<li><a href="#_why_4">5.2. Why?</a></li>
+<li><a href="#_who_4">5.3. Who?</a></li>
+<li><a href="#_where_4">5.4. Where?</a></li>
+<li><a href="#_how_4">5.5. How?</a></li>
+</ul>
+</li>
+<li><a href="#fractals">6. Fractals</a>
+<ul class="sectlevel2">
+<li><a href="#_what_5">6.1. What?</a></li>
+<li><a href="#_why_5">6.2. Why?</a></li>
+<li><a href="#_who_5">6.3. Who?</a></li>
+<li><a href="#_where_5">6.4. Where?</a></li>
+<li><a href="#_how_5">6.5. How?</a></li>
+<li><a href="#_incremental_builds">6.6. Incremental Builds</a></li>
+<li><a href="#_there_is_a_code_service_nix_code_file_what_is_it">6.7. There is a <code>service.nix</code> file! What is it?</a></li>
+<li><a href="#_two_ways_to_execute_your_fractal">6.8. Two ways to execute your fractal</a></li>
+</ul>
+</li>
+<li><a href="#howto">7. HOWTO</a>
+<ul class="sectlevel2">
+<li><a href="#_steps">7.1. Steps</a></li>
+<li><a href="#_tokio">7.2. Tokio-*</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This manual tells you how to write subnets, components and contracts for the Fractalide component / contract
+collection.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_this"><a class="anchor" href="#_what_is_this"></a>1.1. What is this?</h3>
+<div class="paragraph">
+<p>Fractalide is a free and open source service programming platform using dataflow graphs. Graph nodes represent computations, while graph edges represent typed data (may also describe tensors) communicated between them. This flexible architecture can be applied to many different computation problems, initially the focus will be Microservices to be expanded out into the Internet of Things.</p>
+</div>
+<div class="paragraph">
+<p>Fractalide is in the same vein as the <a href="https://en.wikipedia.org/wiki/Apache_NiFi">NSA&#8217;s Niagrafiles</a> (now known as <a href="https://nifi.apache.org/">Apache-NiFi</a>) or <a href="https://en.wikipedia.org/wiki/TensorFlow">Google&#8217;s TensorFlow</a> but stripped of all Java, Python and GUI bloat. Fractalide faces big corporate players like <a href="http://abinitio.com/">Ab Initio</a>, a company that charges a lot of money for dataflow solutions.</p>
+</div>
+<div class="paragraph">
+<p>Truly reusable and reproducible efficient nodes is what differentiates Fractalide from the others. It&#8217;s this feature that allows open communities to mix and match nodes quickly and easily.</p>
+</div>
+<div class="paragraph">
+<p>The canonical source of this project is hosted on <a href="https://gitlab.com/fractalide/fractalide">GitLab</a>, and is the preferred place for contributions, however if you do not wish to use GitLab, feel free to make issues, on the mirror. However pull requests will only be accepted on GitLab, to make it easy to maintain.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_features"><a class="anchor" href="#_features"></a>1.2. Features</h3>
+<div class="paragraph">
+<p>Fractalide stands on the shoulders of giants by combining the strengths of each language into one programming model.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1112%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">Op</th>
+<th class="tableblock halign-center valign-top">Technology</th>
+<th class="tableblock halign-center valign-top">Safe</th>
+<th class="tableblock halign-center valign-top">Zero-cost Abstractions</th>
+<th class="tableblock halign-center valign-top">Reuse</th>
+<th class="tableblock halign-center valign-top">Reproducible</th>
+<th class="tableblock halign-center valign-top">Distributed Type System</th>
+<th class="tableblock halign-center valign-top">Concurrent</th>
+<th class="tableblock halign-center valign-top">Service Config Man.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">NixOS</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Nix Expr</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Rust</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Flow-based Programming</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Cap&#8217;n Proto</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"></td>
+<td class="tableblock halign-center valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">Fractalide Model</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">✔</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_what_s_new_from_different_perspectives"><a class="anchor" href="#_what_s_new_from_different_perspectives"></a>1.3. What&#8217;s new from different perspectives</h3>
+<div class="sect3">
+<h4 id="_nix_programmers"><a class="anchor" href="#_nix_programmers"></a>1.3.1. Nix Programmers</h4>
+<div class="paragraph">
+<p>Fractalide brings <em>safe, fast, reusable, black-box</em> dataflow functions and a means to compose them.</p>
+</div>
+<div class="paragraph">
+<p><em>Tagline: "Nixpkgs is not enough! Here have 'Nixfuncs' too."</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rust_programmers"><a class="anchor" href="#_rust_programmers"></a>1.3.2. Rust Programmers</h4>
+<div class="paragraph">
+<p>Fractalide brings <em>reproducible, reusable, black-box</em> dataflow functions, a means to compose them and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
+</div>
+<div class="paragraph">
+<p><em>Tagline: Safety extended beyond the application boundary into infrastructure.</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_flow_based_programmers"><a class="anchor" href="#_flow_based_programmers"></a>1.3.3. Flow-based Programmers</h4>
+<div class="paragraph">
+<p>Fractalide brings <em>safe fast reproducible</em> classical Flow-based programming components, and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
+</div>
+<div class="paragraph">
+<p><em>Tagline: Reproducible components!</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_programmers"><a class="anchor" href="#_programmers"></a>1.3.4. Programmers</h4>
+<div class="paragraph">
+<p>Fractalide brings <em>safe, fast, reusable, reproducible, black-box</em> dataflow functions, a means to compose them and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
+</div>
+<div class="paragraph">
+<p><em>Tagline: Here, have a beer!</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_solved_problems"><a class="anchor" href="#_solved_problems"></a>1.4. Solved problems</h3>
+<div class="sect3">
+<h4 id="_modules_code_coupling"><a class="anchor" href="#_modules_code_coupling"></a>1.4.1. Modules-code coupling</h4>
+<div class="paragraph">
+<p>Language level modules become tightly coupled with the rest of the code, moving around these modules also poses a problem.</p>
+</div>
+<div class="sect4">
+<h5 id="_solution"><a class="anchor" href="#_solution"></a>Solution</h5>
+<div class="paragraph">
+<p>An unanticipated outcome occurred when combining FBP and Nix. It&#8217;s become our peanut butter and jam combination, so to say, but requires a bit of explaining, so hang tight.</p>
+</div>
+<div class="sect5">
+<h6 id="_reproducibility"><a class="anchor" href="#_reproducibility"></a>Reproducibility</h6>
+<div class="paragraph">
+<p>Nix is a content addressable store, so is git, so is docker, except that docker&#8217;s SHA resolution is at container level and git&#8217;s SHA resolution is at changeset level. Nix on the other hand has a SHA resolution at package level, and it&#8217;s known as a <code>derivation</code>. If you&#8217;re trying to create reproducible systems this is the correct resolution. Too big and you&#8217;re copying around large container sized images with multiple versions occupying gigabytes of space, too small and you run into problems of git not being able to scale to support thousands of binaries that build an operating system. Therefore Nix subsumes Docker.</p>
+</div>
+<div class="paragraph">
+<p>Indeed it&#8217;s these simple <code>derivations</code> that allow python 2.7 and 3.0 to exist side-by-side without conflicts. It&#8217;s what allows the Nix community to compose an entire operating system, NixOS. These <code>derivations</code> are what makes NixOS a congruent configuration management system, and congruent systems are reproducible systems. They have to be.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_reusability"><a class="anchor" href="#_reusability"></a>Reusability</h6>
+<div class="paragraph">
+<p>Flow-based programming in our books has delivered on its promise. In our system FBP components are known as a <code>nodes</code> and they are reusable, clean and composable. It&#8217;s a very nice way to program computers. Though, we&#8217;ve found, the larger the network of <code>nodes</code>, the more overhead required to build, manage, version, package, connect, test and distribute all these moving pieces. This really doesn&#8217;t weigh well against FBP&#8217;s advantages. Still, there is this beautiful reusable side that is highly advantageous! If only we could take the good parts?</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_reproducibility_reusability"><a class="anchor" href="#_reproducibility_reusability"></a>Reproducibility + Reusability</h6>
+<div class="paragraph">
+<p>When nix is assigned the responsibility of declaratively building fbp <code>nodes</code>, a magic thing happens. All that manual overhead of having to build, manage and package etc gets done once and only once by the <code>node</code> author, and completely disappears for everyone thereafter. We&#8217;re left with the reusable good parts that FBP has to offer. Indeed the greatest overhead a <code>node</code> user has, is typing the <code>node</code>'s name. We&#8217;ve gone further and distilled the overhead to a few lines, no more intimidating than a typical config file such as <code>Cargo.toml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+
+agent {
+  src = ./.;
+  edges = with edges; [ PrimText FsPath ];
+  mods = with mods.rs; [ rustfbp capnp rusqlite ];
+  osdeps = with pkgs; [ sqlite pkgconfig ];
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now just to be absolutely clear of the implications; it&#8217;s possible to call an extremely complex community developed hierarchy of potentially 1000+ nodes, where each node might have different <a href="https://crates.io" class="bare">https://crates.io</a> dependencies, they might have OS level dependencies such as <code>openssl</code> etc and nix will ensure the entire hierarchy is correctly built and made available. All this is done by just typing the <code>node</code> name and issuing a build command.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s this feature that sets us apart from Google TensorFlow and Apache-NiFi. It contains the DNA to build a massive sprawling community of open source programmers, this and the C4, that is. It&#8217;s our hope anyway!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_complex_configuration_management_model"><a class="anchor" href="#_complex_configuration_management_model"></a>1.4.2. Complex configuration management model</h4>
+<div class="paragraph">
+<p>The vast majority of system configuration management solutions use either the divergent or convergent model.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;re going to quote Steve Traugott&#8217;s excellent work vebatim.</p>
+</div>
+<div class="sect4">
+<h5 id="_divergent"><a class="anchor" href="#_divergent"></a>Divergent</h5>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/divergent.png" alt="divergent">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>"One quick way to tell if a shop is divergent is to ask how changes are made on production hosts, how those same changes are incorporated into the baseline build for new or replacement hosts, and how they are made on hosts that were down at the time the change was first deployed. If you get different answers, then the shop is likely divergent.</p>
+</div>
+<div class="paragraph">
+<p>The symptoms of divergence include unpredictable host behavior, unscheduled downtime, unexpected package and patch installation failure, unclosed security vulnerabilities, significant time spent "firefighting", and high troubleshooting and maintenance costs."</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Steve Traugott
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_convergent"><a class="anchor" href="#_convergent"></a>Convergent</h5>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/convergent.png" alt="convergent">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>"The baseline description in a converging infrastructure is characteristically an incomplete description of machine state. You can quickly detect convergence in a shop by asking how many files are currently under management control. If an approximate answer is readily available and is on the order of a few hundred files or less, then the shop is likely converging legacy machines on a file-by-file basis.</p>
+</div>
+<div class="paragraph">
+<p>A convergence tool is an excellent means of bringing some semblance of order to a chaotic infrastructure. Convergent tools typically work by sampling a small subset of the disk - via a checksum of one or more files, for example - and taking some action in response to what they find. The samples and actions are often defined in a declarative or descriptive language that is optimized for this use. This emulates and preempts the firefighting behavior of a reactive human systems administrator - "see a problem, fix it." Automating this process provides great economies of scale and speed over doing the same thing manually.</p>
+</div>
+<div class="paragraph">
+<p>Because convergence typically includes an intentional process of managing a specific subset of files, there will always be unmanaged files on each host. Whether current differences between unmanaged files will have an impact on future changes is undecidable, because at any point in time we do not know the entire set of future changes, or what files they will depend on.</p>
+</div>
+<div class="paragraph">
+<p>It appears that a central problem with convergent administration of an initially divergent infrastructure is that there is no documentation or knowledge as to when convergence is complete. One must treat the whole infrastructure as if the convergence is incomplete, whether it is or not. So without more information, an attempt to converge formerly divergent hosts to an ideal configuration is a never-ending process. By contrast, an infrastructure based upon first loading a known baseline configuration on all hosts, and limited to purely orthogonal and non-interacting sets of changes, implements congruence. Unfortunately, this is not the way most shops use convergent tools&#8230;&#8203;"</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Steve Traugott
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_solution_2"><a class="anchor" href="#_solution_2"></a>Solution</h5>
+<div class="sect5">
+<h6 id="_congruent"><a class="anchor" href="#_congruent"></a>Congruent</h6>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/congruent.png" alt="congruent">
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>"By definition, divergence from baseline disk state in a congruent environment is symptomatic of a failure of code, administrative procedures, or security. In any of these three cases, we may not be able to assume that we know exactly which disk content was damaged. It is usually safe to handle all three cases as a security breach: correct the root cause, then rebuild.</p>
+</div>
+<div class="paragraph">
+<p>You can detect congruence in a shop by asking how the oldest, most complex machine in the infrastructure would be rebuilt if destroyed. If years of sysadmin work can be replayed in an hour, unattended, without resorting to backups, and only user data need be restored from tape, then host management is likely congruent.</p>
+</div>
+<div class="paragraph">
+<p>Rebuilds in a congruent infrastructure are completely unattended and generally faster than in any other; anywhere from ten minutes for a simple workstation to two hours for a node in a complex high-availability server cluster (most of that two hours is spent in blocking sleeps while meeting barrier conditions with other nodes).</p>
+</div>
+<div class="paragraph">
+<p>Symptoms of a congruent infrastructure include rapid, predictable, "fire-and-forget" deployments and changes. Disaster recovery and production sites can be easily maintained or rebuilt on demand in a bit-for-bit identical state. Changes are not tested for the first time in production, and there are no unforeseen differences between hosts. Unscheduled production downtime is reduced to that caused by hardware and application problems; firefighting activities drop considerably. Old and new hosts are equally predictable and maintainable, and there are fewer host classes to maintain. There are no ad-hoc or manual changes. We have found that congruence makes cost of ownership much lower, and reliability much higher, than any other method."</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Steve Traugott
+</div>
+</div>
+<div class="paragraph">
+<p>Fractalide does not violate the congruent model of Nix, and it&#8217;s why NixOS is a dependency. Appreciation for safety has extended beyond the application boundary into infrastructure as a whole.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_language_choice"><a class="anchor" href="#_language_choice"></a>1.4.3. Language choice</h4>
+<div class="paragraph">
+<p>A language needed to be chosen to implement Fractalide. Now as Fractalide is primarily a Flow-based programming environment, it would be beneficial to choose a language that at least gets concurrency right.</p>
+</div>
+<div class="sect4">
+<h5 id="_solution_3"><a class="anchor" href="#_solution_3"></a>Solution</h5>
+<div class="paragraph">
+<p>Rust was a perfect fit. The concept of ownership is critical in Flow-based Programming. The Flow-based scheduler is typically responsible for tracking every Information Packet (IP) as it flows through the system. Fortunately Rust excels at getting the concept of ownership right. To the point of leveraging this concept that a garbage collector is not needed. Indeed, different forms of concurrency can be layered on Rust&#8217;s ownership concept. One very neat advantage Rust gives us is that we can very elegantly implement Flow-based Programming&#8217;s idea of concurrency. This makes our scheduler extremely lightweight as it doesn&#8217;t need to track IPs at all. Once an IP isn&#8217;t owned by any component, Rust makes it wink out of existance, no harm to anyone.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_api_contracts"><a class="anchor" href="#_api_contracts"></a>1.4.4. API contracts</h4>
+<div class="paragraph">
+<p>It&#8217;s easy to disrespect API contracts in a distributed services setup.</p>
+</div>
+<div class="sect4">
+<h5 id="_solution_4"><a class="anchor" href="#_solution_4"></a>Solution</h5>
+<div class="paragraph">
+<p>We wanted to ensure there was no ambiguity about the shape of the data a node receives. Also if the shape of data changes, the error must be caught at compile time. Cap&#8217;n Proto schema fits these requirements, and fits them <strong>perfectly</strong> when nix builds the <code>nodes</code> calling the Cap&#8217;n Proto schema. Because, if a schema changes, nix will register the change and will rebuild everything (<code>nodes</code> and <code>subgraphs</code>) that depends on that schema, thus catching the error. We&#8217;ve also made it such, during graph load time <code>agents</code> cannot connect their ports unless they use the same Cap&#8217;n Proto schema. This is a very nice safety property.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_roadmap"><a class="anchor" href="#_roadmap"></a>1.5. Roadmap</h3>
+<div class="sect3">
+<h4 id="_steps_towards_beta_release"><a class="anchor" href="#_steps_towards_beta_release"></a>1.5.1. Steps towards BETA release.</h4>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-check-square-o"></i> <a href="https://en.wikipedia.org/wiki/Flow-based_programming">Flowscript</a> - a declarative dataflow language a little more suited to distributed computing.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> <a href="https://github.com/fractalide/fractalide/tree/master/fractals/README.adoc">Fractals</a> - allowing you to create your own repositories outside the canonical Fractalide repository.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> <a href="https://github.com/fractalide/fractal_net_http">HTTP support</a>.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> <a href="https://github.com/fractalide/fractal_workbench/blob/master/service.nix">Service composition</a>.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Deployable example of a simple microservices setup.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Documentation.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Remove cargo.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Stabilize <code>nodes</code>, <code>edges</code>, <code>subgraphs</code> and <code>agents</code> API.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Cap&#8217;n Proto schema composition.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Reduce heap allocations.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> Upgrade <code>nom</code> parser combinator to 2.0.</p>
+</li>
+<li>
+<p><i class="fa fa-check-square-o"></i> 1.0 Beta version.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_steps_towards_stable_release"><a class="anchor" href="#_steps_towards_stable_release"></a>1.5.2. Steps towards STABLE release.</h4>
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p><i class="fa fa-square-o"></i> tokio-rs integration</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> nixpkgs lands support for <a href="https://github.com/systemd/systemd/blob/master/NEWS#L58">this</a> feature in systemd 232</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> <a href="https://github.com/fractalide/nixcrates">nixcrates</a> needs some more work to whittle down crates that don&#8217;t build</p>
+</li>
+<li>
+<p><i class="fa fa-square-o"></i> stable release</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_mandatory_hello_like_world_example"><a class="anchor" href="#_the_mandatory_hello_like_world_example"></a>1.6. The mandatory Hello-like World example.</h3>
+<div class="paragraph">
+<p>From a fresh install of NixOS (using the <code>nixos-unstable</code> channel) we&#8217;ll build the <code>fractalide virtual machine (fvm)</code> and execute the humble NAND logic gate on it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
+$ cd fractalide
+$ nix-build --argstr rs test_nand
+...
+$ ./result
+boolean : false</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quick_start_to_building_an_not_logic_gate"><a class="anchor" href="#_quick_start_to_building_an_not_logic_gate"></a>2. Quick Start to Building an NOT logic gate</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To add a contract, Rust or Subnet component to Fractalide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Checkout the Fractalide source tree:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone git://github.com/fractalide/fractalide.git
+$ cd fractalide&lt;/screen&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Insert your name and email address into <code>support/upkeepers.nix</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{
+/* Add your name and email address here.
+   Keep the list alphabetically sorted.
+   Prefer the same attrname as your github username, please,
+   so it's easy to ping a package @maintainer.
+   */
+
+   dmichiels = "Denis Michiels &amp;lt;dmichiels@mailoo.org&gt;";
+   sjmackenzie = "Stewart Mackenzie &amp;lt;setori88@gmail.com&gt;";
+   githubname = "Your Name &amp;lt;email@email.com&gt;";
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Find a good place to in the Fractalide <code>contracts</code> directory to add your contract and Nix expression. For instance a simple boolean contract might go into <code>contracts/maths/boolean</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The folder will have two files:</p>
+</div>
+<div class="listingblock">
+<div class="title">contract.capnp</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-capnp" data-lang="capnp">@0xbde554c96bf60f36;
+
+struct Boolean {
+  boolean @0 :Bool;
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{stdenv, contract, upkeepers, ...}:
+
+edge {
+  src = ./.;
+
+  meta = with stdenv.lib; {
+    description = "Contract: Describes a simple boolean data type";
+    homepage = https://github.com/fractalide/fractalide/tree/master/edges/prim/bool;
+    license = with licenses; [ mpl20 ];
+    maintainers = with upkeepers; [ githubname ];
+  };
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your github name inserted in <code>support/upkeepers.nix</code> is used on this line: <code>maintainers = with upkeepers; [ githubname ];</code>
+Example: <a href="https://github.com/fractalide/fractalide/tree/master/edges/prim/bool/"><code>edges/prim/bool/</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>We need to make your new contract seen by the system! Insert your newly created contract into <code>edges/default.nix</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">  { pkgs, support, ... }:
+let
+callPackage = pkgs.lib.callPackageWith (pkgs // support);
+in
+# insert in alphabetical order to reduce conflicts
+rec {
+  ...
+  PrimText = callPackage ./generic/text {};
+  PrimBool = callPackage ./edges/prim/bool {};
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can do a test compilation of your component with this command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr debug true -A contracts.prim_bool</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you see something like the below, then it worked.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/jy9yjnnmlpc7bzaq5ihjqwiywrx59fw4-prim_bool</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <a href="https://github.com/fractalide/fractalide/blob/master/edges/default.nix">edges/default.nix</a></p>
+</div>
+<div class="paragraph">
+<p>The next step is to build our NAND gate. Find a good place to put our NAND gate such as <code>components/maths/boolean/&lt;replaceable&gt;nand&lt;/replaceable&gt;</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ mkdir -p components/maths/boolean/
+$ cd components/maths/boolean
+$ cargo new nand&lt;/screen&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Edit your <code>components/maths/boolean/nand/Cargo.toml</code> to make it look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-toml" data-lang="toml">[package]
+name = "maths_boolean_nand"
+version = "0.1.0"
+authors = ["test &amp;lt;test@test.com&gt;"]
+
+[lib]
+name = "maths_boolean_nand"
+crate-type = ["dylib"]
+
+[dependencies]
+capnp = "*"
+rustfbp = "*"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ensure you have have <code>capnp = "*" and rustfbp = "*"</code> in your <code>dependencies</code>
+Run <code>cargo generate-lockfile</code> in the <code>components/maths/boolean/nand</code> to generate the <code>Cargo.lock</code>, which must be committed into the repository.</p>
+</div>
+<div class="paragraph">
+<p>Insert a the below into your <code>components/maths/boolean/nand/src/lib.rs</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">components/maths/boolean/nand/src/lib.rs</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+extern crate capnp;
+
+agent! {
+  maths_boolean_nand, edges(prim_bool)
+  inputs(a: prim_bool, b: prim_bool),
+  inputs_array(),
+  outputs(output: prim_bool),
+  outputs_array(),
+  option(),
+  acc(),
+  fn run(&amp;amp;mut self) -&gt; Result&amp;lt;()&gt; {
+    let a = {
+        let mut ip_a = try!(self.ports.recv("a"));
+        let a_reader: prim_bool::Reader = try!(ip_a.read_schema());
+        a_reader.get_boolean()
+    };
+    let b = {
+        let mut ip_b = try!(self.ports.recv("b"));
+        let b_reader: prim_bool::Reader = try!(ip_b.read_schema());
+        b_reader.get_boolean()
+    };
+
+    let mut out_ip = IP::new();
+    {
+      let mut boolean = out_ip.build_schema::&amp;lt;prim_bool::Builder&gt;();
+      boolean.set_boolean(if a == true &amp;amp;&amp;amp; b == true {false} else {true});
+    }
+    try!(self.ports.send("output", out_ip));
+    Ok(())
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the <code>edges(prim_bool)</code> line:
+This is where we reference our contracts we made earlier. But we still have not tied the contract with this <code>NAND</code> implemenation. This is done in the next section.</p>
+</div>
+<div class="paragraph">
+<p>Next you will need to add a <code>default.nix</code> to your new <code>NAND</code> component.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ touch components/maths/boolean/nand/default.nix</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then insert this into the <code>default.nix</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ component, contracts }:
+
+agent {
+  src = ./.;
+  edges = with edges; [ prim_bool ];
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice <code>contracts = [ prim_bool ];</code> here is where we will compile the <code>capnproto</code> contract and copy it into the <code>/tmp/nix-build-prim_bool-*-drv/</code> directory at build time. This is how your Rust compilation will see the contract. Ensure the name exactly matches the folder hierarchy in the contracts directory!</p>
+</div>
+<div class="paragraph">
+<p>We need to make our <code>NAND</code> seen by the system by adding it to <code>components/default.nix</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+let
+callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
+# insert in alphabetical order to reduce conflicts
+self = rec {
+...
+  maths_boolean_nand = callPackage ./maths/boolean/nand {};
+...
+};
+in
+self</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let us compile the <code>NAND</code> gate:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd path/to/fractalide
+$ nix-build --argstr debug true -A components.maths_boolean_nand</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Congratulations, you&#8217;ve created your first Fractalide contract and Rust agent! Now we will move on to creating a subnet and our final step&#8230;&#8203; the NOT gate!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">mkdir -p fractalide/components/maths/boolean/not
+cd fractalide/components/maths/boolean/not
+touch default.nix</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then insert the below into <code>default.nix</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ stdenv, subnet, upkeepers, msg_clone, maths_boolean_nand, ...}:
+
+subnet rec {
+  src = ./.;
+  subnet = ''
+  input =&gt; input clone(${msg_clone})
+  clone() clone[1] -&gt; a nand(${maths_boolean_nand}) output =&gt; output
+  clone() clone[2] -&gt; b nand()
+  '';
+
+  meta = with stdenv.lib; {
+    description = "Subnet: NOT logic gate";
+    homepage = https://github.com/fractalide/fractalide/tree/master/components/maths/boolean/not;
+    license = with licenses; [ mpl20 ];
+    maintainers = with upkeepers; [ githubname ];
+  };
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the <code>${maths_boolean_nand}</code> and <code>${msg_clone}</code>? Nix will replace these to a the proper path just before compile time.
+This will compile to :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>input =&gt; input clone(/nix/store/wb6fgpz9hk7fg1f6p9if81s1xhflhy2x-msg_clone)
+clone() clone[1] -&gt; a nand(/nix/store/bi0jacqxz1az1bbrc8470jbl7z3cmwdn-maths_boolean_nand) output =&gt; output
+clone() clone[2] -&gt; b nand()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Add your new subnet to the <code>components/default.nix</code></p>
+</div>
+<div class="listingblock">
+<div class="title">components/default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+let
+callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
+# insert in alphabetical order to reduce conflicts
+self = rec {
+...
+  maths_boolean_nand = callPackage ./maths/boolean/nand {};
+  maths_boolean_not = callPackage ./maths/boolean/not {};
+...
+};
+in
+self</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s compile our newly created subnet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr debug true -A components.maths_boolean_not
+/nix/store/xdp2l67gdmxi7fagxnbanavcxd93mlr0-maths_boolean_not</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let us actually run our new <code>NOT</code> component.
+First, edit <code>fractalide/components/development/test/default.nix</code> so that it looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="title">fractalide/components/development/test/default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ stdenv, subnet, upkeepers
+  , maths_boolean_not
+  , maths_boolean_print
+  , ...}:
+
+subnet rec {
+  src = ./.;
+  subnet = ''
+    'prim_bool:(boolean=true)' -&gt; input not(maths_boolean_not) output -&gt; input disp(maths_boolean_print)
+  '';
+
+  meta = with stdenv.lib; {
+    description = "Subnet: development testing file";
+    homepage = https://github.com/fractalide/fractalide/tree/master/components/development/test;
+    license = with licenses; [ mpl20 ];
+    maintainers = with upkeepers; [ githubname ];
+  };
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, you&#8217;ll need to compile the <code>development_test</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build  --argstr subnet development_test --argstr debug true
+...
+/nix/store/a4lb3b9jjylvrl77kv0wb8m5v137f6j1-development_test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then run it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ ./result/bin/development_test
+boolean : false</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nodes"><a class="anchor" href="#nodes"></a>3. Nodes collection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>Nodes</code> collection consists of <code>Subgraphs</code> and <code>Agents</code>. A <code>Subgraph</code> or an <code>Agent</code> may be referred to as a <code>Node</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_subgraphs"><a class="anchor" href="#_subgraphs"></a>3.1. Subgraphs</h3>
+<div class="sect3">
+<h4 id="_what"><a class="anchor" href="#_what"></a>3.1.1. What?</h4>
+<div class="paragraph">
+<p>A <code>Subgraph</code> consists of an implementation and an interface. The interface is implemented using a simple <code>interface description language</code> called <code>Flowscript</code> which describes how data flows through <code>Agents</code> and other <code>Subgraphs</code>. The result is an interface that consists of a minimal set of well named <code>ports</code>, thus hiding complexity.</p>
+</div>
+<div class="paragraph">
+<p>A simple analogy would be this gentleman&#8217;s pocket watch.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://www.kirkwood.edu/pdf/uploaded/835/watchcalls_35.gif" alt="watchcalls 35">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_why"><a class="anchor" href="#_why"></a>3.1.2. Why?</h4>
+<div class="paragraph">
+<p>Composition is an important part of programming, allowing one to hide implementation detail.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_who"><a class="anchor" href="#_who"></a>3.1.3. Who?</h4>
+<div class="paragraph">
+<p>People who want to focus on the Science tend to work at these higher abstractions, they&#8217;d prefer not getting caught up in the details of programming low level nodes and hand specifications to programmers who&#8217;ll make efficient, reusable and safe <code>Agents</code>. Though programmers will find <code>Subgraphs</code> indispensable as they allow for powerful abstractions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_where"><a class="anchor" href="#_where"></a>3.1.4. Where?</h4>
+<div class="paragraph">
+<p>The <code>Nodes</code> directory is where all <code>Agents</code> and <code>Subgraphs</code> go. Typically one might structure a hierarchy like such:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">── wrangle
+   ├── default.nix &lt;------
+   ├── aggregate
+   ├── anonymize
+   ├── print
+   ├── processchunk
+   │   ├── default.nix &lt;------
+   │   ├── agg_chunk_triples
+   │   ├── convert_json_vector
+   │   ├── extract_keyvalue
+   │   ├── file_open
+   │   └── iterate_paths
+   └── stats</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the above <code>default.nix</code> files? Those are <code>Subgraphs</code> and they hide the entire directory level they reside in from higher levels in the hierarchy. Thus <code>processchunk</code> (a <code>Subgraph</code>) looks like yet another <code>Node</code> to <code>wrangle</code> (another <code>Subgraph</code>). Indeed <code>wrangle</code> is completely unable to distinguish between an <code>Agent</code> and a <code>Subgraph</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how"><a class="anchor" href="#_how"></a>3.1.5. How?</h4>
+<div class="paragraph">
+<p>The <code>Subgraph</code> <code>default.nix</code> requires you make decisions about two types of dependencies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What <code>Nodes</code> are needed?</p>
+</li>
+<li>
+<p>What <code>Edges</code> are needed?</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+let
+  imsgTrue = imsg {
+    class = edges.PrimBool;
+    text = ''(boolean=true)'';
+  };
+in
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs;''
+    nand(${maths_boolean_nand})
+    '${imsgTrue}' -&gt; a nand()
+    '${imsgTrue}' -&gt; b nand()
+    nand() output -&gt; input io_print(${maths_boolean_print})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex10.png" alt="subnet ex10">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>{ subgraph, nodes, edges }:</code> lambda passes in three arguments, the <code>subgraph</code> builder, <code>edges</code> which consists of every <code>Edge</code> or <code>Edge Namespace</code>, and the <code>nodes</code> argument which consists of every <code>Node</code> and <code>Node Namespace</code> in the system.</p>
+</li>
+<li>
+<p>The <code>subgraph</code> building function accepts these arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>src</code> attribute is used to derive a <code>Subgraph</code> name based on location in the directory hierarchy.</p>
+</li>
+<li>
+<p>The <code>flowscript</code> attribute defines the business logic. Here data flowing through a system becomes a first class citizen that can be manipulated. <code>Nodes</code> and <code>Edges</code> are brought into scope between the opening '' and closing '' double single quotes by using the <code>with nodes; with edges;</code> syntax.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>Nix</code> assists us greatly, in that each <code>node</code> name (the stuff between the curly quotes <code>${&#8230;&#8203;}</code>) undergoes a compilation step resolving every name into an absolute <code>/path/to/compiled/lib.subgraph</code> text file and <code>/path/to/compiled/libagent.so</code> shared object.</p>
+</li>
+<li>
+<p>This compilation is lazy and only referenced names will be compiled. In other words <code>Subgraph</code> could be a top level <code>Subgraph</code> of a many layer deep hierarchy and only referenced <code>Nodes</code> will be compiled in a lazy fashion, <strong>not</strong> the entire <code>fractalide/nodes</code> folder.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This is the output of the above <code>Subgraph</code>'s compilation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/1syrjhi6jvbvs5rvzcjn4z3qkabwss7m-test_sjm/lib/lib.subgraph
+nand(/nix/store/7yzx8fp81fl6ncawk2ag2nvfc5l950xb-maths_boolean_nand)
+'/nix/store/fx46blm272yca7n3gdynwxgyqgw90pr5-prim_bool:(boolean=true)' -&gt; a nand()
+'/nix/store/fx46blm272yca7n3gdynwxgyqgw90pr5-prim_bool:(boolean=true)' -&gt; b nand()
+nand() output -&gt; input io_print(/nix/store/k67wiy6z4f1vnv35vdyzcqpwvp51j922-maths_boolean_print)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mother of the Flying Spaghetti Monster, what is that? One really doesn&#8217;t need to be concerned about this target, as it&#8217;s meant to be processed by the <code>Fractalide Virtual Machine</code>. It&#8217;s worth noting that those hashes hint at something powerful. Projects like <code>docker</code> and <code>git</code> implement this type of content addressable store. Except <code>docker</code>'s granularity is at container level, and <code>git</code>'s granularity is at revision level. Our granularity is at package or library level. It allows for reproducible, deterministic systems, instead of copying around "zipped" archives, that quickly max out your hard drive.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_flowscript_syntax_is_easy"><a class="anchor" href="#_flowscript_syntax_is_easy"></a>3.1.6. Flowscript syntax is easy</h4>
+<div class="paragraph">
+<p>Everything between the opening <code>''</code> and closing <code>''</code> is <code>flowscript</code>, i.e:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+                       &lt;---- here
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex0.png" alt="subnet ex0">
+</div>
+</div>
+<div class="sect4">
+<h5 id="_agent_initialization"><a class="anchor" href="#_agent_initialization"></a>Agent initialization:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    agent_name(${name_of_agent})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex1.png" alt="subnet ex1">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_referencing_a_previously_initialized_agent_with_a_comment"><a class="anchor" href="#_referencing_a_previously_initialized_agent_with_a_comment"></a>Referencing a previously initialized agent (with a comment):</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    agent_name(${name_of_agent}) // &lt;──┐
+    agent_name()                 // &lt;──┴─ same instance
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex1.png" alt="subnet ex1">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_connecting_and_initializing_two_agents"><a class="anchor" href="#_connecting_and_initializing_two_agents"></a>Connecting and initializing two agents:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    agent1(${name_of_agent1}) output_port -&gt; input_port agent2(${name_of_agent2})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex3.png" alt="subnet ex3">
+</div>
+</div>
+<div class="paragraph">
+<p>If the connection between <code>output_port</code> and <code>input_port</code> have the same <code>schema</code>, then the connection is upgraded to a new name called an <code>edge</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_creating_an_a_href_edges_imsg_or_an_exposed_edge_a"><a class="anchor" href="#_creating_an_a_href_edges_imsg_or_an_exposed_edge_a"></a>Creating an <a href="#edges">imsg or an exposed edge</a></h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+let
+  imsgTrue = imsg {
+    class = edges.PrimBool;
+    text = ''(boolean=true)'';
+  };
+in
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    '${imsgTrue}' -&gt; a agent(${name_of_agent})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex4.png" alt="subnet ex4">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_more_complex_imsg_or_exposed_edge"><a class="anchor" href="#_more_complex_imsg_or_exposed_edge"></a>More complex iMsg or Exposed Edge</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, edges, nodes }:
+let
+  UiJsCreate = imsg {
+    class = edges.UiJsCreate;
+    text = ''(type="div", style=(list=[(key=(text="display"), val=(text="flex")), (key=(text="flex-direction"), val=(text="column"))]))'';
+    option = "create";
+  };
+in
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    td(${ui_js_nodes.flex})
+    '${UiJsCreate}' -&gt; input td()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex5.png" alt="subnet ex5">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#edges">Learn</a> more about <code>Edges</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_creating_an_subgraph_input_port"><a class="anchor" href="#_creating_an_subgraph_input_port"></a>Creating an subgraph input port</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    subgraph_input =&gt; input agent(${name_of_agent})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex6.png" alt="subnet ex6">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_creating_an_subgraph_output_port"><a class="anchor" href="#_creating_an_subgraph_output_port"></a>Creating an subgraph output port</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    agent(${name_of_agent}) output =&gt; subgraph_output
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex7.png" alt="subnet ex7">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_subgraph_initialization"><a class="anchor" href="#_subgraph_initialization"></a>Subgraph initialization:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    subgraph(${name_of_subgraph})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex8.png" alt="subnet ex8">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_initializing_a_subgraph_and_agent_then_connecting_them"><a class="anchor" href="#_initializing_a_subgraph_and_agent_then_connecting_them"></a>Initializing a subgraph and agent then connecting them:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    subgraph(${name_of_subgraph})
+    agent(${name_of_agent})
+    subgraph() output -&gt; input agent()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex9.png" alt="subnet ex9">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_output_array_port"><a class="anchor" href="#_output_array_port"></a>Output array port:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    db_path =&gt; input clone(${msg_clone})
+    clone() clone[0] =&gt; db_path0
+    clone() clone[1] =&gt; db_path1
+    clone() clone[2] =&gt; db_path2
+    clone() clone[3] =&gt; db_path3
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex11.png" alt="subnet ex11">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>clone[1]</code> is an <code>array output port</code> and in this particular <code>Subgraph</code> <code>Messages</code> are being replicated, a copy for each port element. The content between the <code>[</code> and <code>]</code> is a string, so don&#8217;t be misled by the integers. There are two types of node ports, a <code>simple port</code> (which doesn&#8217;t have array elements) and an <code>array port</code> (with array elements).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_input_array_port"><a class="anchor" href="#_input_array_port"></a>Input array port:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    add0 =&gt; add[0] adder(${path_to_adder})
+    add1 =&gt; add[1] adder()
+    add2 =&gt; add[2] adder()
+    add3 =&gt; add[3] adder() output -&gt; output
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex15.png" alt="subnet ex15">
+</div>
+</div>
+<div class="paragraph">
+<p><code>Array ports</code> are used when the number of ports are unknown at <code>Agent</code> development time, but known when the implemented <code>Agent</code> is used in a <code>Subgraph</code>. The <code>adder</code> <code>Agent</code> demonstrates this well, it has an <code>array input port</code> which allows <code>Subgraph</code> developers to choose how many integers they want to add together. It really doesn&#8217;t make sense to implement an adder with two fixed simple input ports then be constrained when you need to add a third number.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_hierarchical_naming"><a class="anchor" href="#_hierarchical_naming"></a>Hierarchical naming:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    input =&gt; input clone(${msg_clone})
+    clone() clone[0] -&gt; a nand(${maths_boolean_nand})
+    clone() clone[1] -&gt; b nand() output =&gt; output
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex13.png" alt="subnet ex13">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Node</code> and <code>Edge</code> names, i.e.: <code>${maths_boolean_nand}</code> seem quite long. Fractalide uses a hierarchical naming scheme. So you can find the <code>maths_boolean_not</code> node by going to the [maths/boolean/not](./maths/boolean/not/default.nix) directory. The whole goal of this is to avoid name shadowing among potentially hundreds to thousands of nodes.</p>
+</div>
+<div class="paragraph">
+<p>Explanation of the <code>Subgraph</code>:</p>
+</div>
+<div class="paragraph">
+<p>This <code>Subgraph</code> takes an input of a <code>Hidden Edge</code> type <a href="https://github.com/fractalide/fractalide/blob/master/edges/prim/bool/default.nix">prim_bool</a> over the <code>input</code> port. A <code>Msg</code> is cloned by the <code>clone</code> node and the result is pushed out on the <code>array output port</code> <code>clone</code> using elements <code>[0]</code> and <code>[1]</code>. The <code>nand()</code> node then performs a <code>NAND</code> boolean logic operation and outputs a <code>prim_bool</code> data type, which is then sent over the <code>Subgraph</code> output port <code>output</code>.</p>
+</div>
+<div class="paragraph">
+<p>The above implements the <code>not</code> boolean logic operation.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_abstraction_powers"><a class="anchor" href="#_abstraction_powers"></a>Abstraction powers:</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+let
+  imsgTrue = imsg {
+    class = edges.PrimBool;
+    text = ''(boolean=true)'';
+  };
+in
+subgraph {
+  src = ./.;
+  flowscript = with nodes.rs; ''
+    '${PrimBool}' -&gt; a nand(${maths_boolean_nand})
+    '${PrimBool}' -&gt; b nand()
+    nand() output -&gt; input not(${maths_boolean_not})
+    not() output -&gt; input print(${maths_boolean_print})
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex14.png" alt="subnet ex14">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice we&#8217;re using the <code>not</code> node implemented earlier. One can build hierarchies many layers deep without suffering a run-time performance penalty. Once the graph is loaded into memory, all <code>Subgraphs</code> fall away, like water, after an artificial gravity generator engages, leaving only <code>Agents</code> connected to <code>Agents</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_namespaces"><a class="anchor" href="#_namespaces"></a>Namespaces</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    listen =&gt; listen http(${net_http_nodes.http})
+    db_path =&gt; input clone(${msg_clone})
+    clone() clone[1] -&gt; db_path get(${app_todo_nodes.todo_get})
+    clone() clone[2] -&gt; db_path post(${app_todo_nodes.todo_post})
+    clone() clone[3] -&gt; db_path del(${app_todo_nodes.todo_delete})
+    clone() clone[4] -&gt; db_path patch(${app_todo_nodes.todo_patch})
+
+    http() GET[/todos/.+] -&gt; input get() response -&gt; response http()
+    http() POST[/todos/?] -&gt; input post() response -&gt; response http()
+    http() DELETE[/todos/.+] -&gt; input del() response -&gt; response http()
+    http() PATCH[/todos/.+] -&gt; input patch()
+    http() PUT[/todos/.+] -&gt; input patch() response -&gt; response http()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/subnet_ex12.png" alt="subnet ex12">
+</div>
+</div>
+<div class="paragraph">
+<p>Notice the <code>net_http_nodes</code> and <code>app_todo_nodes</code> namespaces. Some [fractals](../fractals/README.md) deliberately export a collection of <code>Nodes</code>. As is the case with the <code>net_http_nodes.http</code> node.
+When you see a <code>fullstop</code> <code>.</code>, i.e. <code>xxx_nodes.yyy</code> you immediately know this is a namespace. It&#8217;s also a programming convention to use the <code>_nodes</code> suffix to indicate a namespace.
+Lastly, notice the advanced usage of <code>array ports</code> with this example: <code>GET[/todos/.+]</code>, the element label is actually a <code>regular expression</code> and the implementation of that node is slightly more <a href="https://github.com/fractalide/fractal_net_http/blob/master/nodes/http/src/lib.rs#L149">advanced</a> You can read more about this in the <a href="#howto">HOWTO</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agents"><a class="anchor" href="#_agents"></a>3.2. Agents</h3>
+<div class="sect3">
+<h4 id="_rust"><a class="anchor" href="#_rust"></a>3.2.1. Rust</h4>
+<div class="sect4">
+<h5 id="_what_2"><a class="anchor" href="#_what_2"></a>What?</h5>
+<div class="paragraph">
+<p>Executable <code>Subgraphs</code> are defined as a network of <code>Agents</code>, which exchange typed data across predefined connections by message passing, where the connections are specified externally to the processes. These <code>Agents</code>  can be reconnected endlessly to form different executable <code>Subgraphs</code> without having to be changed internally.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_why_2"><a class="anchor" href="#_why_2"></a>Why?</h5>
+<div class="paragraph">
+<p>Functions in a programming language should be placed in a content addressable store, this is the horizontal plane. The vertical plane should be constructed using unique addresses into this content addressable store, critically each address should solve a single problem, and may do so by referencing multiple other unique addresses in the content addressable store. Users must not have knowledge of these unique addresses but a translation process should occur from a human readable name to a universally unique address. Read <a href="http://erlang.org/pipermail/erlang-questions/2011-May/058768.html">more</a> about the problem.</p>
+</div>
+<div class="paragraph">
+<p>Nix gives us the content addressable store which allows for <code>reproducibility</code>, and these <code>agents</code> give us <code>reusablility</code>. The combination is particularly potent form of programming.</p>
+</div>
+<div class="paragraph">
+<p>Once you have the above, you have truly reusable and reproducible functions. Fractalide nodes are just this, and it makes the below so much easier to achieve:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>* Open source collaboration
+* Open peer review of nodes
+* Nice clean reusable nodes
+* Reproducible applications</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_who_2"><a class="anchor" href="#_who_2"></a>Who?</h5>
+<div class="paragraph">
+<p>Typically programmers will develop <code>Agents</code>. They specialize in making <code>Agents</code> as efficient and reusable as possible, while people who focus on the Science give the requirements and use the <code>Subgraphs</code>. Just as a hammer is designed to be reused, so <code>Subgraphs</code> and <code>Agents</code> should be designed for reuse.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_where_2"><a class="anchor" href="#_where_2"></a>Where?</h5>
+<div class="paragraph">
+<p>The <code>Agents</code> are found in this <code>nodes</code> directory, or the <code>nodes</code> directory of a <a href="#fractal">fractal</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">processchunk
+├── default.nix
+├── agg_chunk_triples
+│   ├── default.nix &lt;---
+│   └── lib.rs
+├── convert_json_vector
+│   ├── default.nix &lt;---
+│   └── lib.rs
+├── extract_keyvalue
+│   ├── default.nix &lt;---
+│   └── lib.rs
+├── file_open
+│   ├── default.nix &lt;---
+│   └── lib.rs
+└── iterate_paths
+    ├── default.nix &lt;---
+    └── lib.rs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Typically when you see a <code>lib.rs</code> in the same directory as a <code>default.nix</code> you know it&#8217;s an <code>Agent</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_how_2"><a class="anchor" href="#_how_2"></a>How?</h5>
+<div class="paragraph">
+<p>An <code>Agent</code> consists of two parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>nix</code> <code>default.nix</code> file that sets up an environment to satisfy <code>rustc</code>.</p>
+</li>
+<li>
+<p>a <code>rust</code> <code>lib.rs</code> file implements your <code>agent</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="_the_code_agent_code_nix_function"><a class="anchor" href="#_the_code_agent_code_nix_function"></a>The <code>agent</code> Nix function.</h6>
+<div class="paragraph">
+<p>The <code>agent</code> function in the <code>default.nix</code> requires you make decisions about three types of dependencies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What <code>edges</code> are needed?</p>
+</li>
+<li>
+<p>What <code>crates</code> from <a href="https://crates.io">crates.io</a> are needed?</p>
+</li>
+<li>
+<p>What <code>osdeps</code> or <code>operating system level dependencies</code> are needed?</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, crates, pkgs }:
+
+agent {
+  src = ./.;
+  edges = with edges; [ prim_bool ];
+  crates = with crates; [ rustfbp capnp ];
+  osdeps = with pkgs; [ openssl ];
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>{ agent, edges, crates, pkgs }:</code> lambda imports: The <code>edges</code> attribute which consists of every <code>edge</code> available on the system. The <code>crates</code> attribute set consists of every <code>crate</code> on <a href="https://crates.io" class="bare">https://crates.io</a>. Lastly the <code>pkgs</code> pulls in every third party package available on NixOS, here&#8217;s the whole <a href="http://nixos.org/nixos/packages.html">list</a>.</p>
+</li>
+<li>
+<p>The <code>agent</code> function builds the rust <code>lib.rs</code> source code, and accepts these arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>src</code> attribute is used to derive an <code>Agent</code> name based on location in the directory hierarchy.</p>
+</li>
+<li>
+<p>The <code>edges</code> lazily compiles schema and composite schema ensuring their availability.</p>
+</li>
+<li>
+<p>The <code>crates</code> specifies exactly which <code>crates</code> are needed in scope.</p>
+</li>
+<li>
+<p>The <code>osdeps</code> specifies exactly which <code>pkgs</code>, or third party <code>operating system level libraries</code> such as <code>openssl</code> needed in scope.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only specified dependencies and their transitive dependencies will be pulled into scope once the <code>agent</code> compilation starts.</p>
+</div>
+<div class="paragraph">
+<p>This is the output of the above <code>agent</code>'s compilation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-maths_boolean_nand
+└── lib
+    └── libagent.so</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_the_code_agent_code_rust_macro"><a class="anchor" href="#_the_code_agent_code_rust_macro"></a>The <code>agent!</code> Rust macro</h6>
+<div class="paragraph">
+<p>This is the heart of <code>Fractalide</code>. Everything revolves around this <code>API</code>. The below is an implementation of the <code>${maths_boolean_nand}</code> <code>agent</code> seen earlier.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+extern crate capnp;
+
+agent! {
+  input(a: prim_bool, b: prim_bool),
+  output(output: prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let a = {
+      let mut ip_a = self.input.a.recv()?;
+      let a_reader: prim_bool::Reader = ip_a.read_schema()?;
+      a_reader.get_boolean()
+    };
+    let b = {
+      let mut ip_b = self.input.b.recv()?;
+      let b_reader: prim_bool::Reader = ip_b.read_schema()?;
+      b_reader.get_boolean()
+    };
+
+    let mut out_ip = IP::new();
+    {
+      let mut boolean = out_ip.build_schema::&lt;prim_bool::Builder&gt;();
+      boolean.set_boolean(if a == true &amp;&amp; b == true {false} else {true});
+    }
+    self.output.output.send(out_ip)?;
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An explanation of each of the items should be given.
+All expresions are optional except for the <code>run</code> function.</p>
+</div>
+<div class="sect6">
+<h7 id="__code_input_code"><a class="anchor" href="#__code_input_code"></a><code>input</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  input(input_name: prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let a = {
+      let mut a_msg = self.input.input_name.recv()?;
+      let a_reader: prim_bool::Reader = a_msg.read_schema()?;
+      a_reader.get_boolean()
+    };
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>input</code> port, is a bounded buffer simple input channel that carries Cap&#8217;n Proto schemas as messages.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_inarr_code"><a class="anchor" href="#__code_inarr_code"></a><code>inarr</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  inarr(input_array_name: prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    for ins in self.inarr.input_array_name.values() {
+      let a = {
+        let mut a_msg = ins.recv()?;
+        let a_reader: prim_bool::Reader = a_msg.read_schema()?;
+        a_reader.get_boolean()
+      };
+    }
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>inarr</code> is an input array port, which consists of multiple elements of a port.
+They are used when the <code>Subgraph</code> developer needs multiple elements of a port, for example an <code>adder</code> has multiple input elements. This <code>adder</code> <code>agent</code> may be used in many scenarios where the amount of inputs are unknown at <code>agent development time</code>.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_output_code"><a class="anchor" href="#__code_output_code"></a><code>output</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  output(output_name: prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let mut msg_out = msg::new();
+    {
+      let mut boolean = msg_out.build_schema::&lt;prim_bool::Builder&gt;();
+      boolean.set_boolean(true);
+    }
+    self.output.output_name.send(msg_out)?;
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The humble simple output port. It doesn&#8217;t have elements and is fixed at <code>subgraph development time</code>.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_outarr_code"><a class="anchor" href="#__code_outarr_code"></a><code>outarr</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  input(input: any),
+  outarr(clone: any),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let msg = self.input.input.recv()?;
+    for p in self.outarr.clone.elements()? {
+        self.outarr.clone.send( &amp;p, msg.clone())?;
+    }
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>outarr</code> port is an <code>output array port</code>. It contains elements which may be expanded at <code>subgraph development time</code>.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_state_code"><a class="anchor" href="#__code_state_code"></a><code>state</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+extern crate capnp;
+extern crate nanomsg;
+
+use nanomsg::{Socket, Protocol};
+pub struct State {
+    socket: Option&lt;Socket&gt;,
+}
+
+impl State {
+    fn new() -&gt; State {
+        State {
+            socket: None,
+        }
+    }
+}
+
+agent! {
+  input(connect: prim_text, ip: any),
+  state(State =&gt; State::new()),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    if let Ok(mut ip) = self.inputs.connect.try_recv() {
+        let reader: prim_text::Reader = ip.read_schema()?;
+        let mut socket = Socket::new(Protocol::Push)
+            .or(Err(result::Error::Misc("Cannot create socket".into())))?;
+        socket.bind(reader.get_text()?)
+            .or(Err(result::Error::Misc("Cannot connect socket".into())))?;
+        self.state.socket = Some(socket);
+    }
+
+    if let Ok(ip) = self.inputs.ip.try_recv() {
+        if let Some(ref mut socket) = self.state.socket {
+            socket.write(&amp;ip.vec[..]);
+        }
+    }
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is basically the state of the agent. A <code>State</code> allows us to keep complex state hanging around if needed. It can be any Rust type. The <code>state</code> is persistant for all the executions, so each time you are in the function <code>run()</code>, you can access and modify it.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_option_code"><a class="anchor" href="#__code_option_code"></a><code>option</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  option(prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let mut opt = self.option.recv();
+    let opt_reader: prim_bool::Reader = opt.read_schema()?;
+    let opt_boolean = opt_reader.get_boolean()?;
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>option</code> port gives the <code>subgraph</code> developer a way to send in parameters such as a connection string and the message will not be consumed and thrown away, that message may be read on every function run. Whereas other ports will consume and throw away the message.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_accumulator_code"><a class="anchor" href="#__code_accumulator_code"></a><code>accumulator</code>:</h7>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+  accumulator(prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
+    let mut acc = self.ports.accumulator.recv()?;
+    let acc_reader: prim_bool::Reader = ip_acc.read_schema()?;
+    let acc_boolean = acc_reader.get_boolean()?;
+    Ok(End)
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>accumulator</code> gives the <code>subgraph</code> developer a way to start counting at a certain number. This port isn&#8217;t used so often.</p>
+</div>
+</div>
+<div class="sect6">
+<h7 id="__code_run_code"><a class="anchor" href="#__code_run_code"></a><code>run</code>:</h7>
+<div class="paragraph">
+<p>This function does the actual processing and is the only mandatory expression of this macro.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_purescript"><a class="anchor" href="#_purescript"></a>3.2.2. Purescript</h4>
+
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="edges"><a class="anchor" href="#edges"></a>4. Edge Collection</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_3"><a class="anchor" href="#_what_3"></a>4.1. What?</h3>
+<div class="paragraph">
+<p>An <code>Edge</code> is a bounded buffer message passing channel between two ports belonging to their respective <code>agents</code>.</p>
+</div>
+<div class="paragraph">
+<p>Terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>contract</code> is defined as: The Cap&#8217;n Proto schema on the output port of the upstream <code>agent</code> MUST be the same as the Cap&#8217;n Proto schema on the input port of the downstream <code>agent</code>. If the two  are the same, the <code>contract</code> is said to be satisfied, otherwise it is unsatisfied.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are three phases building up to a successful <code>Edge</code> formation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>During <code>agent development time</code> an <code>agent</code>'s port is assigned a Cap&#8217;n Proto schema.</p>
+</li>
+<li>
+<p>During <code>subgraph development time</code> the syntax <code>-&gt;</code> or <code>=&gt;</code> is used to instruct an upstream <code>agent</code>'s port to connect to a downstream <code>agent</code>'s port later at run-time. It represents a <code>connection</code> between two <code>nodes</code>. Though it is not yet an <code>edge</code> because the <code>contract</code> might not be satisfied.</p>
+</li>
+<li>
+<p>Lastly, the graph is successfully loaded into the virtual machine without errors. This act means all <code>agent</code> <code>contracts</code> were satisfied, and all <code>subgraph</code> <code>connections</code> are now classified as <code>edges</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once an <code>edge</code> is formed, it becomes a bounded buffer message passing channel, which can only contain <code>messages</code> with data in the shape of whatever the Cap&#8217;n Proto schema is.</p>
+</div>
+<div class="paragraph">
+<p>So despite you seeing only Cap&#8217;n Proto schema in this directory, the concept of an <code>Edge</code> is  more profound. Hence we would prefer naming this concept after it&#8217;s grandest manifestation, and in the process, the name encapsulates all of the above information. The name should also tie in with the concept of a <code>node</code> in graph theory, as such we use <code>nodes</code> and <code>edges</code> to construct <code>subgraphs</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_exposed_edge_or_imsg"><a class="anchor" href="#_exposed_edge_or_imsg"></a>4.1.1. Exposed Edge or iMsg</h4>
+<div class="paragraph">
+<p>When developing a <code>subgraph</code> there comes a time when the developer wants to inject data into an <code>agent</code> or another <code>subgraph</code>. One needs to use an <code>exposed edge</code> or an <code>imsg</code> (initial message) which has this syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    '${prim_bool}:(boolean=true)' -&gt; INPUT_PORT NAME()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>Exposed edges</code> or <code>imsgs</code> kick start <code>agents</code> into action, otherwise they won&#8217;t start. Due to the dataflow nature of <code>agents</code> they will politely wait for data before they start doing anything. This is the equivalent of passing the path of a data source to some executable on the command line. Without the argument the program would just sit or fail. Another way of looking at it might be a pipeline that has come to the surface to accept some form of input.</p>
+</div>
+<div class="paragraph">
+<p>We use the name <code>exposed edge</code> to differentiate between a <code>hidden edge</code>, but by far the most common usage is <code>imsg</code> and <code>edge</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hidden_edge_or_edge"><a class="anchor" href="#_hidden_edge_or_edge"></a>4.1.2. Hidden Edge or Edge</h4>
+<div class="paragraph">
+<p><code>Hidden edges</code> are represented with this syntax <code>-&gt;</code> and <code>=&gt;</code>, and are used to control the direction flowing data. Hence the process of programming a <code>subgraph</code> is essentially digging ditches and laying pipelines between buildings.</p>
+</div>
+<div class="paragraph">
+<p>Examples of <code>hidden edges</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>From one <code>agent</code> to another <code>agent</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    agent1() output -&gt; input agent2()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Into a <code>subgraph</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    output =&gt; input subgraph()
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Out of a <code>subgraph</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    agent() output =&gt; output
+  '';
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_3"><a class="anchor" href="#_why_3"></a>4.2. Why?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Contracts between components are critical for creating <a href="https://hintjens.gitbooks.io/social-architecture/content/chapter6.html">living systems</a>.</p>
+</li>
+<li>
+<p>Schema ensure we do not need to parse strangely formatted <code>stdin</code> data.</p>
+</li>
+<li>
+<p>A <code>node</code> does one and only one thing, and the schema represents a language the <code>node</code> speaks. If you want a <code>node</code> to do something, you have to speak it&#8217;s language.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_who_3"><a class="anchor" href="#_who_3"></a>4.3. Who?</h3>
+<div class="paragraph">
+<p>Typically <code>subgraph</code> developers will be interested in <code>hidden and exposed edges</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where_3"><a class="anchor" href="#_where_3"></a>4.4. Where?</h3>
+<div class="paragraph">
+<p>The <code>edges</code> directory is where all the schema go:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>├── key
+│   └── value
+│       └── default.nix
+├── list
+│   ├── command
+│   │   └── default.nix
+│   ├── text
+│   │   └── default.nix
+│   ├── triple
+│   │   └── default.nix
+│   └── tuple
+│       └── default.nix
+├── maths
+│   ├── boolean
+│   │   └── default.nix
+│   └── number
+│       └── default.nix</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_3"><a class="anchor" href="#_how_3"></a>4.5. How?</h3>
+<div class="paragraph">
+<p><code>Edges</code> may depend on other <code>edges</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>{ edge, edges }:</code> lambda passes in two arguments, the <code>edge</code> builder and <code>edges</code> which consists of every <code>Edge</code> or <code>Edge Namespace</code> in the system.
+The <code>edge</code> building function accepts these arguments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>src</code> attribute is used to derive an <code>Edge</code> name based on location in the directory hierarchy.</p>
+</li>
+<li>
+<p>The <code>edges</code> attribute resolve transitive dependencies and ensures your <code>agent</code> has all the needed files to type check.</p>
+</li>
+<li>
+<p>a <a href="https://capnproto.org">Cap 'n Proto</a> <code>schema</code>. This is the heart of the contract, this is where you may create potentially complex deep hierarchies of structured data. Please read more about the <a href="https://capnproto.org/language.html">schema language</a>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+
+edge {
+  src = ./.;
+  edges = with edges; [ command ];
+  schema = with edges; ''
+    @0xf61e7fcd2b18d862;
+    using Command = import "${command}/src/edge.capnp";
+    struct ListCommand {
+        commands @0 :List(Command.Command);
+    }
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"><a class="anchor" href="#_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"></a>4.5.1. Naming of Cap&#8217;n Proto <code>structs</code> and <code>enums</code></h4>
+<div class="paragraph">
+<p>Please use CamelCase for <code>struct</code> and <code>enum</code> names. The naming should reflect this manner:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>if the schema is in folder <code>/edges/maths/boolean</code> then the <code>struct</code> should have name <code>MathsBoolean</code>.</p>
+</li>
+<li>
+<p>if the schema is in <code>fractal</code> <code>/edges/net/http/response</code> then the <code>struct</code> should have name <code>NetHttpResponse</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The same naming applies for Cap&#8217;n Proto <code>enums</code> and <code>interfaces</code>. It&#8217;s crucial this naming is adopted.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_one_struct_per_fractalide_schema"><a class="anchor" href="#_one_struct_per_fractalide_schema"></a>4.5.2. One struct per Fractalide schema</h4>
+<div class="paragraph">
+<p>We prefer composition of schema, and the schema must have fully qualified struct names.
+Hence, this is example shouldn&#8217;t be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+
+edge {
+  src = ./.;
+  edges = with edges; [ command ];
+  schema = with edges; ''
+    @0xf61e7fcd2b18d862;
+    struct Person {
+      name @0 :Text;
+      birthdate @3 :Date;
+
+      email @1 :Text;
+      phones @2 :List(PhoneNumber);
+
+      struct PhoneNumber {
+        number @0 :Text;
+        type @1 :Type;
+
+        enum Type {
+          mobile @0;
+          home @1;
+          work @2;
+        }
+      }
+    }
+
+    struct Date {
+      year @0 :Int16;
+      month @1 :UInt8;
+      day @2 :UInt8;
+    }
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Date</code> name can collide!</p>
+</div>
+<div class="paragraph">
+<p>Schema are pulled into <code>agent</code>'s scope just before compile time, now we are unable to predict what combinations will happen.
+So if we have two schema that have <code>struct Date &#8230;&#8203;</code> then a name collision will take place.
+Therefore to avoid this scenario please put <code>struct Date &#8230;&#8203;</code> into it&#8217;s own schema and import it via this mechanism.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cap_n_proto_import"><a class="anchor" href="#_cap_n_proto_import"></a>4.5.3. Cap&#8217;n Proto import</h4>
+<div class="paragraph">
+<p>Fractalide resolves transitive dependencies for you but you have to use this method:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+
+edge {
+  src = ./.;
+  edges = with edges; [ command ];
+  schema = with edges; ''
+    @0xf61e7fcd2b18d862;
+    using CommandInstanceName = import "${command}/src/edge.capnp";
+    struct ListCommand {
+        commands @0 :List(CommandInstanceName.Command);
+    }
+  '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You must pull explicitly mention the <code>edge</code> you want to import via the `  edges = with edges; [ command ];`
+Then you must <code>import</code> it via this mechanism: <code>using CommandInstanceName = import "${command}/src/edge.capnp";</code>
+and lastly use it <code>&#8230;&#8203; commands @0 :List(CommandInstanceName.Command); &#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Out of curiosity what does the output of the above <code>list_command</code> <code>contract</code> function look like?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/3s25icpbf1chayvrxwbyxr9qckn7x669-list_command/src/edge.capnp
+@0xf61e7fcd2b18d862;
+using CommandInstanceName = import "/nix/store/bgh37035cbr49r7mracmdwwjx9sbf4nr-command/src/edge.capnp";
+
+struct ListCommand {
+    commands @0 :List(CommandInstanceName.Command);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The generated Rust code consists of the <code>list_command</code>, <code>command</code> and <code>tuple</code> contract concatenated together.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="services"><a class="anchor" href="#services"></a>5. Services</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_what_4"><a class="anchor" href="#_what_4"></a>5.1. What?</h3>
+<div class="paragraph">
+<p><code>Services</code> are reusable and consist of <code>agents</code>, <code>subgraphs</code> and <code>edges</code>. They may be connected to other <code>services</code> on the same system or on remote machines in a high performance cluster quite easily.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_4"><a class="anchor" href="#_why_4"></a>5.2. Why?</h3>
+<div class="paragraph">
+<p><code>Services</code> allow programmers to collaborate and distill common configurable patterns that solve general problems.
+Essentially a <code>service</code> in this context is no different from a top level <code>subgraph</code>, albeit the interface has been <code>nix&#8217;ified. The `nix</code> interface is required because this is where <code>nixos</code> takes over and declaratively handles conguent configuration management. It does things like sets up dependencies such as database and other services that might need to be run for the <code>subgraph</code> to operate properly. This layer of software has been well tested by the <code>nix</code> community and ties in with every other service created by the <code>nixos</code> community.</p>
+</div>
+<div class="paragraph">
+<p>This abstraction allows you to pull in legacy services, plug a Cap&#8217;n Proto functionality and start talking to Fractalide services.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_who_4"><a class="anchor" href="#_who_4"></a>5.3. Who?</h3>
+<div class="paragraph">
+<p>Anyone who has completed a high quality, documented hierarchy of components, subnets and contracts, and where the hierarchy makes sense to expose as a service. We use the [C4](../CONTRIBUTING.md) so your <code>services</code> will be merged in quickly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where_4"><a class="anchor" href="#_where_4"></a>5.4. Where?</h3>
+<div class="paragraph">
+<p><code>Service</code> implementations by convention exist in a <a href="#fractals"><code>fractal&#8217;s</code></a> root <a href="https://github.com/fractalide/fractal_workbench/blob/master/service.nix">folder</a>. It doesn&#8217;t make sense to expose every <code>fractal</code> as a service. Though if the <code>fractal</code> is dependent on other services such as databases, then it might make sense. Nevertheless, the fractals which have a <code>service.nix</code> may have their components and contracts imported into higher level subnets via the <a href="#fractals">Fractals</a> importing mechanism. This higher level subnet may then be exposed as a <code>service</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_4"><a class="anchor" href="#_how_4"></a>5.5. How?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>First create a <a href="#fractals"><code>fractal</code></a></p>
+</li>
+<li>
+<p>Update the <code>service.nix</code> file to reflect what options you want exposed on the service interface.</p>
+</li>
+<li>
+<p>Ensure the <code>subnet</code> you want is correctly configured.</p>
+</li>
+<li>
+<p>Add a line the <code>fractalide/services/default.nix</code> where you make your service visible to the rest of the <code>fractalide</code> community.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_two_ways_to_run_a_service"><a class="anchor" href="#_two_ways_to_run_a_service"></a>5.5.1. Two ways to run a service</h4>
+<div class="sect4">
+<h5 id="_from_your_fractal"><a class="anchor" href="#_from_your_fractal"></a>From your Fractal</h5>
+<div class="paragraph">
+<p>This approach is when you have a service you don&#8217;t consider generic and is not worth sharing with the community.</p>
+</div>
+<div class="paragraph">
+<p>in your <code>configuration.nix</code> put these lines:</p>
+</div>
+<div class="listingblock">
+<div class="title">configuration.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ config, pkgs, ... }:
+let
+  fractalide = import fetchFromGitHub {
+    owner = "fractalide";
+    repo = "fractalide";
+    rev = "b9590b6{ git revision you want }f130ed79432c722";
+    sha256 = "0jz58mmax5{ correct sha256 generated by nix }yycmzr26xwfqa";
+  } {};
+in
+{
+  require = fractalide.services ++ [ "/path/to/private/dev/fractals/fractal_your_fractal/service.nix" ];
+  services.workbench = {
+    enable = true;
+    bindAddress = "192.168.0.14";
+    port = 8000;
+  };
+  services.your_service = {
+    enable = true;
+    bindAddress = "192.168.0.15";
+    port = 8001;
+  };
+  # ... other options you want
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_from_fractalide"><a class="anchor" href="#_from_fractalide"></a>From Fractalide</h5>
+<div class="paragraph">
+<p>in your <code>configuration.nix</code> put these lines:</p>
+</div>
+<div class="listingblock">
+<div class="title">configuration.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">let
+  fractalide = import fetchFromGitHub {
+    owner = "fractalide";
+    repo = "fractalide";
+    rev = "b9590b6{ git revision you want }f130ed79432c722";
+    sha256 = "0jz58mmax5{ correct sha256 generated by nix }yycmzr26xwfqa";
+  } {};
+in
+{
+require = fractalide.services;
+services.workbench = {
+        enable = true;
+        bindAddress = "127.0.0.1";
+        port = 8000;
+};
+# ... other options you want</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At this point, you may either choose to build <code>nixops</code> infrastructure scripts and deploy or simply run <code>$ nixos-rebuild {test, boot , switch}</code> to set up the services on your own system.</p>
+</li>
+<li>
+<p>Do help out building generic services for programmers to speed up their work!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fractals"><a class="anchor" href="#fractals"></a>6. Fractals</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fractals are third party Fractalide libraries.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_5"><a class="anchor" href="#_what_5"></a>6.1. What?</h3>
+<div class="paragraph">
+<p><code>Fractals</code> are importable 3rd party sets of nodes, subgraphs and edges, this folder hierarchy is the single source of truth regarding where to find each community fractal.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_why_5"><a class="anchor" href="#_why_5"></a>6.2. Why?</h3>
+<div class="paragraph">
+<p><code>Fractals</code> allow the community to develop their own projects in their own git repository, and once ready, may plug into <code>dev/fractalide/fractals</code> folder hierarchy which represents the spine of Fractalide. Once inserted your <code>fractal</code> is available for use by everyone.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_who_5"><a class="anchor" href="#_who_5"></a>6.3. Who?</h3>
+<div class="paragraph">
+<p>Anyone making high quality, documented nodes, subgraphs and edges may plug into this folder hierarchy. We use the <a href="https://github.com/fractalide/fractalide/blob/master/CONTRIBUTING.md">C4</a> so your <code>fractals</code> will be merged in quickly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where_5"><a class="anchor" href="#_where_5"></a>6.4. Where?</h3>
+<div class="paragraph">
+<p>Each <code>fractal</code> needs to have it&#8217;s own hierarchical folder. For example, HTTP would be placed in the <code>fractalide/fractals/net/http</code> folder.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_5"><a class="anchor" href="#_how_5"></a>6.5. How?</h3>
+<div class="paragraph">
+<p>Say you wish to create a <code>http</code> project, these are the exact steps involved:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure you use this directory structure convention:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">dev
+├── fractalide
+│   └── fractals
+│       └── net
+│           └── http
+│               └── default.nix
+└── fractals
+    ├── fractal_net_http
+    └── ... more community fractals cloned</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd &lt;your/development/directory&gt;
+$ git clone \https://gitlab.com/fractalide/fractalide.git
+$ NIX_PATH="nixpkgs=https://github.com/NixOS/nixpkgs/archive/125ffff089b6bd360c82cf986d8cc9b17fc2e8ac.tar.gz:fractalide=/path/to/dev/fractalide" &amp;&amp; export NIX_PATH` <i class="conum" data-value="1"></i><b>(1)</b>
+$ mkdir dev/fractals &amp;&amp; cd dev/fractals
+$ git clone git://github.com/fractalide/fractal_workbench.git fractal_net_http <i class="conum" data-value="2"></i><b>(2)</b>
+$ git remote set-url origin git://new.url.you.control.here
+$ mkdir -p dev/fractalide/fractals/net/http/ <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Take note when setting the <code>NIX_PATH</code> environment variable, it must include the path to your newly cloned <code>fractalide</code> repo i.e.: <code>NIX_PATH=&#8230;&#8203;:fractalide=/path/to/dev/fractalide</code>.<br>
+Should you start a new shell, type <code>&lt;ctrl&gt;-r</code> then type <code>125ff</code> this will search your command history for the above command, or just persist the command in your <code>~/.bashrc</code> file.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>fractal_workbench</code> repo provides a minimum correct structure for your <code>fractal</code>.  Keep the repo naming convention <code>fractal_*</code> for your repo as it&#8217;ll be easy for the community to see this is a <code>fractalide</code> related project.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Create your needed directory hierarchy <code>dev/fractalide/fractals/net/http/default.nix</code>.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Insert the below code into a file called <code>default.nix</code> which sits in the above folder.</p>
+</div>
+<div class="listingblock">
+<div class="title">dev/fractalide/fractals/net/http/default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs
+, support
+, edges
+, nodes
+, fetchFromGitHub
+, ...}:
+let
+  fractal = fetchFromGitHub {
+    owner = "fractalide";
+    repo = "fractal_net_http";
+    rev = "66ad3bf74b04627edc71227b3e5b944561854367";
+    sha256 = "1vs1d3d9lbxnyilx8g45pb01z5cl2z3gy4035h24p28p9v94jx1b";
+  };
+  /*fractal = ../../../../fractals/fractal_net_http;*/
+in
+  import fractal {inherit pkgs support edges nodes; fractalide = null;}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>pkgs</code>, <code>support</code>, <code>nodes</code>, <code>edges</code> and <code>fetchFromGitHub</code> are arguments passed into this closure.</p>
+</li>
+<li>
+<p>The <code>let</code> expression contains a <code>fetchFromGitHub</code> expression describing the location of the <code>fractal</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>owner</code> of the git repository i.e.: <code>github.com/fractalide</code></p>
+</li>
+<li>
+<p><code>repo</code> is the git repository in question i.e.: <code>github.com/fractalide/fractal_net_http</code></p>
+</li>
+<li>
+<p><code>rev</code> indicates the git revision you want to import i.e.: <code><a href="https://github.com/fractalide/fractal_net_http/commit/66ad3bf74b04627edc71227b3e5b944561854367" class="bare">https://github.com/fractalide/fractal_net_http/commit/66ad3bf74b04627edc71227b3e5b944561854367</a></code></p>
+</li>
+<li>
+<p><code>sha256</code> is a neat <code>nix</code> mechanism to assist in deterministic builds. To obtain the correct <code>sha256</code> try build your project with an incorrect <code>sha256</code> (change the first alpha-numeric character in <code>1vs1d3d9lbxnyilx8g45pb01z5cl2z3gy4035h24p28p9v94jx1b</code> to a <code>2</code>). Nix will download the repository and check that the actual <code>sha256</code> matches against what you incorrectly inserted. Nix will tell you what the correct <code>sha256</code> is. Copy it and insert the correct <code>sha256</code>, replacing <code>2vs1d3d9lbxnyilx8g45pb01z5cl2z3gy4035h24p28p9v94jx1b</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Please notice the line: <code>/*fractal = ../../../../fractals/fractal_net_http;*/</code> This line allows you to tell nix not to refer to the remote repo but your local clone of <code>fractal_net_http</code>. Comment out the <code>fetchFromGitHub</code> expression and uncomment the above local repo clone path. When you publish your <code>fractal</code> upstream, ensure this line is commented out! Please use a relative path compatible with the above directory structure convention as it will work for everyone and we don&#8217;t have to hunt for the correct folder. Just un/comment and go!</p>
+</li>
+<li>
+<p>The line: <code>import fractal {inherit pkgs support edges nodes; fractalide = null;}</code> is where we import your closures into `fractalide&#8217;s set of closures. Thus making your nodes available to everyone.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The last step is to expose the exact nodes / edges to <code>dev/fractalide/nodes/default.nix</code> and <code>dev/fractalide/edges/default.nix</code>.<br>
+This is done in this manner:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open <code>dev/fractalide/nodes/default.nix</code> and seek out the <code>net_http_nodes</code> attribute. This is what it looks like:
+<code>net_http_nodes = fractals.net_http.nodes;</code>
+In this case there is no specific top level node you&#8217;d wish to expose so the convention <code><strong>_nodes</code> is used to indicate this. Whereas if you have a specific node you&#8217;d wish to expose then you&#8217;d name it as such:
+<code>net_http = fractals.net_http.nodes.http</code>. Why the <code></strong>.http</code>? well that&#8217;s what the node is named in the namespace <a href="https://github.com/fractalide/fractal_net_http/blob/master/nodes/default.nix#L5">here</a>. Please notice the lack of the <code>*_nodes</code> when exporting a single node.</p>
+</li>
+<li>
+<p>Regarding importing edges, typically you don&#8217;t need to import edges, but there are times when you need a special edge which must operate on the public side of the <code>fractal</code> and thus usable across a number of <code>fractals</code>, say the <a href="https://github.com/fractalide/fractal_net_http/blob/master/edges/default.nix#L8"><code>net_http_edges.request</code></a>
+You&#8217;d use a <a href="https://github.com/fractalide/fractalide/blob/2312ac77fbb09f7a6cb2d29b79496a83aade3852/edges/default.nix#L31">similar mechanism</a> as above when exposing your edges.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_incremental_builds"><a class="anchor" href="#_incremental_builds"></a>6.6. Incremental Builds</h3>
+<div class="paragraph">
+<p>Incremental Builds speed up the development process, so that one doesn&#8217;t have to compile the entire crate from scratch each time you make a change to the source code.</p>
+</div>
+<div class="paragraph">
+<p>Fractalide expands the nix-build system for incremental builds. The Incremental Builds only work when debug is enabled. They also need the path to a cache folder.
+The cache folder can be created from an old result by the <code>buildCache.sh</code> script. Per default the cache folder is saved in the <code>/tmp</code> folder of your system. Incremental Builds permit you to compile a crate without having to recompiled the crate dependency tree.</p>
+</div>
+<div class="paragraph">
+<p>Here is an example how you can build with the Incremental Build System:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd dev/fractalide
+$ nix-build --argstr debug true --argstr cache $(./support/buildCache.sh) --argstr subgraph workbench</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re using NixOS, please ensure you have not set <code>nix.useSandbox = true;</code>, otherwise Incremental Compilation will fail.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_there_is_a_code_service_nix_code_file_what_is_it"><a class="anchor" href="#_there_is_a_code_service_nix_code_file_what_is_it"></a>6.7. There is a <code>service.nix</code> file! What is it?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Please read <a href="#services">this</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_two_ways_to_execute_your_fractal"><a class="anchor" href="#_two_ways_to_execute_your_fractal"></a>6.8. Two ways to execute your fractal</h3>
+<div class="sect3">
+<h4 id="_executing_from_within_fractalide"><a class="anchor" href="#_executing_from_within_fractalide"></a>6.8.1. Executing from within Fractalide</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd dev/fractalide
+$ nix-build --argstr rs workbench
+$ ./result</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>advantages</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Incremental recompilation needed for development</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>disadvantages</p>
+<div class="ulist">
+<ul>
+<li>
+<p>wetware needed to plug into <code>dev/fractalide/fractals</code> to get incremental recompilation</p>
+</li>
+<li>
+<p>long build command</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_executing_from_with_the_fractal"><a class="anchor" href="#_executing_from_with_the_fractal"></a>6.8.2. Executing from with the Fractal</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd /dev/fractals/fractal_workbench
+$ nix-build
+$ ./result</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>advantages</p>
+<div class="ulist">
+<ul>
+<li>
+<p>faster to test by just issuing the <code>nix-build</code> command</p>
+</li>
+<li>
+<p>convenient for CI &amp; CD of you specific subgraph</p>
+</li>
+<li>
+<p>don&#8217;t have to plug it into <code>dev/fractalide/fractals</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>disadvantages</p>
+<div class="ulist">
+<ul>
+<li>
+<p>no incremental recompilation</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="howto"><a class="anchor" href="#howto"></a>7. HOWTO</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_steps"><a class="anchor" href="#_steps"></a>7.1. Steps</h3>
+<div class="sect3">
+<h4 id="_fractalide_installation"><a class="anchor" href="#_fractalide_installation"></a>7.1.1. Fractalide installation</h4>
+<div class="sect4">
+<h5 id="_virtualbox_guest_installation"><a class="anchor" href="#_virtualbox_guest_installation"></a>Virtualbox guest installation</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Complete the <a href="http://nixos.org/nixos/manual/index.html#sec-instaling-virtualbox-guest">Installing Virtualbox Guest</a> section of the NixOS Manual.</p>
+</li>
+<li>
+<p>Ensure you&#8217;re using the nix <code>unstable</code> channel.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_building_the_code_fractalide_virtual_machine_fvm_code"><a class="anchor" href="#_building_the_code_fractalide_virtual_machine_fvm_code"></a>Building the <code>Fractalide Virtual Machine (FVM)</code></h5>
+<div class="paragraph">
+<p>Once logged into your virtualbox guest issue these commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
+$ cd fractalide
+$ nix-build</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let us inspect the content of the newly created symlink called <code>result</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ readlink result
+/nix/store/ymfqavzrgmj3q3aljgwvh769fq9dszp2-fvm</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ tree result
+result
+└── bin
+    └── fvm
+
+$ file result/bin/fvm
+result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /nix/store/8lbpq1vmajrbnc96xhv84r87fa4wvfds-glibc-2.24/lib/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, not stripped</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_peek_under_the_hood"><a class="anchor" href="#_peek_under_the_hood"></a>Peek under the hood</h5>
+<div class="paragraph">
+<p>You shouldn&#8217;t need to care too much about this during your everyday programming, but it&#8217;s pleasant deviation from most normal workflows and thus should be explained.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s build a <code>subgraph</code> that runs a contrived <code>maths_boolean_nand</code> <code>agent</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs test_nand</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This replaces the <code>result</code> symlink with a new symlink pointing to a generated file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ readlink result
+/nix/store/zld4d7zc80wh38qhn00jqgc6lybd2cdi-test_nand</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s investigate the contents of this executable file.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat result
+/nix/store/ymfqavzrgmj3q3aljgwvh769fq9dszp2-fvm/bin/fvm /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Notice that we&#8217;re passing the path of the actual <code>test_nand</code> <code>subgraph</code> into the <code>fvm</code>.</p>
+</div>
+<div class="paragraph">
+<p>What does the contents of the actual <code>/nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand</code> file look like (the argument to <code>fvm</code>)?</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
+'/nix/store/ynm9ipggdvxhzi5l2kkz9cgiqgvq2g87-prim_bool:(bool=true)' -&gt; a nand(/nix/store/y919fp98qw33w0cs2wn5wzwgwpwgbchs-maths_boolean_nand) output -&gt; input io_print(/nix/store/4fnk9dmky6jni4f4sbrzl1xsj50m3mb0-maths_boolean_print)
+'/nix/store/ynm9ipggdvxhzi5l2kkz9cgiqgvq2g87-prim_bool:(bool=true)' -&gt; b nand()
+
+$ file /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
+/nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph: ASCII text</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>--argstr rs xxx</code> are arguments passed into the <code>nix-build</code> executable. Specifically</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ man nix-build
+...
+       --argstr name value
+           This option is like --arg, only the value is not a Nix expression but a string. So instead
+           of --arg system \"i686-linux\" (the outer quotes are to keep the shell happy) you can say
+           --argstr system i686-linux.
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The name <code>node</code> refers to the top level <code>graph</code> to be executed by the <code>fvm</code>. <code>nix</code> compiles each of the <code>agents</code> and inserts their paths into <code>subgraphs</code>. The <code>fvm</code> knows how how to recursively load the entire hierarchy of <code>subgraphs</code> which contain fully qualified paths to their composed <code>agents</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_quick_feel_of_the_system"><a class="anchor" href="#_quick_feel_of_the_system"></a>Quick feel of the system</h5>
+<div class="sect5">
+<h6 id="_a_graph_setup_tear_down"><a class="anchor" href="#_a_graph_setup_tear_down"></a>A = (Graph setup + tear down):</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs bench_load
+/nix/store/ij8jri0z1k5n447f9s0x5yfx5p9iqnnf-bench_load
+
+$ sudo nice -n -20 perf stat -r 10 -d ./result
+...
+       3.684139058 seconds time elapsed                                          ( +-  0.56% )</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_b_graph_setup_tear_down_message_pass_increment"><a class="anchor" href="#_b_graph_setup_tear_down_message_pass_increment"></a>B = (Graph setup + tear down + message pass + increment):</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs bench
+/nix/store/mfl206ccv86wvyi2ra5296l8n1bks24x-bench
+
+$ sudo nice -n -20 perf stat -r 10 -d ./result
+
+ Performance counter stats for './result' (10 runs):
+
+       6638.755996      task-clock (msec)         #    1.443 CPUs utilized            ( +-  0.57% )
+           268,864      context-switches          #    0.040 M/sec                    ( +-  0.47% )
+             3,047      cpu-migrations            #    0.459 K/sec                    ( +- 10.08% )
+            82,417      page-faults               #    0.012 M/sec                    ( +-  0.03% )
+    18,012,749,608      cycles                    #    2.713 GHz                      ( +-  0.66% )  (50.10%)
+   &lt;not supported&gt;      stalled-cycles-frontend
+   &lt;not supported&gt;      stalled-cycles-backend
+    18,396,303,772      instructions              #    1.02  insns per cycle          ( +-  0.10% )  (62.48%)
+     3,008,536,908      branches                  #  453.178 M/sec                    ( +-  0.06% )  (73.97%)
+        13,396,472      branch-misses             #    0.45% of all branches          ( +-  1.01% )  (74.08%)
+     6,955,828,023      L1-dcache-loads           # 1047.761 M/sec                    ( +-  0.50% )  (63.04%)
+       184,998,022      L1-dcache-load-misses     #    2.66% of all L1-dcache hits    ( +-  0.81% )  (29.73%)
+        49,018,759      LLC-loads                 #    7.384 M/sec                    ( +-  0.99% )  (26.13%)
+         3,032,354      LLC-load-misses           #    6.19% of all LL-cache hits     ( +-  1.56% )  (37.74%)
+
+       4.601455409 seconds time elapsed                                          ( +-  0.66% )</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="__message_passing_increment_b_a"><a class="anchor" href="#__message_passing_increment_b_a"></a>(Message Passing + Increment) = B - A:</h6>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">&gt;&gt;&gt; 4.601455409 - 3.684139058
+0.9173163509999998</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This just gives you a <strong>feel</strong> for the system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>3.7 secs</code> to setup <code>10,000</code> [rust agents](./nodes/bench/inc/lib.rs) + teardown <code>10,000</code> agents.</p>
+</li>
+<li>
+<p><code>4.6 sces</code> to setup <code>10,000</code> agents + message pass <code>10,000</code> times + increment <code>10,000</code> times + teardown <code>10,000</code> <code>agents</code>.</p>
+</li>
+<li>
+<p><code>0.9 sec</code> to message pass <code>10,000</code> times + increment <code>10,000</code> times.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_a_todo_backend"><a class="anchor" href="#_a_todo_backend"></a>A Todo backend</h5>
+<div class="paragraph">
+<p>We will design an http server backend that&#8217;ll host a set of <code>todos</code>. It will provide the following HTTP features : GET, POST, PATCH/PUT, DELETE. The actual <code>todos</code> will be saved in a <code>sqlite</code> database. The client will use <code>json</code> to communicate with the server.</p>
+</div>
+<div class="paragraph">
+<p>A <code>todo</code> had the following fields :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> : a unique integer id, that is used to retrieve, delete and patch the todos.</p>
+</li>
+<li>
+<p><code>title</code> : a string, that represents the goal of the todo and will be displayed.</p>
+</li>
+<li>
+<p><code>completed</code> : a boolean, to remember if the todo has been completed or not.</p>
+</li>
+<li>
+<p><code>order</code> : a positive integer, used to display the todos in a certain order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The http server responds to these requests:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GET<br>
+The request looks like <code>GET <a href="http://localhost:8000/todos/1" class="bare">http://localhost:8000/todos/1</a></code>. The server, after it receives a "GET" request along with a numeric id, will respond with the corresponding todo in the database, otherwise it will return a 404.</p>
+</li>
+<li>
+<p>POST<br>
+The request looks like <code>POST <a href="http://localhost:8000/todos" class="bare">http://localhost:8000/todos</a></code>. The content of the request must be <code>json</code> that correspond to a <code>todo</code>. The <code>id</code> field is ignored. e.g. : <code>{ "title": "Create a todo http server", "order": 1 }</code></p>
+</li>
+<li>
+<p>PATCH or PUT<br>
+The request looks like <code>PUT <a href="http://localhost:8000/todos/1" class="bare">http://localhost:8000/todos/1</a></code>. The content of the request is the fields to update. ex : <code>{ "completed": true }</code></p>
+</li>
+<li>
+<p>Delete<br>
+The request looks like <code>DELETE <a href="http://localhost:8000/todos/1" class="bare">http://localhost:8000/todos/1</a></code>. This will delete the todo with the <code>id</code> 1.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_the_big_picture"><a class="anchor" href="#_the_big_picture"></a>The Big Picture</h5>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/global_http.png" alt="global http">
+</div>
+</div>
+<div class="paragraph">
+<p>The centre of gravity revolves around the <code>http</code> <code>agent</code>. It receives requests from users and dispatches them to four other <code>subgraphs</code>, one <code>subgraph</code> for each HTTP feature. Each <code>subgraph</code> processes the request and provide a response. Before we approach the HTTP feature <code>subgraphs</code> let&#8217;s take a look at the <code>http</code> <code>agent</code>.</p>
+</div>
+<div class="sect5">
+<h6 id="_the_http_agent"><a class="anchor" href="#_the_http_agent"></a>The HTTP Agent</h6>
+<div class="paragraph">
+<p>The implementation code can be found <a href="https://github.com/fractalide/fractal_net_http/tree/master/nodes/http">here</a>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/request_response.png" alt="The http agent">
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>http agent</code> has one <a href="https://github.com/fractalide/fractal_net_http/blob/master/nodes/rs/http/lib.rs#L57-L65">array output port</a> for each <a href="https://docs.rs/tiny_http/0.5.5/tiny_http/enum.Method.html">HTTP method</a>, and the <code>elements</code> of each array output ports is actually a fast <a href="https://doc.rust-lang.org/regex/regex/index.html">rust regex</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, <code>http() GET[^/news/?$]</code> will match the request with method GET and url <code><a href="http://../news" class="bare">http://../news</a></code> or <code><a href="http://../news/" class="bare">http://../news/</a></code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>Msg</code> is sent on the output port of <code>http</code> with the schema <a href="https://github.com/fractalide/fractal_net_http/blob/master/edges/net/http/request/default.nix">net_http_request</a>. We will just use the fields <code>id</code>, <code>url</code>, <code>content</code>. The <code>id</code> is the unique id for the request. It must be provided in the response corresponding to this request. The <code>url</code> is the url given by the user. The <code>content</code> is the content of the request, or the data given by the user.</p>
+</div>
+<div class="paragraph">
+<p>The <code>http</code> <code>agent</code> expects a <code>Msg</code> with the schema <a href="https://github.com/fractalide/fractal_net_http/blob/master/edges/net/http/response/default.nix">net_http_response</a>. A <code>response</code> has an <code>id</code>, which corresponds to the <code>request id</code>. It also has a <code>status_code</code>, which is the response code of the request. By default, it&#8217;s 200 (OK). The <code>content</code> is the data that is sent back to the user.</p>
+</div>
+<div class="paragraph">
+<p>The <code>http</code> <code>agent</code> must be started with an <code>iMsg</code> of type <a href="https://github.com/fractalide/fractal_net_http/blob/master/edges/net/http/address/default.nix">net_http_address</a>. It specifies the address and port on which the server listens:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/connect.png" alt="http listen">
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_the_get_subgraph"><a class="anchor" href="#_the_get_subgraph"></a>The GET Subgraph</h6>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/get.png" alt="get">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    db_path =&gt; db_path get_sql()
+    input =&gt; input id(${todo_get_id}) id -&gt; get get_sql(${sqlite_local_get})
+    get_sql() id -&gt; id todo_build_json(${todo_build_json})
+    get_sql() response -&gt; todo todo_build_json()
+    id() req_id -&gt; id todo_add_req_id(${todo_add_req_id})
+    todo_build_json() json -&gt; playload build_resp(${todo_build_response})
+    get_sql() error -&gt; error build_resp()
+    build_resp() response -&gt; response todo_add_req_id() response =&gt; response
+   '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/fractalide/fractal_app_todo/blob/master/nodes/rs/todo/get/default.nix">source for the get implemenation</a></p>
+</div>
+<div class="paragraph">
+<p>A request follows this path:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enters the <code>subgraph</code> via the virtual port <code>request</code></p>
+</li>
+<li>
+<p>Then enters the <code>agent</code> <code>get_id</code>. This <code>agent</code> has two output ports : <code>req_id</code> and <code>id</code>. The <code>req_id</code> is the id of the http request, given by the <code>http</code> <code>agent</code>. The <code>id</code> is <code>todo id</code> retrieved from the url (ie: given the url <a href="http://../todos/2" class="bare">http://../todos/2</a>, the number 2 will be sent over the <code>id</code> port).</p>
+</li>
+<li>
+<p>The url <code>id</code> enters the <code>sql_get</code> <code>agent</code>, that retrieve a <code>Msg</code> from a database corresponding to the <code>id</code>.</p>
+</li>
+<li>
+<p>If the <code>id</code> exists, a <code>Msg</code> is send to <code>build_json</code> that contains the json of the todo.</p>
+</li>
+<li>
+<p>If the <code>id</code> doesn&#8217;t exist in the database, a <code>Msg</code> is send on the error port.</p>
+</li>
+<li>
+<p>The <code>build_request</code> will receive <code>Msg</code> on one of its two input ports (<code>error</code> or <code>playload</code>). If there is an error, it will send a <code>404</code> response, or otherwise, it will send a <code>200</code> repsonse with the json as data.</p>
+</li>
+<li>
+<p>This new response now goes into the <code>add_req_id</code> <code>agent</code>, which retrieves the <code>req_id</code> from the request, and sets it in the new <code>response</code>.</p>
+</li>
+<li>
+<p>The response now leaves the <code>subgraph</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now we can connect the <code>http</code> <code>agent</code> to the <code>get</code> <code>subgraph</code>, to retrieve all the <code>GET</code> http request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/http_get.png" alt="http_get">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>http() GET[^/todos/.+$] -&gt; request get()
+get() response -&gt; response http()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please understand how the code maps to the above diagram, as these particular diagrams shall not be repeated.</p>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_the_post_subgraph"><a class="anchor" href="#_the_post_subgraph"></a>The POST Subgraph</h6>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/post.png" alt="post">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    db_path =&gt; db_path insert_todo()
+    input =&gt; input todo_get_todo(${todo_get_todo}) todo -&gt; input cl_todo(${msg_clone})
+    cl_todo() clone[0] -&gt; insert insert_todo(${sqlite_local_insert})
+    cl_todo() clone[1] -&gt; todo todo_build_json(${todo_build_json})
+    insert_todo() response -&gt; id todo_build_json()
+    todo_get_todo() req_id -&gt; id todo_add_req_id(${todo_add_req_id})
+    todo_build_json() json -&gt; playload todo_build_response(${todo_build_response})
+    todo_build_response() response -&gt; response todo_add_req_id() response =&gt; response
+   '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/fractalide/fractal_app_todo/blob/master/nodes/rs/todo/post/default.nix">source for the post implementation</a></p>
+</div>
+<div class="paragraph">
+<p>A request will follow this path :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Enters the <code>subgraph</code> by the virtual port <code>request</code></p>
+</li>
+<li>
+<p>Enters the <code>agent``get_todo</code>. <code>get_todo</code> sends <code>req_id</code> and the content, which is converted from <code>json</code> into a new schema <a href="https://github.com/fractalide/fractal_app_todo/blob/master/edges/app/todo/default.nix">app_todo</a>.</p>
+</li>
+<li>
+<p>The <code>todo</code> schema is then cloned and sent to two <code>agents</code>.</p>
+</li>
+<li>
+<p>One clone goes to <code>sql_insert</code>, which sends out the url <code>id</code> of the todo found in the database. This id is send in <code>build_json</code>.</p>
+</li>
+<li>
+<p>The <code>build_json</code> receives the database id and the todo, and merges them together in <code>json</code> format.</p>
+</li>
+<li>
+<p>This approach allows the building of a response with json as the content.</p>
+</li>
+<li>
+<p><code>add_req_id</code> then add the <code>req_id</code> in the reponse</p>
+</li>
+<li>
+<p>The response is sent out</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The post <code>subgraph</code> is then connected to the <code>http</code> output port :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>http() POST[/todos/?$] -&gt; request post()
+post() response -&gt; response http()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_the_delete_subgraph"><a class="anchor" href="#_the_delete_subgraph"></a>The DELETE Subgraph</h6>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/delete.png" alt="delete">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    input =&gt; input id(${todo_get_id})
+    db_path =&gt; db_path delete_sql()
+    id() id -&gt; delete delete_sql(${sqlite_local_delete})
+    delete_sql() response -&gt; playload build_resp(${todo_build_response})
+    id() req_id -&gt; id todo_add_req_id(${todo_add_req_id})
+    build_resp() response -&gt; response todo_add_req_id() response =&gt; response
+   '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/fractalide/fractal_app_todo/blob/master/nodes/rs/todo/delete/default.nix">source for the delete implementation</a>,</p>
+</div>
+<div class="paragraph">
+<p>This <code>subgraph</code> is easier than the two before, hence nearly self-explainatory.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>req_id</code> and the <code>id</code> are obtained in <code>get_id</code>.</p>
+</li>
+<li>
+<p>The <code>id</code> is send to <code>sql_delete</code>, which returns the <code>id</code> to <code>build_response</code>.</p>
+</li>
+<li>
+<p><code>build_response</code> simply fill the http response with the <code>id</code></p>
+</li>
+<li>
+<p><code>add_req_id</code> add the http <code>id</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The delete <code>subgraph</code> is connect to the <code>http</code> output port :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>http() DELETE[/todos/.+] -&gt; request delete()
+delete() response -&gt; response http()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_the_patch_subgraph"><a class="anchor" href="#_the_patch_subgraph"></a>The PATCH Subgraph</h6>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/patch.png" alt="patch">
+</div>
+</div>
+<div class="paragraph">
+<p>The patch <code>subgraph</code> is a little more complicated, because of the <code>synch</code> <code>agent</code>. Let first see what happend without it :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/patch_without_sync.png" alt="patch_without_sync">
+</div>
+</div>
+<div class="paragraph">
+<p>The idea of the stream is this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Get the new "todos" values in the request</p>
+</li>
+<li>
+<p>In parallel, retrieve the old value of the todo from the database.</p>
+</li>
+<li>
+<p>Then, send the old and the new values to a <code>merge</code> <code>agent</code>, which builds the resulting <code>todo</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now this graph has a problem; if there the todo is new then an old todo cannot be found in the database. In this case, the <code>new</code> edge between <code>get_todo</code> and <code>merge</code> and the <code>error</code> edge between <code>sql_get</code> and <code>build_respone</code> are completely concurrent, thus an issue will arise if a <code>Msg</code> is sent over the <code>error</code> edge when <code>sql_get</code> cannot find a <code>todo</code> in the database. At the same time <code>get_todo</code> will have recognized that it&#8217;s a new <code>todo</code> and will have sent a <code>Msg</code> over the <code>new</code> edge. This will insert 2 <code>Msgs</code> into the <code>old</code> input port, where the first <code>Msg</code> is incorrect.
+A solution is to add a <code>synch</code> <code>agent</code> which has outgoing edges <code>old</code>/<code>new</code> and <code>error</code>. If an error is received, it&#8217;s immediately communicated to <code>build_respone</code> and discards the <code>old/new</code> <code>Msg</code>. If it receives a <code>new</code> <code>Msg</code>, it forwards the <code>new</code> and <code>old</code> <code>Msgs</code> to <code>merge</code>. This ensures all <code>Msgs</code> are well taken care of.</p>
+</div>
+<div class="paragraph">
+<p>To simplify the graph a little, we&#8217;ve not mentioned the edge from <code>synch</code> to <code>patch_sql</code>. A <code>Msg</code> is send from the former with the todo <code>id</code>, whichs need to be updated. But all the logic, with synch, is exactly the same. The complete figure is:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/fractalide/fractalide/master/doc/images/patch_final.png" alt="patch_final">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+
+subgraph {
+  src = ./.;
+  flowscript = with nodes; with edges; ''
+    input =&gt; input todo_get_todo(${todo_get_todo})
+    db_path =&gt; db_path patch_sql()
+    todo_get_todo() id -&gt; get get_sql(${sqlite_local_get})
+    synch(${todo_patch_synch})
+    get_sql() response -&gt; todo synch() todo -&gt; old merge(${todo_patch_json})
+    todo_get_todo() raw_todo -&gt; raw_todo synch() raw_todo -&gt; new merge()
+    get_sql() id -&gt; id synch() id -&gt; id patch_sql(${sqlite_local_patch})
+    merge() todo -&gt; msg patch_sql()
+    patch_sql() response -&gt; playload build_resp(${todo_build_response})
+    get_sql() error -&gt; error synch() error -&gt; error build_resp()
+    todo_get_todo() req_id -&gt; id todo_add_req_id(${todo_add_req_id})
+    build_resp() response -&gt; response todo_add_req_id() response =&gt; response
+   '';
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/fractalide/fractal_app_todo/blob/master/nodes/rs/todo/patch/default.nix">source for the patch implementation</a></p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_executing_the_graph"><a class="anchor" href="#_executing_the_graph"></a>Executing the graph</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs workbench_test
+$ ./result</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now&#8217;s the time to test the graph. Please follow these steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open <code>firefox</code>:</p>
+</li>
+<li>
+<p>Install and open the <code>resteasy</code> firefox plugin</p>
+</li>
+<li>
+<p>Post : <code><a href="http://localhost:8000/todos/" class="bare">http://localhost:8000/todos/</a></code></p>
+</li>
+<li>
+<p>Open <code>"data"</code></p>
+</li>
+<li>
+<p>Select <code>"custom"</code></p>
+</li>
+<li>
+<p>Keep <code>Mime type</code> empty</p>
+</li>
+<li>
+<p>Put <code>{ "title": "A new title" }</code> in the textbox.</p>
+</li>
+<li>
+<p>Click <code>send</code></p>
+</li>
+<li>
+<p>Notice the <code>200</code> response.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also fiddle with</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GET <a href="http://localhost:8000/todos/ID" class="bare">http://localhost:8000/todos/ID</a></code></p>
+</li>
+<li>
+<p><code>DELETE <a href="http://localhost:8000/todos/ID" class="bare">http://localhost:8000/todos/ID</a></code></p>
+</li>
+<li>
+<p><code>PUT <a href="http://localhost:8000/todos/ID" class="bare">http://localhost:8000/todos/ID</a></code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_install_into_your_environement_via_configuration_nix"><a class="anchor" href="#_install_into_your_environement_via_configuration_nix"></a>Install into your environement via Configuration.nix</h5>
+<div class="paragraph">
+<p>Insert this into your <code>Configuration.nix</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ config, pkgs, ... }:
+
+let
+  fractalide = import /path/to/your/cloned/fractalide {};
+in
+{
+  require = fractalide.services;
+  services.workbench = {
+    enable = true;
+    bindAddress = "127.0.0.1";
+    port = 8003;
+  };
+...
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ sudo nixos-rebuild switch -I fractalide=/path/to/your/cloned/fractalide</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tokio"><a class="anchor" href="#_tokio"></a>7.2. Tokio-*</h3>
+<div class="paragraph">
+<p>We&#8217;re waiting patiently for the much anticipated <a href="https://github.com/tokio-rs/" class="bare">https://github.com/tokio-rs/</a> code to land. That&#8217;s when we&#8217;ll get services talking to other services and http clients via tokio.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<link rel="stylesheet" href="highlight/styles/github.min.css">
+<script src="highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+</body>
+</html>
