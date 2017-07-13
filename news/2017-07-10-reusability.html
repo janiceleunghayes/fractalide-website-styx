@@ -57,25 +57,25 @@
 
 <p><code>DOTADIW</code> is a convention which tends to make programming simpler by constraining possible bugs to small bits of code that do one thing only. When code becomes entangled it becomes difficult to get to the root of the problem. So programmers will go to great lengths to separate concerns into different functions, modules, indeed different executables entirely.</p>
 
-<p>For those of you using a Unix, be it MacOS or Linux this is why there are so many different command line tools such as <code>cat</code>, <code>ls</code>, <code>grep</code> etc. Each of these tools pretends to do one thing well.</p>
+<p>For those of you using a Unix, be it MacOS or Linux this is why there are so many different command line tools such as <code>cat</code>, <code>ls</code>, <code>grep</code> etc. Each pretending to do one thing well.</p>
 
-<p>Once you have a suite of these specialized tools, one needs a means to compose them. In Unix, each tool accepts data on <code>stdin</code> (standard input) and writes data to <code>stdout</code> (standard output) and <code>stderr</code> (standard error). For the commandline this is the common means to achieve composition.</p>
+<p>Once you have a suite of these specialized tools, one needs to compose them. In Unix, each tool has an input (<code>stdin</code> standard input) and two outputs (<code>stdout</code> standard output and <code>stderr</code> standard error). These standard communication channels are shared between all these tools, essentially it means they speak the same language.</p>
 
 <p>When programs conform to <code>DOTADIW</code> and have a means to compose together they automatically become reusable. Indeed the reusability factor of a tool goes even higher when it is used in ways the original designer hadn&#8217;t intended it to be used.</p>
 
 <p>It&#8217;s not a trivial task to achieve reusability, it requires years of programming to get it right, after all, good programmers write good code, great programmers reuse good code.</p>
 
-<p>Fractalide achieves a high degree of reusablitiy by defining networks of black box Agents, which exchange typed data across predefined connections using message passing, where the connections are specified externally to the processes. These black box Agents can be reconnected endlessly to form different executable Subgraphs without having to be changed internally.</p>
+<p>Fractalide achieves a high degree of component reusablitiy by defining networks of black box Agents, which exchange typed data across predefined connections using message passing, where the connections are specified externally to the processes. These black box Agents can be reconnected endlessly to form different executable Subgraphs without having to be changed internally.</p>
 
 <p>This type of programming is called <a href="https://en.wikipedia.org/wiki/Flow-based_programming">Flow-based Programming</a> and was discovered by J. Paul Morrison in the early 1970s.</p>
 
-<p>A great programmer can move much faster when relying on nice composible reusable modules. These modules have been battle hardened by other users, bugs have been squashed and optimizations have been done. It&#8217;s less code a programmer has to write allowing them to focus on the business requirements.</p>
+<p>A programmer can move much faster when relying on nice composible reusable modules. These modules have been battle hardened by other users, bugs have been squashed and optimizations have been done. It&#8217;s less code a programmer has to write allowing them to focus on the business requirements.</p>
 
-<p>A private sector space company has gone to great effort to achieve reusable rockets, allowing them to undercut their competition by a significant margin.</p>
+<p>To illustrate the importance of reusability, a private sector space company has gone to great effort to achieve reusable rockets, allowing them to undercut their competition by a significant margin. Typically the rocket industry will drash their first stage and pay for another.</p>
 
 <p><iframe src="//giphy.com/embed/PDxh2xVRbsHe0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen="allowFullScreen"></iframe></p>
 
-<p>We&#8217;ve discovered reusability and composability are a highly desirable feature but if one doesn&#8217;t have an efficient approach to reproducing the network of agents you&#8217;ll get bogged down in needing to manually compile, link and setup each network of agents.</p>
+<p>Reproducability and composability will only get you so far. To make it really concoction really potent you need a reproducible system. Subject for another <a href="/news/2017-07-13-reproducibility.html">blog post</a>.</p>
 
 
        
