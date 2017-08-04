@@ -8,9 +8,6 @@ body {
   padding-top: 100px;
   margin-bottom: 170px; }
 
-@media (min-width: 768px) {
-  body {
-    margin-bottom: 90px; } }
 body.home {
   padding-top: 0; }
 
@@ -176,7 +173,7 @@ fieldset[disabled] .btn-xl.active {
   font-family: "Prime","Helvetica Neue",Helvetica,Arial,cursive;
   color: #fff;
   line-height: 50px;
-  padding: 0; }
+  padding: 0 10px; }
 
 .navbar-brand > img {
   display: inline;
@@ -184,10 +181,16 @@ fieldset[disabled] .btn-xl.active {
 
 @media (min-width: 768px) {
   .navbar-brand > img {
-    height: 50px; } }
-.navbar-brand > img {
-  display: inline; }
+    height: 40px; }
 
+  .navbar-brand {
+    font-size: 25px; }
+
+  .navbar .container {
+    width: 100%; } }
+@media (min-width: 1200px) {
+  .navbar .container {
+    width: 1170px; } }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:active,
@@ -218,6 +221,7 @@ fieldset[disabled] .btn-xl.active {
   outline: 0;
   color: #5ab6cc; }
 
+.navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .active > a {
   border-radius: 0;
   color: #fff;
@@ -227,6 +231,36 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-nav > .active > a:focus {
   color: #fff;
   background-color: #39a1ba; }
+
+.dropdown-menu {
+  text-align: left; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #fff; }
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
+  border-radius: 0;
+  color: #fff;
+  background-color: #5ab6cc; }
+
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #5ab6cc; }
+
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #39a1ba; }
+
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #5ab6cc; }
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #5ab6cc; }
 
 @media (min-width: 768px) {
   .navbar-default {
@@ -243,6 +277,7 @@ fieldset[disabled] .btn-xl.active {
     -moz-transition: all .3s;
     transition: all .3s; }
 
+  .navbar-default .navbar-nav > .open > a,
   .navbar-default .navbar-nav > .active > a {
     border-radius: 3px; }
 
@@ -251,7 +286,12 @@ fieldset[disabled] .btn-xl.active {
     background-color: #222; }
 
   .navbar-default.navbar-shrink .navbar-brand {
-    font-size: 2em; } }
+    font-size: 2em; }
+
+  .dropdown-menu {
+    background-color: rgba(34, 34, 34, 0.8);
+    min-width: 100%;
+    text-align: center; } }
 section {
   padding: 100px 0; }
 
