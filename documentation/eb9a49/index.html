@@ -501,9 +501,6 @@ collection.</p>
 <div class="paragraph">
 <p>Truly reusable and reproducible efficient nodes is what differentiates Fractalide from the others. It&#8217;s this feature that allows open communities to mix and match nodes quickly and easily.</p>
 </div>
-<div class="paragraph">
-<p>The canonical source of this project is hosted on <a href="https://gitlab.com/fractalide/fractalide">GitLab</a>, and is the preferred place for contributions, however if you do not wish to use GitLab, feel free to make issues, on the mirror. However pull requests will only be accepted on GitLab, to make it easy to maintain.</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_features"><a class="anchor" href="#_features"></a>1.2. Features</h3>
@@ -886,7 +883,7 @@ agent {
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
 $ cd fractalide
-$ nix-build --argstr rs test_nand
+$ nix-build --argstr node test_nand
 ...
 $ ./result
 boolean : false</code></pre>
@@ -899,85 +896,59 @@ boolean : false</code></pre>
 <h2 id="_quick_start_to_building_an_not_logic_gate"><a class="anchor" href="#_quick_start_to_building_an_not_logic_gate"></a>2. Quick Start to Building an NOT logic gate</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To add a contract, Rust or Subnet component to Fractalide:</p>
+<p>The objective of this Quick Start is to demonstrate how to create a Capnproto Schema called an <code>edge</code>, Rust <code>agent</code> and a <code>subgraph</code> hierarchy in Fractalide. Each Fractalide feature can be easily demonstrated by building a NAND logic gate then composing that into a contrived NOT logic gate. We shan&#8217;t go into details about each <code>edge</code> <code>agent</code> and <code>subgraph</code> instead the emphasis is how these pieces interact with each other. Please reference the specialized documentation in each of the relevant directories for more information.</p>
+</div>
+<div class="paragraph">
+<p>Note the <code>NOT</code> and <code>NAND</code> logic gates are purely for example purposes and would never be used in a production system.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Checkout the Fractalide source tree:</p>
+<p>git clone the Fractalide source code:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone git://github.com/fractalide/fractalide.git
-$ cd fractalide&lt;/screen&gt;</code></pre>
+$ cd fractalide</code></pre>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Find a good place to in the Fractalide <code>edges</code> directory to add your capnproto <code>schema</code>. For instance a simple boolean schema for a Nand logic gate might go into <code>edges/prim/bool</code>. Where <code>prim</code> is short for <code>primative</code>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Insert your name and email address into <code>support/upkeepers.nix</code>:</p>
+<p>The directory will have one file:</p>
 </div>
 <div class="listingblock">
+<div class="title">edges/prim/bool/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{
-/* Add your name and email address here.
-   Keep the list alphabetically sorted.
-   Prefer the same attrname as your github username, please,
-   so it's easy to ping a package @maintainer.
-   */
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
 
-   dmichiels = "Denis Michiels &amp;lt;dmichiels@mailoo.org&gt;";
-   sjmackenzie = "Stewart Mackenzie &amp;lt;setori88@gmail.com&gt;";
-   githubname = "Your Name &amp;lt;email@email.com&gt;";
+edge {
+  src = ./.;
+  edges =  with edges; [];
+  schema = with edges; ''
+    struct PrimBool {
+            bool @0 :Bool;
+    }
+  '';
 }</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Find a good place to in the Fractalide <code>contracts</code> directory to add your contract and Nix expression. For instance a simple boolean contract might go into <code>contracts/maths/boolean</code>.</p>
+<p>Now we need to make your new <code>edge</code> seen by the system. Insert your newly created <code>edge</code> into <code>edges/default.nix</code>.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The folder will have two files:</p>
-</div>
 <div class="listingblock">
-<div class="title">contract.capnp</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-capnp" data-lang="capnp">@0xbde554c96bf60f36;
-
-struct Boolean {
-  boolean @0 :Bool;
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">default.nix</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{stdenv, contract, upkeepers, ...}:
-
-edge {
-  src = ./.;
-
-  meta = with stdenv.lib; {
-    description = "Contract: Describes a simple boolean data type";
-    homepage = https://github.com/fractalide/fractalide/tree/master/edges/prim/bool;
-    license = with licenses; [ mpl20 ];
-    maintainers = with upkeepers; [ githubname ];
-  };
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Your github name inserted in <code>support/upkeepers.nix</code> is used on this line: <code>maintainers = with upkeepers; [ githubname ];</code>
-Example: <a href="https://github.com/fractalide/fractalide/tree/master/edges/prim/bool/"><code>edges/prim/bool/</code></a>.</p>
-</div>
-<div class="paragraph">
-<p>We need to make your new contract seen by the system! Insert your newly created contract into <code>edges/default.nix</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">default.nix</div>
+<div class="title">edges/default.nix</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">  { pkgs, support, ... }:
 let
@@ -985,6 +956,7 @@ callPackage = pkgs.lib.callPackageWith (pkgs // support);
 in
 # insert in alphabetical order to reduce conflicts
 rec {
+  # raw
   ...
   PrimText = callPackage ./generic/text {};
   PrimBool = callPackage ./edges/prim/bool {};
@@ -992,194 +964,309 @@ rec {
 }</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>You can do a test compilation of your component with this command:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Do a test compilation of your <code>edge</code> with this command:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr debug true -A contracts.prim_bool</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build -A edges.PrimBool</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If you see something like the below, then it worked.</p>
+<p>If you see something like the below, then it successfully compiled the <code>edge</code> and it&#8217;s ready to be used by <code>agents</code>.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/jy9yjnnmlpc7bzaq5ihjqwiywrx59fw4-prim_bool</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/jy9yjnnmlpc7bzaq5ihjqwiywrx59fw4-PrimBool</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Example: <a href="https://github.com/fractalide/fractalide/blob/master/edges/default.nix">edges/default.nix</a></p>
+<p>The <code>edges/default.nix</code> file contains all the <code>edges</code> which abstract out capnproto <code>schema</code> for this Fractal: <a href="https://github.com/fractalide/fractalide/blob/master/edges/default.nix">edges/default.nix</a></p>
 </div>
-<div class="paragraph">
-<p>The next step is to build our NAND gate. Find a good place to put our NAND gate such as <code>components/maths/boolean/&lt;replaceable&gt;nand&lt;/replaceable&gt;</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure your soon to be created NAND <code>agent</code> will have the right <code>crate</code> dependencies by navigating to the <code>modules/rs/crates/Cargo.toml</code> file and adding the relevant <code>crates</code> as needed:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
+<div class="title">modules/rs/crates/Cargo.toml</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ mkdir -p components/maths/boolean/
-$ cd components/maths/boolean
-$ cargo new nand&lt;/screen&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Edit your <code>components/maths/boolean/nand/Cargo.toml</code> to make it look like this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-toml" data-lang="toml">[package]
-name = "maths_boolean_nand"
-version = "0.1.0"
-authors = ["test &amp;lt;test@test.com&gt;"]
+<pre class="highlightjs highlight"><code class="language-toml" data-lang="toml">[lib]
 
-[lib]
-name = "maths_boolean_nand"
-crate-type = ["dylib"]
+[package]
+name = "all_crates"
+version = "0.0.0"
 
 [dependencies]
+rustfbp = { path = "../rustfbp" }
 capnp = "*"
-rustfbp = "*"</code></pre>
+capnpc = "*"
+nom = "*"
+...</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Ensure you have have <code>capnp = "*" and rustfbp = "*"</code> in your <code>dependencies</code>
-Run <code>cargo generate-lockfile</code> in the <code>components/maths/boolean/nand</code> to generate the <code>Cargo.lock</code>, which must be committed into the repository.</p>
+<p>You will only need <code>rustfbp</code> and <code>capnp</code> for this <code>NAND</code> example. Those dependencies are already in the file, but we&#8217;ll pretend they aren&#8217;t. The <code>[lib]</code> and <code>all_crates</code> in the <code>[package]</code> section are just placeholders and is only there to appease the <code>cargo generate-lockfile</code> command. The <code>all_crates</code> <code>[package]</code> should never be used.</p>
 </div>
 <div class="paragraph">
-<p>Insert a the below into your <code>components/maths/boolean/nand/src/lib.rs</code>:</p>
+<p>Next you run <code>./update.sh</code>. You should see similar output as the below:</p>
 </div>
 <div class="listingblock">
-<div class="title">components/maths/boolean/nand/src/lib.rs</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">[stewart@rivergod:~/dev/fractalide/fractalide/modules/rs/crates]$ ./update.sh
+Compiling cargo2nix
+    Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
+/home/stewart/dev/fractalide/fractalide/modules/rs/crates
+Generating lockfile
+    Updating registry `https://github.com/rust-lang/crates.io-index`
+Running Cargo2nix
+Prefetching byteorder-1.1.0
+Prefetching capnp-0.8.11
+Prefetching capnpc-0.8.7
+Prefetching kernel32-sys-0.2.2
+Prefetching lazy_static-0.2.8
+Prefetching libc-0.2.30
+Prefetching libloading-0.4.1
+Prefetching memchr-1.0.1
+Prefetching nom-3.2.0
+Prefetching num_cpus-1.6.2
+Prefetching threadpool-1.7.0
+Prefetching winapi-0.2.8
+Prefetching winapi-build-0.1.1
+Done
+There's a bug in cargo2nix please manually check that all build_dependencies don't resolve to an undefined nix closure.
+For example if you search for winapi_build_0_0_0, this should be changed to winapi_build_0_1_1_
+Please make a pull request to resolve this issue in cargo2nix.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As noted in the output there is a minor bug with <code>cargo2nix</code>. Please manually ensure <code>build_dependencies</code> don&#8217;t resolve to incorrect nix expressions in the generated <code>modules/rs/cates/default.nix</code> file. The typical case is <code>winapi_0_0_0</code> should be <code>winapi_0_1_1_</code> (or whatever the latest <code>winapi</code> version is). A safe way is to search for <code>0_0_0</code> and correct these instances as needed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The next step is to build our Rust NAND gate <code>agent</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Find a good place to create our NAND gate is <code>nodes/rs/maths/boolean/nand/lib.rs</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ mkdir -p nodes/rs/maths/boolean/nand
+$ touch nodes/rs/maths/boolean/nand/lib.rs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The contents of the <code>lib.rs</code> should be this:</p>
+</div>
+<div class="listingblock">
+<div class="title">nodes/rs/maths/boolean/nand/lib.rs</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 extern crate capnp;
 
 agent! {
-  maths_boolean_nand, edges(prim_bool)
-  inputs(a: prim_bool, b: prim_bool),
-  inputs_array(),
-  outputs(output: prim_bool),
-  outputs_array(),
-  option(),
-  acc(),
-  fn run(&amp;amp;mut self) -&gt; Result&amp;lt;()&gt; {
+  input(a: prim_bool, b: prim_bool),
+  output(output: prim_bool),
+  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
     let a = {
-        let mut ip_a = try!(self.ports.recv("a"));
-        let a_reader: prim_bool::Reader = try!(ip_a.read_schema());
-        a_reader.get_boolean()
+        let mut msg_a = try!(self.input.a.recv());
+        let boolean: prim_bool::Reader = msg_a.read_schema()?;
+        boolean.get_bool()
     };
     let b = {
-        let mut ip_b = try!(self.ports.recv("b"));
-        let b_reader: prim_bool::Reader = try!(ip_b.read_schema());
-        b_reader.get_boolean()
+        let mut msg_b = try!(self.input.b.recv());
+        let boolean: prim_bool::Reader = msg_b.read_schema()?;
+        boolean.get_bool()
     };
 
-    let mut out_ip = IP::new();
+    let mut out_msg = Msg::new();
     {
-      let mut boolean = out_ip.build_schema::&amp;lt;prim_bool::Builder&gt;();
-      boolean.set_boolean(if a == true &amp;amp;&amp;amp; b == true {false} else {true});
+      let mut boolean = out_msg.build_schema::&lt;prim_bool::Builder&gt;();
+      boolean.set_bool(if a == true &amp;&amp; b == true {false} else {true});
     }
-    try!(self.ports.send("output", out_ip));
-    Ok(())
+    try!(self.output.output.send(out_msg));
+    Ok(End)
   }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice the <code>edges(prim_bool)</code> line:
-This is where we reference our contracts we made earlier. But we still have not tied the contract with this <code>NAND</code> implemenation. This is done in the next section.</p>
+<p>Notice the <code>prim_bool</code> code, these are referencing the <code>prim/bool/default.nix</code> <code>edge</code> we created earlier.</p>
 </div>
 <div class="paragraph">
-<p>Next you will need to add a <code>default.nix</code> to your new <code>NAND</code> component.</p>
+<p>Notice the lines below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ touch components/maths/boolean/nand/default.nix</code></pre>
+<pre class="highlightjs highlight"><code>extern crate rustfbp;
+extern crate capnp;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then insert this into the <code>default.nix</code></p>
+<p>This code includes our <code>rustfbp</code> and <code>capnp</code> crates into the Rust <code>agent</code> code.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;ve still not tied the <code>edges</code> nor <code>crates</code> dependencies into the <code>NAND</code> implemenation yet. This is done next.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will need to add a <code>default.nix</code> to your new <code>NAND</code> component.</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ component, contracts }:
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ touch nodes/rs/maths/boolean/nand/default.nix</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then insert the below into the <code>default.nix</code></p>
+</div>
+<div class="listingblock">
+<div class="title">nodes/rs/maths/boolean/nand/default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
-  edges = with edges; [ prim_bool ];
+  edges = with edges; [ PrimBool ];
+  mods = with mods.rs; [ rustfbp capnp ];
+  osdeps = with pkgs; [];
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice <code>contracts = [ prim_bool ];</code> here is where we will compile the <code>capnproto</code> contract and copy it into the <code>/tmp/nix-build-prim_bool-*-drv/</code> directory at build time. This is how your Rust compilation will see the contract. Ensure the name exactly matches the folder hierarchy in the contracts directory!</p>
+<p>Notice <code>edges = with edges; [ PrimBool ];</code> is where we will compile the Capnproto <code>schema</code> which gets copied it into the <code>/tmp/nix-build-prim_bool-*-drv/</code> directory at build time (all automated by <code>nix</code>, don&#8217;t worry about it). This is how your Rust compilation will see the compiled capnproto <code>schema</code>.</p>
 </div>
 <div class="paragraph">
-<p>We need to make our <code>NAND</code> seen by the system by adding it to <code>components/default.nix</code></p>
+<p>Also <code>mods = with mods.rs; [ rustfbp capnp ];</code> is where we included our <code>crate</code> dependencies as specified in the <code>modules/rs/crates/Cargo.toml</code> file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We need to make our <code>NAND</code> seen by the system by adding it to <code>nodes/rs/default.nix</code></p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
+<div class="title">nodes/rs/default.nix</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
 let
-callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
-# insert in alphabetical order to reduce conflicts
-self = rec {
-...
-  maths_boolean_nand = callPackage ./maths/boolean/nand {};
-...
-};
+  callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
+  # insert in alphabetical order to reduce conflicts
+  self = rec {
+    ...
+    maths_boolean_nand = callPackage ./maths/boolean/nand {};
+    ...
+    };
 in
-self</code></pre>
+  self</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Let us compile the <code>NAND</code> gate:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Now that the NAND logic gate is tied into Fractalide we can compile it:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd path/to/fractalide
-$ nix-build --argstr debug true -A components.maths_boolean_nand</code></pre>
+$ nix-build -A components.rs.maths_boolean_nand</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Congratulations, you&#8217;ve created your first Fractalide contract and Rust agent! Now we will move on to creating a subnet and our final step&#8230;&#8203; the NOT gate!</p>
+<p>Congratulations, you&#8217;ve created and compiled your first <code>edge</code> and Rust <code>agent</code>. Now we will move on to creating a <code>subgraph</code> and our final step, the NOT gate.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create the <code>NOT</code> <code>subgraph</code>:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">mkdir -p fractalide/components/maths/boolean/not
-cd fractalide/components/maths/boolean/not
-touch default.nix</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">mkdir -p nodes/rs/maths/boolean/not
+touch nodes/rs/maths/boolean/not/default.nix</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Then insert the below into <code>default.nix</code>:</p>
 </div>
 <div class="listingblock">
-<div class="title">default.nix</div>
+<div class="title">nodes/rs/maths/boolean/not/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ stdenv, subnet, upkeepers, msg_clone, maths_boolean_nand, ...}:
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
 
-subnet rec {
+subgraph {
   src = ./.;
-  subnet = ''
-  input =&gt; input clone(${msg_clone})
-  clone() clone[1] -&gt; a nand(${maths_boolean_nand}) output =&gt; output
-  clone() clone[2] -&gt; b nand()
+  flowscript = with nodes.rs; ''
+    input =&gt; input clone(${msg_clone})
+    clone() clone[1] -&gt; a nand(${maths_boolean_nand}) output =&gt; output
+    clone() clone[2] -&gt; b nand()
   '';
-
-  meta = with stdenv.lib; {
-    description = "Subnet: NOT logic gate";
-    homepage = https://github.com/fractalide/fractalide/tree/master/components/maths/boolean/not;
-    license = with licenses; [ mpl20 ];
-    maintainers = with upkeepers; [ githubname ];
-  };
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Notice the <code>${maths_boolean_nand}</code> and <code>${msg_clone}</code>? Nix will replace these to a the proper path just before compile time.
-This will compile to :</p>
+<p>Notice the <code>${maths_boolean_nand}</code> and <code>${msg_clone}</code>. Nix will replace these with fully qualified paths to the compiled <code>agents</code> at compile time. <code>msg_clone</code> is a different <code>agent</code>, you may reference the source code at <code>nodes/rs/msg/clone</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add your new NOT <code>subgraph</code> to the <code>nodes/rs/default.nix</code></p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
+<div class="title">nodes/rs/default.nix</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+let
+  callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
+  # insert in alphabetical order to reduce conflicts
+  self = rec {
+  ...
+    maths_boolean_nand = callPackage ./maths/boolean/nand {};
+    maths_boolean_not = callPackage ./maths/boolean/not {};
+  ...
+  };
+in
+  self</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Let&#8217;s compile our newly created <code>NOT</code> <code>subgraph</code>:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build -A nodes.rs.maths_boolean_not
+/nix/store/xdp2l67gdmxi7fagxnbanavcxd93mlr0-maths_boolean_not</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>subgraph</code> will compile to :</p>
+</div>
+<div class="listingblock">
+<div class="title">/nix/store/xdp2l67gdmxi7fagxnbanavcxd93mlr0-maths_boolean_not/lib/lib.subgraph</div>
 <div class="content">
 <pre class="highlightjs highlight"><code>input =&gt; input clone(/nix/store/wb6fgpz9hk7fg1f6p9if81s1xhflhy2x-msg_clone)
 clone() clone[1] -&gt; a nand(/nix/store/bi0jacqxz1az1bbrc8470jbl7z3cmwdn-maths_boolean_nand) output =&gt; output
@@ -1187,79 +1274,89 @@ clone() clone[2] -&gt; b nand()</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Add your new subnet to the <code>components/default.nix</code></p>
+<p>Notice the <code>${maths_boolean_nand}</code> and <code>${msg_clone}</code> were replaced with fully qualified paths. This output is meant for the <code>fvm</code> (Fractalide Virtual Machine) to parse and isn&#8217;t meant to be edited by humans.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Let us prepare to run our new <code>NOT</code> component. This is where we create <code>imsgs</code> which contain the actual values to be passed into the <code>NOT</code> gate.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>First, edit <code>nodes/rs/test/not/default.nix</code> so that it looks like this:</p>
 </div>
 <div class="listingblock">
-<div class="title">components/default.nix</div>
+<div class="title">nodes/rs/test/not/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+
 let
-callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
-# insert in alphabetical order to reduce conflicts
-self = rec {
-...
-  maths_boolean_nand = callPackage ./maths/boolean/nand {};
-  maths_boolean_not = callPackage ./maths/boolean/not {};
-...
-};
-in
-self</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s compile our newly created subnet:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr debug true -A components.maths_boolean_not
-/nix/store/xdp2l67gdmxi7fagxnbanavcxd93mlr0-maths_boolean_not</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Let us actually run our new <code>NOT</code> component.
-First, edit <code>fractalide/components/development/test/default.nix</code> so that it looks like this:</p>
-</div>
-<div class="listingblock">
-<div class="title">fractalide/components/development/test/default.nix</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ stdenv, subnet, upkeepers
-  , maths_boolean_not
-  , maths_boolean_print
-  , ...}:
-
-subnet rec {
-  src = ./.;
-  subnet = ''
-    'prim_bool:(boolean=true)' -&gt; input not(maths_boolean_not) output -&gt; input disp(maths_boolean_print)
-  '';
-
-  meta = with stdenv.lib; {
-    description = "Subnet: development testing file";
-    homepage = https://github.com/fractalide/fractalide/tree/master/components/development/test;
-    license = with licenses; [ mpl20 ];
-    maintainers = with upkeepers; [ githubname ];
+  PrimBool = imsg {
+    class = edges.PrimBool;
+    text = "(bool=true)";
+    option = "create";
   };
+in
+subgraph {
+ src = ./.;
+ flowscript = with nodes.rs; ''
+  '${PrimBool}' -&gt; a not(${maths_boolean_not}) output -&gt; input io_print(${maths_boolean_print})
+ '';
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Next, you&#8217;ll need to compile the <code>development_test</code>:</p>
+<p>Notice the section of code:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build  --argstr subnet development_test --argstr debug true
-...
-/nix/store/a4lb3b9jjylvrl77kv0wb8m5v137f6j1-development_test</code></pre>
+<pre class="highlightjs highlight"><code>PrimBool = imsg {
+  class = edges.PrimBool;
+  text = "(bool=true)";
+  option = "create";
+};</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then run it:</p>
+<p>This declares an <code>imsg</code>, it defines the values to initialize your <code>edges/prim/bool</code> <code>edge</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Next, you&#8217;ll need to compile <code>test_not</code>:</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ ./result/bin/development_test
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node test_not
+...
+/nix/store/a4lb3b9jjylvrl77kv0wb8m5v137f6j1-test_not</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Then run it:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ ./result
 boolean : false</code></pre>
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Conclusion</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This concludes the Quick Start, demonstrating the building of a Capnproto <code>schema</code> which composes into an <code>edge</code>, a Rust <code>agent</code> and a Flowscript <code>subgraph</code>. It also demonstrates how to add crates.io <code>crate</code> dependencies and how to run the top level <code>not</code> <code>subgraph</code>.</p>
 </div>
 </div>
 </div>
@@ -2990,7 +3087,7 @@ result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamica
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs test_nand</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node test_nand</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3028,7 +3125,7 @@ $ file /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>--argstr rs xxx</code> are arguments passed into the <code>nix-build</code> executable. Specifically</p>
+<p>The <code>--argstr node xxx</code> are arguments passed into the <code>nix-build</code> executable. Specifically</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3051,7 +3148,7 @@ $ file /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
 <h6 id="_a_graph_setup_tear_down"><a class="anchor" href="#_a_graph_setup_tear_down"></a>A = (Graph setup + tear down):</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs bench_load
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node bench_load
 /nix/store/ij8jri0z1k5n447f9s0x5yfx5p9iqnnf-bench_load
 
 $ sudo nice -n -20 perf stat -r 10 -d ./result
@@ -3064,7 +3161,7 @@ $ sudo nice -n -20 perf stat -r 10 -d ./result
 <h6 id="_b_graph_setup_tear_down_message_pass_increment"><a class="anchor" href="#_b_graph_setup_tear_down_message_pass_increment"></a>B = (Graph setup + tear down + message pass + increment):</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs bench
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node bench
 /nix/store/mfl206ccv86wvyi2ra5296l8n1bks24x-bench
 
 $ sudo nice -n -20 perf stat -r 10 -d ./result
@@ -3484,7 +3581,7 @@ subgraph {
 <h5 id="_executing_the_graph"><a class="anchor" href="#_executing_the_graph"></a>Executing the graph</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr rs workbench_test
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node workbench_test
 $ ./result</code></pre>
 </div>
 </div>
