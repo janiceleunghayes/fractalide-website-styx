@@ -1301,7 +1301,7 @@ in
 subgraph {
  src = ./.;
  flowscript = with nodes.rs; ''
-  '${PrimBool}' -&gt; a not(${maths_boolean_not}) output -&gt; input io_print(${maths_boolean_print})
+  '${PrimBool}' -&gt; input not(${maths_boolean_not}) output -&gt; input io_print(${maths_boolean_print})
  '';
 }</code></pre>
 </div>
