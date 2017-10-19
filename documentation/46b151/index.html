@@ -445,29 +445,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#edges">4. Edge Collection</a>
 <ul class="sectlevel2">
-<li><a href="#_what_3">4.1. What?</a></li>
-<li><a href="#_why_3">4.2. Why?</a></li>
-<li><a href="#_who_3">4.3. Who?</a></li>
-<li><a href="#_where_3">4.4. Where?</a></li>
-<li><a href="#_how_3">4.5. How?</a></li>
+<li><a href="#_what_4">4.1. What?</a></li>
+<li><a href="#_why_4">4.2. Why?</a></li>
+<li><a href="#_who_4">4.3. Who?</a></li>
+<li><a href="#_where_4">4.4. Where?</a></li>
+<li><a href="#_how_4">4.5. How?</a></li>
 </ul>
 </li>
 <li><a href="#services">5. Services</a>
 <ul class="sectlevel2">
-<li><a href="#_what_4">5.1. What?</a></li>
-<li><a href="#_why_4">5.2. Why?</a></li>
-<li><a href="#_who_4">5.3. Who?</a></li>
-<li><a href="#_where_4">5.4. Where?</a></li>
-<li><a href="#_how_4">5.5. How?</a></li>
+<li><a href="#_what_5">5.1. What?</a></li>
+<li><a href="#_why_5">5.2. Why?</a></li>
+<li><a href="#_who_5">5.3. Who?</a></li>
+<li><a href="#_where_5">5.4. Where?</a></li>
+<li><a href="#_how_5">5.5. How?</a></li>
 </ul>
 </li>
 <li><a href="#fractals">6. Fractals</a>
 <ul class="sectlevel2">
-<li><a href="#_what_5">6.1. What?</a></li>
-<li><a href="#_why_5">6.2. Why?</a></li>
-<li><a href="#_who_5">6.3. Who?</a></li>
-<li><a href="#_where_5">6.4. Where?</a></li>
-<li><a href="#_how_5">6.5. How?</a></li>
+<li><a href="#_what_6">6.1. What?</a></li>
+<li><a href="#_why_6">6.2. Why?</a></li>
+<li><a href="#_who_6">6.3. Who?</a></li>
+<li><a href="#_where_6">6.4. Where?</a></li>
+<li><a href="#_how_6">6.5. How?</a></li>
 <li><a href="#_incremental_builds">6.6. Incremental Builds</a></li>
 <li><a href="#_there_is_a_code_service_nix_code_file_what_is_it">6.7. There is a <code>service.nix</code> file! What is it?</a></li>
 <li><a href="#_two_ways_to_execute_your_fractal">6.8. Two ways to execute your fractal</a></li>
@@ -1810,7 +1810,7 @@ subgraph {
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>Node</code> and <code>Edge</code> names, i.e.: <code>${maths_boolean_nand}</code> seem quite long. Fractalide uses a hierarchical naming scheme. So you can find the <code>maths_boolean_not</code> node by going to the [maths/boolean/not](./maths/boolean/not/default.nix) directory. The whole goal of this is to avoid name shadowing among potentially hundreds to thousands of nodes.</p>
+<p>The <code>Node</code> and <code>Edge</code> names, i.e.: <code>${maths_boolean_nand}</code> seem quite long. Fractalide uses a hierarchical naming scheme. So you can find the <code>maths_boolean_not</code> node by opening to the <code>nodes/rs/maths/boolean/not/default.nix</code> file. The whole goal of this is to avoid name shadowing among potentially hundreds to thousands of nodes.</p>
 </div>
 <div class="paragraph">
 <p>Explanation of the <code>Subgraph</code>:</p>
@@ -1836,8 +1836,8 @@ in
 subgraph {
   src = ./.;
   flowscript = with nodes.rs; ''
-    '${PrimBool}' -&gt; a nand(${maths_boolean_nand})
-    '${PrimBool}' -&gt; b nand()
+    '${imsgTrue}' -&gt; a nand(${maths_boolean_nand})
+    '${imsgTrue}' -&gt; b nand()
     nand() output -&gt; input not(${maths_boolean_not})
     not() output -&gt; input print(${maths_boolean_print})
   '';
@@ -1884,9 +1884,9 @@ subgraph {
 </div>
 </div>
 <div class="paragraph">
-<p>Notice the <code>net_http_nodes</code> and <code>app_todo_nodes</code> namespaces. Some [fractals](../fractals/README.md) deliberately export a collection of <code>Nodes</code>. As is the case with the <code>net_http_nodes.http</code> node.
+<p>Notice the <code>net_http_nodes</code> and <code>app_todo_nodes</code> namespaces. Some <a href="#fractals">fractals</a> deliberately export a collection of <code>Nodes</code>. As is the case with the <code>net_http_nodes.http</code> node.
 When you see a <code>fullstop</code> <code>.</code>, i.e. <code>xxx_nodes.yyy</code> you immediately know this is a namespace. It&#8217;s also a programming convention to use the <code>_nodes</code> suffix to indicate a namespace.
-Lastly, notice the advanced usage of <code>array ports</code> with this example: <code>GET[/todos/.+]</code>, the element label is actually a <code>regular expression</code> and the implementation of that node is slightly more <a href="https://github.com/fractalide/fractal_net_http/blob/master/nodes/http/src/lib.rs#L149">advanced</a> You can read more about this in the <a href="#howto">HOWTO</a>.</p>
+Lastly, notice the advanced usage of <code>array ports</code> with this example: <code>GET[/todos/.+]</code>, the element label is actually a <code>regular expression</code> and the implementation of that node is slightly more <a href="https://github.com/fractalide/fractal_net_http/blob/master/nodes/rs/http/lib.rs">advanced</a> You can read more about this in the <a href="#howto">HOWTO</a>.</p>
 </div>
 </div>
 </div>
@@ -1894,7 +1894,7 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 <div class="sect2">
 <h3 id="_agents"><a class="anchor" href="#_agents"></a>3.2. Agents</h3>
 <div class="sect3">
-<h4 id="_rust"><a class="anchor" href="#_rust"></a>3.2.1. Rust</h4>
+<h4 id="rust_agents"><a class="anchor" href="#rust_agents"></a>3.2.1. Rust</h4>
 <div class="sect4">
 <h5 id="_what_2"><a class="anchor" href="#_what_2"></a>What?</h5>
 <div class="paragraph">
@@ -1983,7 +1983,7 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 <p>What <code>edges</code> are needed?</p>
 </li>
 <li>
-<p>What <code>crates</code> from <a href="https://crates.io">crates.io</a> are needed?</p>
+<p>What <code>mods</code> from <a href="https://crates.io">crates.io</a> are needed?</p>
 </li>
 <li>
 <p>What <code>osdeps</code> or <code>operating system level dependencies</code> are needed?</p>
@@ -1992,20 +1992,20 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, crates, pkgs }:
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
-  edges = with edges; [ prim_bool ];
-  crates = with crates; [ rustfbp capnp ];
-  osdeps = with pkgs; [ openssl ];
+  edges = with edges.rs; [ ];
+  mods = with mods.rs; [ rustfbp ];
+  osdeps = with pkgs; [];
 }</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>{ agent, edges, crates, pkgs }:</code> lambda imports: The <code>edges</code> attribute which consists of every <code>edge</code> available on the system. The <code>crates</code> attribute set consists of every <code>crate</code> on <a href="https://crates.io" class="bare">https://crates.io</a>. Lastly the <code>pkgs</code> pulls in every third party package available on NixOS, here&#8217;s the whole <a href="http://nixos.org/nixos/packages.html">list</a>.</p>
+<p>The <code>{ agent, edges, mods, pkgs }:</code> lambda imports: The <code>edges</code> attribute which consists of every <code>edge</code> available on the system. The <code>mods</code> attribute set consists of every <code>crate</code> on <a href="https://crates.io" class="bare">https://crates.io</a>. Lastly the <code>pkgs</code> pulls in every third party package available on NixOS, here&#8217;s the whole <a href="http://nixos.org/nixos/packages.html">list</a>.</p>
 </li>
 <li>
 <p>The <code>agent</code> function builds the rust <code>lib.rs</code> source code, and accepts these arguments:</p>
@@ -2015,10 +2015,10 @@ agent {
 <p>The <code>src</code> attribute is used to derive an <code>Agent</code> name based on location in the directory hierarchy.</p>
 </li>
 <li>
-<p>The <code>edges</code> lazily compiles schema and composite schema ensuring their availability.</p>
+<p>The <code>edges</code> lazily compiles schema and composite schema ensuring their availability. Sometimes when the types are rust primatives there doesn&#8217;t need to be a type in the square brackets. Otherwise the type is derived from the <code>edges</code> directory tree.</p>
 </li>
 <li>
-<p>The <code>crates</code> specifies exactly which <code>crates</code> are needed in scope.</p>
+<p>The <code>mods</code> specifies exactly which <code>mods</code> are needed in scope.</p>
 </li>
 <li>
 <p>The <code>osdeps</code> specifies exactly which <code>pkgs</code>, or third party <code>operating system level libraries</code> such as <code>openssl</code> needed in scope.</p>
@@ -2051,29 +2051,15 @@ agent {
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
 extern crate rustfbp;
-extern crate capnp;
 
 agent! {
-  input(a: prim_bool, b: prim_bool),
-  output(output: prim_bool),
+  input(a: bool, b: bool),
+  output(output: bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    let a = {
-      let mut ip_a = self.input.a.recv()?;
-      let a_reader: prim_bool::Reader = ip_a.read_schema()?;
-      a_reader.get_boolean()
-    };
-    let b = {
-      let mut ip_b = self.input.b.recv()?;
-      let b_reader: prim_bool::Reader = ip_b.read_schema()?;
-      b_reader.get_boolean()
-    };
-
-    let mut out_ip = IP::new();
-    {
-      let mut boolean = out_ip.build_schema::&lt;prim_bool::Builder&gt;();
-      boolean.set_boolean(if a == true &amp;&amp; b == true {false} else {true});
-    }
-    self.output.output.send(out_ip)?;
+    let a = self.input.a.recv()?;
+    let b = self.input.b.recv()?;
+    let res = ! (a &amp;&amp; b);
+    self.output.output.send(res)?;
     Ok(End)
   }
 }</code></pre>
@@ -2087,36 +2073,35 @@ All expresions are optional except for the <code>run</code> function.</p>
 <h7 id="__code_input_code"><a class="anchor" href="#__code_input_code"></a><code>input</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
-  input(input_name: prim_bool),
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+
+agent! {
+  input(input_name: bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    let a = {
-      let mut a_msg = self.input.input_name.recv()?;
-      let a_reader: prim_bool::Reader = a_msg.read_schema()?;
-      a_reader.get_boolean()
-    };
+    let msg = self.input.input_name.recv()?;
     Ok(End)
   }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>input</code> port, is a bounded buffer simple input channel that carries Cap&#8217;n Proto schemas as messages.</p>
+<p>The <code>input</code> port, is a bounded buffer simple input channel rust typed data as messages.</p>
 </div>
 </div>
 <div class="sect6">
 <h7 id="__code_inarr_code"><a class="anchor" href="#__code_inarr_code"></a><code>inarr</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
-  inarr(input_array_name: prim_bool),
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+
+agent! {
+  inarr(input_array_name: i32),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    for ins in self.inarr.input_array_name.values() {
-      let a = {
-        let mut a_msg = ins.recv()?;
-        let a_reader: prim_bool::Reader = a_msg.read_schema()?;
-        a_reader.get_boolean()
-      };
+    let mut sum = 0;
+    for (_id, elem) in &amp;self.inarr.input_array_name {
+      sum += elem.recv()?;
     }
     Ok(End)
   }
@@ -2132,15 +2117,13 @@ They are used when the <code>Subgraph</code> developer needs multiple elements o
 <h7 id="__code_output_code"><a class="anchor" href="#__code_output_code"></a><code>output</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+
+agent! {
   output(output_name: prim_bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    let mut msg_out = msg::new();
-    {
-      let mut boolean = msg_out.build_schema::&lt;prim_bool::Builder&gt;();
-      boolean.set_boolean(true);
-    }
-    self.output.output_name.send(msg_out)?;
+    self.output.output_name.send(true)?;
     Ok(End)
   }
 }</code></pre>
@@ -2154,13 +2137,14 @@ They are used when the <code>Subgraph</code> developer needs multiple elements o
 <h7 id="__code_outarr_code"><a class="anchor" href="#__code_outarr_code"></a><code>outarr</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
-  input(input: any),
-  outarr(clone: any),
+<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+extern crate rustfbp;
+
+agent! {
+  outarr(out_array_name: bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    let msg = self.input.input.recv()?;
-    for p in self.outarr.clone.elements()? {
-        self.outarr.clone.send( &amp;p, msg.clone())?;
+    for p in self.outarr.out_array_name.elements()? {
+      self.outarr.out_array_name.send(true)?;
     }
     Ok(End)
   }
@@ -2172,64 +2156,14 @@ They are used when the <code>Subgraph</code> developer needs multiple elements o
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_state_code"><a class="anchor" href="#__code_state_code"></a><code>state</code>:</h7>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
-extern crate rustfbp;
-extern crate capnp;
-extern crate nanomsg;
-
-use nanomsg::{Socket, Protocol};
-pub struct State {
-    socket: Option&lt;Socket&gt;,
-}
-
-impl State {
-    fn new() -&gt; State {
-        State {
-            socket: None,
-        }
-    }
-}
-
-agent! {
-  input(connect: prim_text, ip: any),
-  state(State =&gt; State::new()),
-  fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    if let Ok(mut ip) = self.inputs.connect.try_recv() {
-        let reader: prim_text::Reader = ip.read_schema()?;
-        let mut socket = Socket::new(Protocol::Push)
-            .or(Err(result::Error::Misc("Cannot create socket".into())))?;
-        socket.bind(reader.get_text()?)
-            .or(Err(result::Error::Misc("Cannot connect socket".into())))?;
-        self.state.socket = Some(socket);
-    }
-
-    if let Ok(ip) = self.inputs.ip.try_recv() {
-        if let Some(ref mut socket) = self.state.socket {
-            socket.write(&amp;ip.vec[..]);
-        }
-    }
-    Ok(End)
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It is basically the state of the agent. A <code>State</code> allows us to keep complex state hanging around if needed. It can be any Rust type. The <code>state</code> is persistant for all the executions, so each time you are in the function <code>run()</code>, you can access and modify it.</p>
-</div>
-</div>
-<div class="sect6">
 <h7 id="__code_option_code"><a class="anchor" href="#__code_option_code"></a><code>option</code>:</h7>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
-  option(prim_bool),
+  option(bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
     let mut opt = self.option.recv();
-    let opt_reader: prim_bool::Reader = opt.read_schema()?;
-    let opt_boolean = opt_reader.get_boolean()?;
+    // use opt to configure something
     Ok(End)
   }
 }</code></pre>
@@ -2246,23 +2180,216 @@ agent! {
 <pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
   accumulator(prim_bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
-    let mut acc = self.ports.accumulator.recv()?;
-    let acc_reader: prim_bool::Reader = ip_acc.read_schema()?;
-    let acc_boolean = acc_reader.get_boolean()?;
+    let acc = self.ports.accumulator.recv()?;
+    // use the accumulator to start accumulating something.
     Ok(End)
   }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>accumulator</code> gives the <code>subgraph</code> developer a way to start counting at a certain number. This port isn&#8217;t used so often.</p>
+<p>The <code>accumulator</code> gives the <code>subgraph</code> developer a way to start counting at a certain number. It&#8217;s a way of passing in initial state.</p>
 </div>
 </div>
 <div class="sect6">
 <h7 id="__code_run_code"><a class="anchor" href="#__code_run_code"></a><code>run</code>:</h7>
 <div class="paragraph">
-<p>This function does the actual processing and is the only mandatory expression of this macro.</p>
+<p>This function does the actual processing and is the only mandatory expression of this macro. You&#8217;ve seen many examples already.</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="idris_agents"><a class="anchor" href="#idris_agents"></a>3.2.2. Idris</h4>
+<div class="sect4">
+<h5 id="_what_3"><a class="anchor" href="#_what_3"></a>What?</h5>
+<div class="paragraph">
+<p>Executable <code>Subgraphs</code> are defined as a network of <code>Agents</code>, which exchange typed data across predefined connections by message passing, where the connections are specified externally to the processes. These <code>Agents</code>  can be reconnected endlessly to form different executable <code>Subgraphs</code> without having to be changed internally.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_why_3"><a class="anchor" href="#_why_3"></a>Why?</h5>
+<div class="paragraph">
+<p>Functions in a programming language should be placed in a content addressable store, this is the horizontal plane. The vertical plane should be constructed using unique addresses into this content addressable store, critically each address should solve a single problem, and may do so by referencing multiple other unique addresses in the content addressable store. Users must not have knowledge of these unique addresses but a translation process should occur from a human readable name to a universally unique address. Read <a href="http://erlang.org/pipermail/erlang-questions/2011-May/058768.html">more</a> about the problem.</p>
+</div>
+<div class="paragraph">
+<p>Nix gives us the content addressable store which allows for <code>reproducibility</code>, and these <code>agents</code> give us <code>reusablility</code>. The combination is particularly potent form of programming.</p>
+</div>
+<div class="paragraph">
+<p>Once you have the above, you have truly reusable and reproducible functions. Fractalide nodes are just this, and it makes the below so much easier to achieve:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>* Open source collaboration
+* Open peer review of nodes
+* Nice clean reusable nodes
+* Reproducible applications</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_who_3"><a class="anchor" href="#_who_3"></a>Who?</h5>
+<div class="paragraph">
+<p>Typically programmers will develop <code>Agents</code>. They specialize in making <code>Agents</code> as efficient and reusable as possible, while people who focus on the Science give the requirements and use the <code>Subgraphs</code>. Just as a hammer is designed to be reused, so <code>Subgraphs</code> and <code>Agents</code> should be designed for reuse.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_where_3"><a class="anchor" href="#_where_3"></a>Where?</h5>
+<div class="paragraph">
+<p>The <code>Agents</code> are found in this <code>nodes</code> directory, or the <code>nodes</code> directory of a <a href="#fractal">fractal</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">nodes
+└── idr
+    └── file
+        └── open
+            ├── File &lt;--- contains the `file_open` idris agent code
+            │   └── *.idr
+            ├── Tests &lt;--- contains the `file_open` idris agent tests
+            │   └── *.idr
+            ├── default.nix &lt;--- configures the environment to compile the agent
+            └── agent.ipkg &lt;--- `idris` uses the deps made available by `default.nix`</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you see an <code>agent.ipkg</code> in the same directory as a <code>default.nix</code> you know it&#8217;s an <code>Agent</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_how_3"><a class="anchor" href="#_how_3"></a>How?</h5>
+<div class="paragraph">
+<p>An <code>Agent</code> consists of three parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>nix</code> <code>default.nix</code> file that sets up an environment to satisfy the <code>idris</code> repl/compiler.</p>
+</li>
+<li>
+<p>an <code>idris</code> <code>agent.ipkg</code> tells idris how to compile the source code in the directories.</p>
+</li>
+<li>
+<p>the <code>idris</code> <code>*.idr</code> source code within capitalized directories.</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="_the_code_agent_code_nix_function_2"><a class="anchor" href="#_the_code_agent_code_nix_function_2"></a>The <code>agent</code> Nix function.</h6>
+<div class="paragraph">
+<p>The <code>agent</code> function in the <code>default.nix</code> requires you make decisions about three types of dependencies.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>What <code>edges</code> inter-agent idris types are to be pulled in?</p>
+</li>
+<li>
+<p>What <code>mods</code> which are idris library dependencies available online.</p>
+</li>
+<li>
+<p>What <code>osdeps</code> or <code>operating system level dependencies</code> are needed?</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+
+agent {
+  src = ./.;
+  edges = with edges.idr; [ TestVect ];
+  mods = with mods.idr; [ contrib ];
+  osdeps = with pkgs; [ openssl ];
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>{ agent, edges, mods, pkgs }:</code> lambda imports: The <code>edges</code> attribute which consists of every <code>edge</code> available on the system. The <code>mods</code> attribute set consists of every <code>mod</code> in the <code>modules/idr</code> directory. Lastly the <code>pkgs</code> pulls in every third party package available on NixOS, here&#8217;s the whole <a href="http://nixos.org/nixos/packages.html">list</a>.</p>
+</li>
+<li>
+<p>The <code>agent</code> function builds the idris <code>agent.ipkg</code> and associated source code, and accepts these arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>src</code> attribute is used to derive the source code and <code>Agent</code> name based on location in the <code>nodes</code> directory hierarchy.</p>
+</li>
+<li>
+<p>The <code>edges</code> makes inter-agent <code>idris</code> types available just before build time.</p>
+</li>
+<li>
+<p>The <code>mods</code> specifies exactly which <code>modules</code> are needed for the agent to build.</p>
+</li>
+<li>
+<p>The <code>osdeps</code> specifies exactly which <code>pkgs</code>, or third party <code>operating system level libraries</code> such as <code>openssl</code> needed in scope.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only specified dependencies and their transitive dependencies will be pulled into scope once the <code>agent</code> compilation starts, or when you run a development shell.</p>
+</div>
+<div class="paragraph">
+<p>This is the output of the above <code>agent</code>'s compilation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-file_open
+└── lib
+    └── libagent.js</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_nix_shell"><a class="anchor" href="#_nix_shell"></a>nix-shell</h6>
+<div class="paragraph">
+<p>It&#8217;s convenient to use a REPL, idris-mode with your editor while developing an agent.</p>
+</div>
+<div class="paragraph">
+<p>Here are the steps to setup a development environment.</p>
+</div>
+<div class="paragraph">
+<p>In the root directory of fractalide, issue these commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$ nix-shell -A mods.idr.idrisfbp</code> &#8592; or whatever the attribute path of the idris agent you want</p>
+</li>
+<li>
+<p><code>$ cd modules/idr/idrisfbp</code> &#8592; <code>cd</code> to your chosen agent in the <code>nodes</code> hierachy</p>
+</li>
+<li>
+<p><code>$ source $setup</code></p>
+</li>
+<li>
+<p><code>$ build</code></p>
+</li>
+<li>
+<p><code>$ run emacs .</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the <code>run</code> command to work you need to have installed your editor via your system level <code>configuration.nix</code> file, as it references the <code>/run/current-system/sw/bin/*</code> path.</p>
+</div>
+<div class="paragraph">
+<p>You may also start a REPL and use your integrated idris-modes in your editor. Note all the dependencies have been <code>alias&#8217;ed to `idris</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>$ type idris
+idris is aliased to `idris -i /nix/store/0ijgdwdb9bfwwkgcxac25p2mxl161ljb-base-1.1.0/lib/1.1.0-git:PRE/base -i /nix/store/12cs9pgsdq4rhnzxjdk5hqv5rc9v60pb-prelude-1.1.0/lib/1.1.0-git:PRE/prelude -i /nix/store/506r1qqayw6j2nb4dsfvb716n9x8ndmj-contrib-1.1.0/lib/1.1.0-git:PRE/contrib -i /home/stewart/dev/fractalide/fractalide/modules/idr/idrisfbp/idris_libs'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>idris</code> command in each agent development environment will contain a different set of associated alias&#8217;ed paths.
+It might be a good idea to create a throw away agent that contains all the useful dependencies, create a development shell using that agent then navigate around the <code>nodes</code> hierarchy without closing your editer each time.</p>
 </div>
 </div>
 </div>
@@ -2274,7 +2401,7 @@ agent! {
 <h2 id="edges"><a class="anchor" href="#edges"></a>4. Edge Collection</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_3"><a class="anchor" href="#_what_3"></a>4.1. What?</h3>
+<h3 id="_what_4"><a class="anchor" href="#_what_4"></a>4.1. What?</h3>
 <div class="paragraph">
 <p>An <code>Edge</code> is a bounded buffer message passing channel between two ports belonging to their respective <code>agents</code>.</p>
 </div>
@@ -2402,7 +2529,7 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_3"><a class="anchor" href="#_why_3"></a>4.2. Why?</h3>
+<h3 id="_why_4"><a class="anchor" href="#_why_4"></a>4.2. Why?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2418,13 +2545,13 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_3"><a class="anchor" href="#_who_3"></a>4.3. Who?</h3>
+<h3 id="_who_4"><a class="anchor" href="#_who_4"></a>4.3. Who?</h3>
 <div class="paragraph">
 <p>Typically <code>subgraph</code> developers will be interested in <code>hidden and exposed edges</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_3"><a class="anchor" href="#_where_3"></a>4.4. Where?</h3>
+<h3 id="_where_4"><a class="anchor" href="#_where_4"></a>4.4. Where?</h3>
 <div class="paragraph">
 <p>The <code>edges</code> directory is where all the schema go:</p>
 </div>
@@ -2451,7 +2578,7 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_3"><a class="anchor" href="#_how_3"></a>4.5. How?</h3>
+<h3 id="_how_4"><a class="anchor" href="#_how_4"></a>4.5. How?</h3>
 <div class="paragraph">
 <p><code>Edges</code> may depend on other <code>edges</code>.</p>
 </div>
@@ -2612,13 +2739,13 @@ struct ListCommand {
 <h2 id="services"><a class="anchor" href="#services"></a>5. Services</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_4"><a class="anchor" href="#_what_4"></a>5.1. What?</h3>
+<h3 id="_what_5"><a class="anchor" href="#_what_5"></a>5.1. What?</h3>
 <div class="paragraph">
 <p><code>Services</code> are reusable and consist of <code>agents</code>, <code>subgraphs</code> and <code>edges</code>. They may be connected to other <code>services</code> on the same system or on remote machines in a high performance cluster quite easily.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_4"><a class="anchor" href="#_why_4"></a>5.2. Why?</h3>
+<h3 id="_why_5"><a class="anchor" href="#_why_5"></a>5.2. Why?</h3>
 <div class="paragraph">
 <p><code>Services</code> allow programmers to collaborate and distill common configurable patterns that solve general problems.
 Essentially a <code>service</code> in this context is no different from a top level <code>subgraph</code>, albeit the interface has been <code>nix&#8217;ified. The `nix</code> interface is required because this is where <code>nixos</code> takes over and declaratively handles conguent configuration management. It does things like sets up dependencies such as database and other services that might need to be run for the <code>subgraph</code> to operate properly. This layer of software has been well tested by the <code>nix</code> community and ties in with every other service created by the <code>nixos</code> community.</p>
@@ -2628,19 +2755,19 @@ Essentially a <code>service</code> in this context is no different from a top le
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_4"><a class="anchor" href="#_who_4"></a>5.3. Who?</h3>
+<h3 id="_who_5"><a class="anchor" href="#_who_5"></a>5.3. Who?</h3>
 <div class="paragraph">
 <p>Anyone who has completed a high quality, documented hierarchy of components, subnets and contracts, and where the hierarchy makes sense to expose as a service. We use the [C4](../CONTRIBUTING.md) so your <code>services</code> will be merged in quickly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_4"><a class="anchor" href="#_where_4"></a>5.4. Where?</h3>
+<h3 id="_where_5"><a class="anchor" href="#_where_5"></a>5.4. Where?</h3>
 <div class="paragraph">
 <p><code>Service</code> implementations by convention exist in a <a href="#fractals"><code>fractal&#8217;s</code></a> root <a href="https://github.com/fractalide/fractal_workbench/blob/master/service.nix">folder</a>. It doesn&#8217;t make sense to expose every <code>fractal</code> as a service. Though if the <code>fractal</code> is dependent on other services such as databases, then it might make sense. Nevertheless, the fractals which have a <code>service.nix</code> may have their components and contracts imported into higher level subnets via the <a href="#fractals">Fractals</a> importing mechanism. This higher level subnet may then be exposed as a <code>service</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_4"><a class="anchor" href="#_how_4"></a>5.5. How?</h3>
+<h3 id="_how_5"><a class="anchor" href="#_how_5"></a>5.5. How?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2744,31 +2871,31 @@ services.workbench = {
 <p>Fractals are third party Fractalide libraries.</p>
 </div>
 <div class="sect2">
-<h3 id="_what_5"><a class="anchor" href="#_what_5"></a>6.1. What?</h3>
+<h3 id="_what_6"><a class="anchor" href="#_what_6"></a>6.1. What?</h3>
 <div class="paragraph">
 <p><code>Fractals</code> are importable 3rd party sets of nodes, subgraphs and edges, this folder hierarchy is the single source of truth regarding where to find each community fractal.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_5"><a class="anchor" href="#_why_5"></a>6.2. Why?</h3>
+<h3 id="_why_6"><a class="anchor" href="#_why_6"></a>6.2. Why?</h3>
 <div class="paragraph">
 <p><code>Fractals</code> allow the community to develop their own projects in their own git repository, and once ready, may plug into <code>dev/fractalide/fractals</code> folder hierarchy which represents the spine of Fractalide. Once inserted your <code>fractal</code> is available for use by everyone.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_5"><a class="anchor" href="#_who_5"></a>6.3. Who?</h3>
+<h3 id="_who_6"><a class="anchor" href="#_who_6"></a>6.3. Who?</h3>
 <div class="paragraph">
 <p>Anyone making high quality, documented nodes, subgraphs and edges may plug into this folder hierarchy. We use the <a href="https://github.com/fractalide/fractalide/blob/master/CONTRIBUTING.md">C4</a> so your <code>fractals</code> will be merged in quickly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_5"><a class="anchor" href="#_where_5"></a>6.4. Where?</h3>
+<h3 id="_where_6"><a class="anchor" href="#_where_6"></a>6.4. Where?</h3>
 <div class="paragraph">
 <p>Each <code>fractal</code> needs to have it&#8217;s own hierarchical folder. For example, HTTP would be placed in the <code>fractalide/fractals/net/http</code> folder.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_5"><a class="anchor" href="#_how_5"></a>6.5. How?</h3>
+<h3 id="_how_6"><a class="anchor" href="#_how_6"></a>6.5. How?</h3>
 <div class="paragraph">
 <p>Say you wish to create a <code>http</code> project, these are the exact steps involved:</p>
 </div>
