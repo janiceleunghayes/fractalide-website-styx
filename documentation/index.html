@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
 <meta name="description" content="Fractalide documentation">
 <title>Fractalide documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -90,13 +90,12 @@ strong,b{font-weight:bold;line-height:inherit}
 small{font-size:60%;line-height:inherit}
 code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
 ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
-ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
 ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
 ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
-ul.no-bullet{list-style:none}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -132,7 +131,11 @@ strong strong{font-weight:400}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
 .keyseq kbd:last-child{margin-right:0}
-.menuseq,.menu{color:rgba(0,0,0,.8)}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
 b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
 b.button:before{content:"[";padding:0 3px 0 2px}
 b.button:after{content:"]";padding:0 2px 0 3px}
@@ -199,7 +202,7 @@ table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
 table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
-.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon img{max-width:initial}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
@@ -255,13 +258,13 @@ table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
 table.tableblock{max-width:100%;border-collapse:separate}
 table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
 table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
-table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
-table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
-table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
-table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
-table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
-table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
-table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px 0}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
 table.frame-all{border-width:1px}
 table.frame-sides{border-width:0 1px}
 table.frame-topbot{border-width:1px 0}
@@ -282,10 +285,12 @@ ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
-ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
-ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -302,7 +307,8 @@ ol.lowergreek{list-style-type:lower-greek}
 td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
 td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 .literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
-.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:first-of-type{padding:.4em .75em 0 .75em;line-height:1;vertical-align:top}
+.colist>table tr>td:first-of-type img{max-width:initial}
 .colist>table tr>td:last-of-type{padding:.25em 0}
 .thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
 .imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
@@ -365,6 +371,7 @@ div.unbreakable{page-break-inside:avoid}
 .yellow{color:#bfbf00}
 .yellow-background{background-color:#fafa00}
 span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
 .admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
 .admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
@@ -426,57 +433,57 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a>
+<li><a href="#_introduction">Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#_what_is_this">1.1. What is this?</a></li>
-<li><a href="#_features">1.2. Features</a></li>
-<li><a href="#_what_s_new_from_different_perspectives">1.3. What&#8217;s new from different perspectives</a></li>
-<li><a href="#_solved_problems">1.4. Solved problems</a></li>
-<li><a href="#_roadmap">1.5. Roadmap</a></li>
-<li><a href="#_the_mandatory_hello_like_world_example">1.6. The mandatory Hello-like World example.</a></li>
+<li><a href="#_what_is_this">What is this?</a></li>
+<li><a href="#_features">Features</a></li>
+<li><a href="#_what_s_new_from_different_perspectives">What&#8217;s new from different perspectives</a></li>
+<li><a href="#_solved_problems">Solved problems</a></li>
+<li><a href="#_roadmap">Roadmap</a></li>
+<li><a href="#_the_mandatory_hello_like_world_example">The mandatory Hello-like World example.</a></li>
 </ul>
 </li>
-<li><a href="#_quick_start_to_building_an_not_logic_gate">2. Quick Start to Building an NOT logic gate</a></li>
-<li><a href="#nodes">3. Nodes collection</a>
+<li><a href="#_quick_start_to_building_an_not_logic_gate">1. Quick Start to Building an NOT logic gate</a></li>
+<li><a href="#nodes">2. Nodes collection</a>
 <ul class="sectlevel2">
-<li><a href="#_subgraphs">3.1. Subgraphs</a></li>
-<li><a href="#_agents">3.2. Agents</a></li>
+<li><a href="#_subgraphs">2.1. Subgraphs</a></li>
+<li><a href="#_agents">2.2. Agents</a></li>
 </ul>
 </li>
-<li><a href="#edges">4. Edge Collection</a>
+<li><a href="#edges">3. Edge Collection</a>
 <ul class="sectlevel2">
-<li><a href="#_what_4">4.1. What?</a></li>
-<li><a href="#_why_4">4.2. Why?</a></li>
-<li><a href="#_who_4">4.3. Who?</a></li>
-<li><a href="#_where_4">4.4. Where?</a></li>
-<li><a href="#_how_4">4.5. How?</a></li>
+<li><a href="#_what_4">3.1. What?</a></li>
+<li><a href="#_why_4">3.2. Why?</a></li>
+<li><a href="#_who_4">3.3. Who?</a></li>
+<li><a href="#_where_4">3.4. Where?</a></li>
+<li><a href="#_how_4">3.5. How?</a></li>
 </ul>
 </li>
-<li><a href="#services">5. Services</a>
+<li><a href="#services">4. Services</a>
 <ul class="sectlevel2">
-<li><a href="#_what_5">5.1. What?</a></li>
-<li><a href="#_why_5">5.2. Why?</a></li>
-<li><a href="#_who_5">5.3. Who?</a></li>
-<li><a href="#_where_5">5.4. Where?</a></li>
-<li><a href="#_how_5">5.5. How?</a></li>
+<li><a href="#_what_5">4.1. What?</a></li>
+<li><a href="#_why_5">4.2. Why?</a></li>
+<li><a href="#_who_5">4.3. Who?</a></li>
+<li><a href="#_where_5">4.4. Where?</a></li>
+<li><a href="#_how_5">4.5. How?</a></li>
 </ul>
 </li>
-<li><a href="#fractals">6. Fractals</a>
+<li><a href="#fractals">5. Fractals</a>
 <ul class="sectlevel2">
-<li><a href="#_what_6">6.1. What?</a></li>
-<li><a href="#_why_6">6.2. Why?</a></li>
-<li><a href="#_who_6">6.3. Who?</a></li>
-<li><a href="#_where_6">6.4. Where?</a></li>
-<li><a href="#_how_6">6.5. How?</a></li>
-<li><a href="#_incremental_builds">6.6. Incremental Builds</a></li>
-<li><a href="#_there_is_a_code_service_nix_code_file_what_is_it">6.7. There is a <code>service.nix</code> file! What is it?</a></li>
-<li><a href="#_two_ways_to_execute_your_fractal">6.8. Two ways to execute your fractal</a></li>
+<li><a href="#_what_6">5.1. What?</a></li>
+<li><a href="#_why_6">5.2. Why?</a></li>
+<li><a href="#_who_6">5.3. Who?</a></li>
+<li><a href="#_where_6">5.4. Where?</a></li>
+<li><a href="#_how_6">5.5. How?</a></li>
+<li><a href="#_incremental_builds">5.6. Incremental Builds</a></li>
+<li><a href="#_there_is_a_code_service_nix_code_file_what_is_it">5.7. There is a <code>service.nix</code> file! What is it?</a></li>
+<li><a href="#_two_ways_to_execute_your_fractal">5.8. Two ways to execute your fractal</a></li>
 </ul>
 </li>
-<li><a href="#howto">7. HOWTO</a>
+<li><a href="#howto">6. HOWTO</a>
 <ul class="sectlevel2">
-<li><a href="#_steps">7.1. Steps</a></li>
-<li><a href="#_tokio">7.2. Tokio-*</a></li>
+<li><a href="#_steps">6.1. Steps</a></li>
+<li><a href="#_tokio">6.2. Tokio-*</a></li>
 </ul>
 </li>
 </ul>
@@ -484,14 +491,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This manual tells you how to write subnets, components and contracts for the Fractalide component / contract
 collection.</p>
 </div>
 <div class="sect2">
-<h3 id="_what_is_this"><a class="anchor" href="#_what_is_this"></a>1.1. What is this?</h3>
+<h3 id="_what_is_this"><a class="anchor" href="#_what_is_this"></a>What is this?</h3>
 <div class="paragraph">
 <p>Fractalide is a free and open source service programming platform using dataflow graphs. Graph nodes represent computations, while graph edges represent typed data (may also describe tensors) communicated between them. This flexible architecture can be applied to many different computation problems, initially the focus will be Microservices to be expanded out into the Internet of Things.</p>
 </div>
@@ -503,7 +510,7 @@ collection.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_features"><a class="anchor" href="#_features"></a>1.2. Features</h3>
+<h3 id="_features"><a class="anchor" href="#_features"></a>Features</h3>
 <div class="paragraph">
 <p>Fractalide stands on the shoulders of giants by combining the strengths of each language into one programming model.</p>
 </div>
@@ -603,9 +610,9 @@ collection.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_what_s_new_from_different_perspectives"><a class="anchor" href="#_what_s_new_from_different_perspectives"></a>1.3. What&#8217;s new from different perspectives</h3>
+<h3 id="_what_s_new_from_different_perspectives"><a class="anchor" href="#_what_s_new_from_different_perspectives"></a>What&#8217;s new from different perspectives</h3>
 <div class="sect3">
-<h4 id="_nix_programmers"><a class="anchor" href="#_nix_programmers"></a>1.3.1. Nix Programmers</h4>
+<h4 id="_nix_programmers"><a class="anchor" href="#_nix_programmers"></a>Nix Programmers</h4>
 <div class="paragraph">
 <p>Fractalide brings <em>safe, fast, reusable, black-box</em> dataflow functions and a means to compose them.</p>
 </div>
@@ -614,7 +621,7 @@ collection.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rust_programmers"><a class="anchor" href="#_rust_programmers"></a>1.3.2. Rust Programmers</h4>
+<h4 id="_rust_programmers"><a class="anchor" href="#_rust_programmers"></a>Rust Programmers</h4>
 <div class="paragraph">
 <p>Fractalide brings <em>reproducible, reusable, black-box</em> dataflow functions, a means to compose them and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
 </div>
@@ -623,7 +630,7 @@ collection.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flow_based_programmers"><a class="anchor" href="#_flow_based_programmers"></a>1.3.3. Flow-based Programmers</h4>
+<h4 id="_flow_based_programmers"><a class="anchor" href="#_flow_based_programmers"></a>Flow-based Programmers</h4>
 <div class="paragraph">
 <p>Fractalide brings <em>safe fast reproducible</em> classical Flow-based programming components, and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
 </div>
@@ -632,7 +639,7 @@ collection.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_programmers"><a class="anchor" href="#_programmers"></a>1.3.4. Programmers</h4>
+<h4 id="_programmers"><a class="anchor" href="#_programmers"></a>Programmers</h4>
 <div class="paragraph">
 <p>Fractalide brings <em>safe, fast, reusable, reproducible, black-box</em> dataflow functions, a means to compose them and a <a href="https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/">congruent</a> model of configuration management.</p>
 </div>
@@ -642,9 +649,9 @@ collection.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_solved_problems"><a class="anchor" href="#_solved_problems"></a>1.4. Solved problems</h3>
+<h3 id="_solved_problems"><a class="anchor" href="#_solved_problems"></a>Solved problems</h3>
 <div class="sect3">
-<h4 id="_modules_code_coupling"><a class="anchor" href="#_modules_code_coupling"></a>1.4.1. Modules-code coupling</h4>
+<h4 id="_modules_code_coupling"><a class="anchor" href="#_modules_code_coupling"></a>Modules-code coupling</h4>
 <div class="paragraph">
 <p>Language level modules become tightly coupled with the rest of the code, moving around these modules also poses a problem.</p>
 </div>
@@ -675,7 +682,7 @@ collection.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
@@ -695,7 +702,7 @@ agent {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_complex_configuration_management_model"><a class="anchor" href="#_complex_configuration_management_model"></a>1.4.2. Complex configuration management model</h4>
+<h4 id="_complex_configuration_management_model"><a class="anchor" href="#_complex_configuration_management_model"></a>Complex configuration management model</h4>
 <div class="paragraph">
 <p>The vast majority of system configuration management solutions use either the divergent or convergent model.</p>
 </div>
@@ -785,7 +792,7 @@ agent {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_language_choice"><a class="anchor" href="#_language_choice"></a>1.4.3. Language choice</h4>
+<h4 id="_language_choice"><a class="anchor" href="#_language_choice"></a>Language choice</h4>
 <div class="paragraph">
 <p>A language needed to be chosen to implement Fractalide. Now as Fractalide is primarily a Flow-based programming environment, it would be beneficial to choose a language that at least gets concurrency right.</p>
 </div>
@@ -797,7 +804,7 @@ agent {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_api_contracts"><a class="anchor" href="#_api_contracts"></a>1.4.4. API contracts</h4>
+<h4 id="_api_contracts"><a class="anchor" href="#_api_contracts"></a>API contracts</h4>
 <div class="paragraph">
 <p>It&#8217;s easy to disrespect API contracts in a distributed services setup.</p>
 </div>
@@ -810,9 +817,9 @@ agent {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_roadmap"><a class="anchor" href="#_roadmap"></a>1.5. Roadmap</h3>
+<h3 id="_roadmap"><a class="anchor" href="#_roadmap"></a>Roadmap</h3>
 <div class="sect3">
-<h4 id="_steps_towards_beta_release"><a class="anchor" href="#_steps_towards_beta_release"></a>1.5.1. Steps towards BETA release.</h4>
+<h4 id="_steps_towards_beta_release"><a class="anchor" href="#_steps_towards_beta_release"></a>Steps towards BETA release.</h4>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
@@ -855,7 +862,7 @@ agent {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_steps_towards_stable_release"><a class="anchor" href="#_steps_towards_stable_release"></a>1.5.2. Steps towards STABLE release.</h4>
+<h4 id="_steps_towards_stable_release"><a class="anchor" href="#_steps_towards_stable_release"></a>Steps towards STABLE release.</h4>
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
@@ -875,13 +882,13 @@ agent {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_mandatory_hello_like_world_example"><a class="anchor" href="#_the_mandatory_hello_like_world_example"></a>1.6. The mandatory Hello-like World example.</h3>
+<h3 id="_the_mandatory_hello_like_world_example"><a class="anchor" href="#_the_mandatory_hello_like_world_example"></a>The mandatory Hello-like World example.</h3>
 <div class="paragraph">
 <p>From a fresh install of NixOS (using the <code>nixos-unstable</code> channel) we&#8217;ll build the <code>fractalide virtual machine (fvm)</code> and execute the humble NAND logic gate on it.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
 $ cd fractalide
 $ nix-build --argstr node test_nand
 ...
@@ -893,7 +900,7 @@ boolean : false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_quick_start_to_building_an_not_logic_gate"><a class="anchor" href="#_quick_start_to_building_an_not_logic_gate"></a>2. Quick Start to Building an NOT logic gate</h2>
+<h2 id="_quick_start_to_building_an_not_logic_gate"><a class="anchor" href="#_quick_start_to_building_an_not_logic_gate"></a>1. Quick Start to Building an NOT logic gate</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The objective of this Quick Start is to demonstrate how to create a Capnproto Schema called an <code>edge</code>, Rust <code>agent</code> and a <code>subgraph</code> hierarchy in Fractalide. Each Fractalide feature can be easily demonstrated by building a NAND logic gate then composing that into a contrived NOT logic gate. We shan&#8217;t go into details about each <code>edge</code> <code>agent</code> and <code>subgraph</code> instead the emphasis is how these pieces interact with each other. Please reference the specialized documentation in each of the relevant directories for more information.</p>
@@ -910,7 +917,7 @@ boolean : false</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone git://github.com/fractalide/fractalide.git
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ git clone git://github.com/fractalide/fractalide.git
 $ cd fractalide</code></pre>
 </div>
 </div>
@@ -927,7 +934,7 @@ $ cd fractalide</code></pre>
 <div class="listingblock">
 <div class="title">edges/prim/bool/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ edge, edges }:
 
 edge {
   src = ./.;
@@ -950,7 +957,7 @@ edge {
 <div class="listingblock">
 <div class="title">edges/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">  { pkgs, support, ... }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">  { pkgs, support, ... }:
 let
 callPackage = pkgs.lib.callPackageWith (pkgs // support);
 in
@@ -973,7 +980,7 @@ rec {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build -A edges.PrimBool</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build -A edges.PrimBool</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -981,7 +988,7 @@ rec {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/jy9yjnnmlpc7bzaq5ihjqwiywrx59fw4-PrimBool</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">/nix/store/jy9yjnnmlpc7bzaq5ihjqwiywrx59fw4-PrimBool</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -997,7 +1004,7 @@ rec {
 <div class="listingblock">
 <div class="title">modules/rs/crates/Cargo.toml</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-toml" data-lang="toml">[lib]
+<pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[lib]
 
 [package]
 name = "all_crates"
@@ -1019,7 +1026,7 @@ nom = "*"
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">[stewart@rivergod:~/dev/fractalide/fractalide/modules/rs/crates]$ ./update.sh
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">[stewart@rivergod:~/dev/fractalide/fractalide/modules/rs/crates]$ ./update.sh
 Compiling cargo2nix
     Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
 /home/stewart/dev/fractalide/fractalide/modules/rs/crates
@@ -1060,7 +1067,7 @@ Please make a pull request to resolve this issue in cargo2nix.</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ mkdir -p nodes/rs/maths/boolean/nand
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ mkdir -p nodes/rs/maths/boolean/nand
 $ touch nodes/rs/maths/boolean/nand/lib.rs</code></pre>
 </div>
 </div>
@@ -1070,7 +1077,7 @@ $ touch nodes/rs/maths/boolean/nand/lib.rs</code></pre>
 <div class="listingblock">
 <div class="title">nodes/rs/maths/boolean/nand/lib.rs</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 extern crate capnp;
 
@@ -1127,7 +1134,7 @@ extern crate capnp;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ touch nodes/rs/maths/boolean/nand/default.nix</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ touch nodes/rs/maths/boolean/nand/default.nix</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1136,7 +1143,7 @@ extern crate capnp;</code></pre>
 <div class="listingblock">
 <div class="title">nodes/rs/maths/boolean/nand/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
@@ -1162,7 +1169,7 @@ agent {
 <div class="listingblock">
 <div class="title">nodes/rs/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ pkgs, support, ... }:
 let
   callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
   # insert in alphabetical order to reduce conflicts
@@ -1184,7 +1191,7 @@ in
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd path/to/fractalide
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd path/to/fractalide
 $ nix-build -A components.rs.maths_boolean_nand</code></pre>
 </div>
 </div>
@@ -1200,7 +1207,7 @@ $ nix-build -A components.rs.maths_boolean_nand</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">mkdir -p nodes/rs/maths/boolean/not
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">mkdir -p nodes/rs/maths/boolean/not
 touch nodes/rs/maths/boolean/not/default.nix</code></pre>
 </div>
 </div>
@@ -1210,7 +1217,7 @@ touch nodes/rs/maths/boolean/not/default.nix</code></pre>
 <div class="listingblock">
 <div class="title">nodes/rs/maths/boolean/not/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1235,7 +1242,7 @@ subgraph {
 <div class="listingblock">
 <div class="title">nodes/rs/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs, support, ... }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ pkgs, support, ... }:
 let
   callPackage = pkgs.lib.callPackageWith (pkgs // support // self);
   # insert in alphabetical order to reduce conflicts
@@ -1258,7 +1265,7 @@ in
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build -A nodes.rs.maths_boolean_not
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build -A nodes.rs.maths_boolean_not
 /nix/store/xdp2l67gdmxi7fagxnbanavcxd93mlr0-maths_boolean_not</code></pre>
 </div>
 </div>
@@ -1289,7 +1296,7 @@ clone() clone[2] -&gt; b nand()</code></pre>
 <div class="listingblock">
 <div class="title">nodes/rs/test/not/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, imsg, nodes, edges }:
 
 let
   PrimBool = imsg {
@@ -1330,7 +1337,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node test_not
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build --argstr node test_not
 ...
 /nix/store/a4lb3b9jjylvrl77kv0wb8m5v137f6j1-test_not</code></pre>
 </div>
@@ -1344,7 +1351,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ ./result
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ ./result
 boolean : false</code></pre>
 </div>
 </div>
@@ -1361,15 +1368,15 @@ boolean : false</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="nodes"><a class="anchor" href="#nodes"></a>3. Nodes collection</h2>
+<h2 id="nodes"><a class="anchor" href="#nodes"></a>2. Nodes collection</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>Nodes</code> collection consists of <code>Subgraphs</code> and <code>Agents</code>. A <code>Subgraph</code> or an <code>Agent</code> may be referred to as a <code>Node</code>.</p>
 </div>
 <div class="sect2">
-<h3 id="_subgraphs"><a class="anchor" href="#_subgraphs"></a>3.1. Subgraphs</h3>
+<h3 id="_subgraphs"><a class="anchor" href="#_subgraphs"></a>2.1. Subgraphs</h3>
 <div class="sect3">
-<h4 id="_what"><a class="anchor" href="#_what"></a>3.1.1. What?</h4>
+<h4 id="_what"><a class="anchor" href="#_what"></a>2.1.1. What?</h4>
 <div class="paragraph">
 <p>A <code>Subgraph</code> consists of an implementation and an interface. The interface is implemented using a simple <code>interface description language</code> called <code>Flowscript</code> which describes how data flows through <code>Agents</code> and other <code>Subgraphs</code>. The result is an interface that consists of a minimal set of well named <code>ports</code>, thus hiding complexity.</p>
 </div>
@@ -1383,25 +1390,25 @@ boolean : false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_why"><a class="anchor" href="#_why"></a>3.1.2. Why?</h4>
+<h4 id="_why"><a class="anchor" href="#_why"></a>2.1.2. Why?</h4>
 <div class="paragraph">
 <p>Composition is an important part of programming, allowing one to hide implementation detail.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_who"><a class="anchor" href="#_who"></a>3.1.3. Who?</h4>
+<h4 id="_who"><a class="anchor" href="#_who"></a>2.1.3. Who?</h4>
 <div class="paragraph">
 <p>People who want to focus on the Science tend to work at these higher abstractions, they&#8217;d prefer not getting caught up in the details of programming low level nodes and hand specifications to programmers who&#8217;ll make efficient, reusable and safe <code>Agents</code>. Though programmers will find <code>Subgraphs</code> indispensable as they allow for powerful abstractions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_where"><a class="anchor" href="#_where"></a>3.1.4. Where?</h4>
+<h4 id="_where"><a class="anchor" href="#_where"></a>2.1.4. Where?</h4>
 <div class="paragraph">
 <p>The <code>Nodes</code> directory is where all <code>Agents</code> and <code>Subgraphs</code> go. Typically one might structure a hierarchy like such:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">── wrangle
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">── wrangle
    ├── default.nix &lt;------
    ├── aggregate
    ├── anonymize
@@ -1421,7 +1428,7 @@ boolean : false</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_how"><a class="anchor" href="#_how"></a>3.1.5. How?</h4>
+<h4 id="_how"><a class="anchor" href="#_how"></a>2.1.5. How?</h4>
 <div class="paragraph">
 <p>The <code>Subgraph</code> <code>default.nix</code> requires you make decisions about two types of dependencies.</p>
 </div>
@@ -1438,7 +1445,7 @@ boolean : false</code></pre>
 <div class="listingblock">
 <div class="title">default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, imsg, nodes, edges }:
 let
   imsgTrue = imsg {
     class = edges.PrimBool;
@@ -1492,7 +1499,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/1syrjhi6jvbvs5rvzcjn4z3qkabwss7m-test_sjm/lib/lib.subgraph
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cat /nix/store/1syrjhi6jvbvs5rvzcjn4z3qkabwss7m-test_sjm/lib/lib.subgraph
 nand(/nix/store/7yzx8fp81fl6ncawk2ag2nvfc5l950xb-maths_boolean_nand)
 '/nix/store/fx46blm272yca7n3gdynwxgyqgw90pr5-prim_bool:(boolean=true)' -&gt; a nand()
 '/nix/store/fx46blm272yca7n3gdynwxgyqgw90pr5-prim_bool:(boolean=true)' -&gt; b nand()
@@ -1504,13 +1511,13 @@ nand() output -&gt; input io_print(/nix/store/k67wiy6z4f1vnv35vdyzcqpwvp51j922-m
 </div>
 </div>
 <div class="sect3">
-<h4 id="_flowscript_syntax_is_easy"><a class="anchor" href="#_flowscript_syntax_is_easy"></a>3.1.6. Flowscript syntax is easy</h4>
+<h4 id="_flowscript_syntax_is_easy"><a class="anchor" href="#_flowscript_syntax_is_easy"></a>2.1.6. Flowscript syntax is easy</h4>
 <div class="paragraph">
 <p>Everything between the opening <code>''</code> and closing <code>''</code> is <code>flowscript</code>, i.e:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1529,7 +1536,7 @@ subgraph {
 <h5 id="_agent_initialization"><a class="anchor" href="#_agent_initialization"></a>Agent initialization:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1549,7 +1556,7 @@ subgraph {
 <h5 id="_referencing_a_previously_initialized_agent_with_a_comment"><a class="anchor" href="#_referencing_a_previously_initialized_agent_with_a_comment"></a>Referencing a previously initialized agent (with a comment):</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1570,7 +1577,7 @@ subgraph {
 <h5 id="_connecting_and_initializing_two_agents"><a class="anchor" href="#_connecting_and_initializing_two_agents"></a>Connecting and initializing two agents:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1593,7 +1600,7 @@ subgraph {
 <h5 id="_creating_an_a_href_edges_imsg_or_an_exposed_edge_a"><a class="anchor" href="#_creating_an_a_href_edges_imsg_or_an_exposed_edge_a"></a>Creating an <a href="#edges">imsg or an exposed edge</a></h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, imsg, nodes, edges }:
 let
   imsgTrue = imsg {
     class = edges.PrimBool;
@@ -1618,7 +1625,7 @@ subgraph {
 <h5 id="_more_complex_imsg_or_exposed_edge"><a class="anchor" href="#_more_complex_imsg_or_exposed_edge"></a>More complex iMsg or Exposed Edge</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, imsg, edges, nodes }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, imsg, edges, nodes }:
 let
   UiJsCreate = imsg {
     class = edges.UiJsCreate;
@@ -1648,7 +1655,7 @@ subgraph {
 <h5 id="_creating_an_subgraph_input_port"><a class="anchor" href="#_creating_an_subgraph_input_port"></a>Creating an subgraph input port</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1668,7 +1675,7 @@ subgraph {
 <h5 id="_creating_an_subgraph_output_port"><a class="anchor" href="#_creating_an_subgraph_output_port"></a>Creating an subgraph output port</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1688,7 +1695,7 @@ subgraph {
 <h5 id="_subgraph_initialization"><a class="anchor" href="#_subgraph_initialization"></a>Subgraph initialization:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1708,7 +1715,7 @@ subgraph {
 <h5 id="_initializing_a_subgraph_and_agent_then_connecting_them"><a class="anchor" href="#_initializing_a_subgraph_and_agent_then_connecting_them"></a>Initializing a subgraph and agent then connecting them:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1730,7 +1737,7 @@ subgraph {
 <h5 id="_output_array_port"><a class="anchor" href="#_output_array_port"></a>Output array port:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1766,7 +1773,7 @@ subgraph {
 <h5 id="_input_array_port"><a class="anchor" href="#_input_array_port"></a>Input array port:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1792,7 +1799,7 @@ subgraph {
 <h5 id="_hierarchical_naming"><a class="anchor" href="#_hierarchical_naming"></a>Hierarchical naming:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1826,7 +1833,7 @@ subgraph {
 <h5 id="_abstraction_powers"><a class="anchor" href="#_abstraction_powers"></a>Abstraction powers:</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 let
   imsgTrue = imsg {
     class = edges.PrimBool;
@@ -1857,7 +1864,7 @@ subgraph {
 <h5 id="_namespaces"><a class="anchor" href="#_namespaces"></a>Namespaces</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -1892,9 +1899,9 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_agents"><a class="anchor" href="#_agents"></a>3.2. Agents</h3>
+<h3 id="_agents"><a class="anchor" href="#_agents"></a>2.2. Agents</h3>
 <div class="sect3">
-<h4 id="rust_agents"><a class="anchor" href="#rust_agents"></a>3.2.1. Rust</h4>
+<h4 id="rust_agents"><a class="anchor" href="#rust_agents"></a>2.2.1. Rust</h4>
 <div class="sect4">
 <h5 id="_what_2"><a class="anchor" href="#_what_2"></a>What?</h5>
 <div class="paragraph">
@@ -1934,7 +1941,7 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">processchunk
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">processchunk
 ├── default.nix
 ├── agg_chunk_triples
 │   ├── default.nix &lt;---
@@ -1992,7 +1999,7 @@ Lastly, notice the advanced usage of <code>array ports</code> with this example:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
@@ -2036,7 +2043,7 @@ agent {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-maths_boolean_nand
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-maths_boolean_nand
 └── lib
     └── libagent.so</code></pre>
 </div>
@@ -2049,7 +2056,7 @@ agent {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 
 agent! {
@@ -2070,10 +2077,10 @@ agent! {
 All expresions are optional except for the <code>run</code> function.</p>
 </div>
 <div class="sect6">
-<h7 id="__code_input_code"><a class="anchor" href="#__code_input_code"></a><code>input</code>:</h7>
+<h7 id="_code_input_code"><a class="anchor" href="#_code_input_code"></a><code>input</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 
 agent! {
@@ -2090,10 +2097,10 @@ agent! {
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_inarr_code"><a class="anchor" href="#__code_inarr_code"></a><code>inarr</code>:</h7>
+<h7 id="_code_inarr_code"><a class="anchor" href="#_code_inarr_code"></a><code>inarr</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 
 agent! {
@@ -2114,10 +2121,10 @@ They are used when the <code>Subgraph</code> developer needs multiple elements o
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_output_code"><a class="anchor" href="#__code_output_code"></a><code>output</code>:</h7>
+<h7 id="_code_output_code"><a class="anchor" href="#_code_output_code"></a><code>output</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 
 agent! {
@@ -2134,10 +2141,10 @@ agent! {
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_outarr_code"><a class="anchor" href="#__code_outarr_code"></a><code>outarr</code>:</h7>
+<h7 id="_code_outarr_code"><a class="anchor" href="#_code_outarr_code"></a><code>outarr</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">#[macro_use]
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">#[macro_use]
 extern crate rustfbp;
 
 agent! {
@@ -2156,10 +2163,10 @@ agent! {
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_option_code"><a class="anchor" href="#__code_option_code"></a><code>option</code>:</h7>
+<h7 id="_code_option_code"><a class="anchor" href="#_code_option_code"></a><code>option</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">agent! {
   option(bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
     let mut opt = self.option.recv();
@@ -2174,10 +2181,10 @@ agent! {
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_accumulator_code"><a class="anchor" href="#__code_accumulator_code"></a><code>accumulator</code>:</h7>
+<h7 id="_code_accumulator_code"><a class="anchor" href="#_code_accumulator_code"></a><code>accumulator</code>:</h7>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-rust" data-lang="rust">agent! {
+<pre class="highlightjs highlight"><code class="language-rust hljs" data-lang="rust">agent! {
   accumulator(prim_bool),
   fn run(&amp;mut self) -&gt; Result&lt;Signal&gt; {
     let acc = self.ports.accumulator.recv()?;
@@ -2192,7 +2199,7 @@ agent! {
 </div>
 </div>
 <div class="sect6">
-<h7 id="__code_run_code"><a class="anchor" href="#__code_run_code"></a><code>run</code>:</h7>
+<h7 id="_code_run_code"><a class="anchor" href="#_code_run_code"></a><code>run</code>:</h7>
 <div class="paragraph">
 <p>This function does the actual processing and is the only mandatory expression of this macro. You&#8217;ve seen many examples already.</p>
 </div>
@@ -2201,7 +2208,7 @@ agent! {
 </div>
 </div>
 <div class="sect3">
-<h4 id="idris_agents"><a class="anchor" href="#idris_agents"></a>3.2.2. Idris</h4>
+<h4 id="idris_agents"><a class="anchor" href="#idris_agents"></a>2.2.2. Idris</h4>
 <div class="sect4">
 <h5 id="_what_3"><a class="anchor" href="#_what_3"></a>What?</h5>
 <div class="paragraph">
@@ -2241,7 +2248,7 @@ agent! {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">nodes
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">nodes
 └── idr
     └── file
         └── open
@@ -2295,7 +2302,7 @@ agent! {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ agent, edges, mods, pkgs }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ agent, edges, mods, pkgs }:
 
 agent {
   src = ./.;
@@ -2339,7 +2346,7 @@ agent {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-file_open
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">/nix/store/dp8s7d3p80q18a3pf2b4dk0bi4f856f8-file_open
 └── lib
     └── libagent.js</code></pre>
 </div>
@@ -2398,10 +2405,10 @@ It might be a good idea to create a throw away agent that contains all the usefu
 </div>
 </div>
 <div class="sect1">
-<h2 id="edges"><a class="anchor" href="#edges"></a>4. Edge Collection</h2>
+<h2 id="edges"><a class="anchor" href="#edges"></a>3. Edge Collection</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_4"><a class="anchor" href="#_what_4"></a>4.1. What?</h3>
+<h3 id="_what_4"><a class="anchor" href="#_what_4"></a>3.1. What?</h3>
 <div class="paragraph">
 <p>An <code>Edge</code> is a bounded buffer message passing channel between two ports belonging to their respective <code>agents</code>.</p>
 </div>
@@ -2438,13 +2445,13 @@ It might be a good idea to create a throw away agent that contains all the usefu
 <p>So despite you seeing only Cap&#8217;n Proto schema in this directory, the concept of an <code>Edge</code> is  more profound. Hence we would prefer naming this concept after it&#8217;s grandest manifestation, and in the process, the name encapsulates all of the above information. The name should also tie in with the concept of a <code>node</code> in graph theory, as such we use <code>nodes</code> and <code>edges</code> to construct <code>subgraphs</code>.</p>
 </div>
 <div class="sect3">
-<h4 id="_exposed_edge_or_imsg"><a class="anchor" href="#_exposed_edge_or_imsg"></a>4.1.1. Exposed Edge or iMsg</h4>
+<h4 id="_exposed_edge_or_imsg"><a class="anchor" href="#_exposed_edge_or_imsg"></a>3.1.1. Exposed Edge or iMsg</h4>
 <div class="paragraph">
 <p>When developing a <code>subgraph</code> there comes a time when the developer wants to inject data into an <code>agent</code> or another <code>subgraph</code>. One needs to use an <code>exposed edge</code> or an <code>imsg</code> (initial message) which has this syntax:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -2462,7 +2469,7 @@ subgraph {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_hidden_edge_or_edge"><a class="anchor" href="#_hidden_edge_or_edge"></a>4.1.2. Hidden Edge or Edge</h4>
+<h4 id="_hidden_edge_or_edge"><a class="anchor" href="#_hidden_edge_or_edge"></a>3.1.2. Hidden Edge or Edge</h4>
 <div class="paragraph">
 <p><code>Hidden edges</code> are represented with this syntax <code>-&gt;</code> and <code>=&gt;</code>, and are used to control the direction flowing data. Hence the process of programming a <code>subgraph</code> is essentially digging ditches and laying pipelines between buildings.</p>
 </div>
@@ -2478,7 +2485,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -2497,7 +2504,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -2516,7 +2523,7 @@ subgraph {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -2529,7 +2536,7 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_4"><a class="anchor" href="#_why_4"></a>4.2. Why?</h3>
+<h3 id="_why_4"><a class="anchor" href="#_why_4"></a>3.2. Why?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2545,13 +2552,13 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_4"><a class="anchor" href="#_who_4"></a>4.3. Who?</h3>
+<h3 id="_who_4"><a class="anchor" href="#_who_4"></a>3.3. Who?</h3>
 <div class="paragraph">
 <p>Typically <code>subgraph</code> developers will be interested in <code>hidden and exposed edges</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_4"><a class="anchor" href="#_where_4"></a>4.4. Where?</h3>
+<h3 id="_where_4"><a class="anchor" href="#_where_4"></a>3.4. Where?</h3>
 <div class="paragraph">
 <p>The <code>edges</code> directory is where all the schema go:</p>
 </div>
@@ -2578,7 +2585,7 @@ subgraph {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_4"><a class="anchor" href="#_how_4"></a>4.5. How?</h3>
+<h3 id="_how_4"><a class="anchor" href="#_how_4"></a>3.5. How?</h3>
 <div class="paragraph">
 <p><code>Edges</code> may depend on other <code>edges</code>.</p>
 </div>
@@ -2601,7 +2608,7 @@ The <code>edge</code> building function accepts these arguments:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ edge, edges }:
 
 edge {
   src = ./.;
@@ -2617,7 +2624,7 @@ edge {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"><a class="anchor" href="#_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"></a>4.5.1. Naming of Cap&#8217;n Proto <code>structs</code> and <code>enums</code></h4>
+<h4 id="_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"><a class="anchor" href="#_naming_of_cap_n_proto_code_structs_code_and_code_enums_code"></a>3.5.1. Naming of Cap&#8217;n Proto <code>structs</code> and <code>enums</code></h4>
 <div class="paragraph">
 <p>Please use CamelCase for <code>struct</code> and <code>enum</code> names. The naming should reflect this manner:</p>
 </div>
@@ -2636,14 +2643,14 @@ edge {
 </div>
 </div>
 <div class="sect3">
-<h4 id="_one_struct_per_fractalide_schema"><a class="anchor" href="#_one_struct_per_fractalide_schema"></a>4.5.2. One struct per Fractalide schema</h4>
+<h4 id="_one_struct_per_fractalide_schema"><a class="anchor" href="#_one_struct_per_fractalide_schema"></a>3.5.2. One struct per Fractalide schema</h4>
 <div class="paragraph">
 <p>We prefer composition of schema, and the schema must have fully qualified struct names.
 Hence, this is example shouldn&#8217;t be used:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ edge, edges }:
 
 edge {
   src = ./.;
@@ -2688,13 +2695,13 @@ Therefore to avoid this scenario please put <code>struct Date &#8230;&#8203;</co
 </div>
 </div>
 <div class="sect3">
-<h4 id="_cap_n_proto_import"><a class="anchor" href="#_cap_n_proto_import"></a>4.5.3. Cap&#8217;n Proto import</h4>
+<h4 id="_cap_n_proto_import"><a class="anchor" href="#_cap_n_proto_import"></a>3.5.3. Cap&#8217;n Proto import</h4>
 <div class="paragraph">
 <p>Fractalide resolves transitive dependencies for you but you have to use this method:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ edge, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ edge, edges }:
 
 edge {
   src = ./.;
@@ -2719,7 +2726,7 @@ and lastly use it <code>&#8230;&#8203; commands @0 :List(CommandInstanceName.Com
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/3s25icpbf1chayvrxwbyxr9qckn7x669-list_command/src/edge.capnp
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cat /nix/store/3s25icpbf1chayvrxwbyxr9qckn7x669-list_command/src/edge.capnp
 @0xf61e7fcd2b18d862;
 using CommandInstanceName = import "/nix/store/bgh37035cbr49r7mracmdwwjx9sbf4nr-command/src/edge.capnp";
 
@@ -2736,16 +2743,16 @@ struct ListCommand {
 </div>
 </div>
 <div class="sect1">
-<h2 id="services"><a class="anchor" href="#services"></a>5. Services</h2>
+<h2 id="services"><a class="anchor" href="#services"></a>4. Services</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_what_5"><a class="anchor" href="#_what_5"></a>5.1. What?</h3>
+<h3 id="_what_5"><a class="anchor" href="#_what_5"></a>4.1. What?</h3>
 <div class="paragraph">
 <p><code>Services</code> are reusable and consist of <code>agents</code>, <code>subgraphs</code> and <code>edges</code>. They may be connected to other <code>services</code> on the same system or on remote machines in a high performance cluster quite easily.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_5"><a class="anchor" href="#_why_5"></a>5.2. Why?</h3>
+<h3 id="_why_5"><a class="anchor" href="#_why_5"></a>4.2. Why?</h3>
 <div class="paragraph">
 <p><code>Services</code> allow programmers to collaborate and distill common configurable patterns that solve general problems.
 Essentially a <code>service</code> in this context is no different from a top level <code>subgraph</code>, albeit the interface has been <code>nix&#8217;ified. The `nix</code> interface is required because this is where <code>nixos</code> takes over and declaratively handles conguent configuration management. It does things like sets up dependencies such as database and other services that might need to be run for the <code>subgraph</code> to operate properly. This layer of software has been well tested by the <code>nix</code> community and ties in with every other service created by the <code>nixos</code> community.</p>
@@ -2755,19 +2762,19 @@ Essentially a <code>service</code> in this context is no different from a top le
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_5"><a class="anchor" href="#_who_5"></a>5.3. Who?</h3>
+<h3 id="_who_5"><a class="anchor" href="#_who_5"></a>4.3. Who?</h3>
 <div class="paragraph">
 <p>Anyone who has completed a high quality, documented hierarchy of components, subnets and contracts, and where the hierarchy makes sense to expose as a service. We use the [C4](../CONTRIBUTING.md) so your <code>services</code> will be merged in quickly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_5"><a class="anchor" href="#_where_5"></a>5.4. Where?</h3>
+<h3 id="_where_5"><a class="anchor" href="#_where_5"></a>4.4. Where?</h3>
 <div class="paragraph">
 <p><code>Service</code> implementations by convention exist in a <a href="#fractals"><code>fractal&#8217;s</code></a> root <a href="https://github.com/fractalide/fractal_workbench/blob/master/service.nix">folder</a>. It doesn&#8217;t make sense to expose every <code>fractal</code> as a service. Though if the <code>fractal</code> is dependent on other services such as databases, then it might make sense. Nevertheless, the fractals which have a <code>service.nix</code> may have their components and contracts imported into higher level subnets via the <a href="#fractals">Fractals</a> importing mechanism. This higher level subnet may then be exposed as a <code>service</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_5"><a class="anchor" href="#_how_5"></a>5.5. How?</h3>
+<h3 id="_how_5"><a class="anchor" href="#_how_5"></a>4.5. How?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2785,7 +2792,7 @@ Essentially a <code>service</code> in this context is no different from a top le
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_two_ways_to_run_a_service"><a class="anchor" href="#_two_ways_to_run_a_service"></a>5.5.1. Two ways to run a service</h4>
+<h4 id="_two_ways_to_run_a_service"><a class="anchor" href="#_two_ways_to_run_a_service"></a>4.5.1. Two ways to run a service</h4>
 <div class="sect4">
 <h5 id="_from_your_fractal"><a class="anchor" href="#_from_your_fractal"></a>From your Fractal</h5>
 <div class="paragraph">
@@ -2797,7 +2804,7 @@ Essentially a <code>service</code> in this context is no different from a top le
 <div class="listingblock">
 <div class="title">configuration.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ config, pkgs, ... }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ config, pkgs, ... }:
 let
   fractalide = import fetchFromGitHub {
     owner = "fractalide";
@@ -2831,7 +2838,7 @@ in
 <div class="listingblock">
 <div class="title">configuration.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">let
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">let
   fractalide = import fetchFromGitHub {
     owner = "fractalide";
     repo = "fractalide";
@@ -2865,37 +2872,37 @@ services.workbench = {
 </div>
 </div>
 <div class="sect1">
-<h2 id="fractals"><a class="anchor" href="#fractals"></a>6. Fractals</h2>
+<h2 id="fractals"><a class="anchor" href="#fractals"></a>5. Fractals</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Fractals are third party Fractalide libraries.</p>
 </div>
 <div class="sect2">
-<h3 id="_what_6"><a class="anchor" href="#_what_6"></a>6.1. What?</h3>
+<h3 id="_what_6"><a class="anchor" href="#_what_6"></a>5.1. What?</h3>
 <div class="paragraph">
 <p><code>Fractals</code> are importable 3rd party sets of nodes, subgraphs and edges, this folder hierarchy is the single source of truth regarding where to find each community fractal.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_why_6"><a class="anchor" href="#_why_6"></a>6.2. Why?</h3>
+<h3 id="_why_6"><a class="anchor" href="#_why_6"></a>5.2. Why?</h3>
 <div class="paragraph">
 <p><code>Fractals</code> allow the community to develop their own projects in their own git repository, and once ready, may plug into <code>dev/fractalide/fractals</code> folder hierarchy which represents the spine of Fractalide. Once inserted your <code>fractal</code> is available for use by everyone.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_who_6"><a class="anchor" href="#_who_6"></a>6.3. Who?</h3>
+<h3 id="_who_6"><a class="anchor" href="#_who_6"></a>5.3. Who?</h3>
 <div class="paragraph">
 <p>Anyone making high quality, documented nodes, subgraphs and edges may plug into this folder hierarchy. We use the <a href="https://github.com/fractalide/fractalide/blob/master/CONTRIBUTING.md">C4</a> so your <code>fractals</code> will be merged in quickly.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_6"><a class="anchor" href="#_where_6"></a>6.4. Where?</h3>
+<h3 id="_where_6"><a class="anchor" href="#_where_6"></a>5.4. Where?</h3>
 <div class="paragraph">
 <p>Each <code>fractal</code> needs to have it&#8217;s own hierarchical folder. For example, HTTP would be placed in the <code>fractalide/fractals/net/http</code> folder.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_6"><a class="anchor" href="#_how_6"></a>6.5. How?</h3>
+<h3 id="_how_6"><a class="anchor" href="#_how_6"></a>5.5. How?</h3>
 <div class="paragraph">
 <p>Say you wish to create a <code>http</code> project, these are the exact steps involved:</p>
 </div>
@@ -2908,7 +2915,7 @@ services.workbench = {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">dev
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">dev
 ├── fractalide
 │   └── fractals
 │       └── net
@@ -2921,7 +2928,7 @@ services.workbench = {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd &lt;your/development/directory&gt;
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd &lt;your/development/directory&gt;
 $ git clone \https://gitlab.com/fractalide/fractalide.git
 $ NIX_PATH="nixpkgs=https://github.com/NixOS/nixpkgs/archive/125ffff089b6bd360c82cf986d8cc9b17fc2e8ac.tar.gz:fractalide=/path/to/dev/fractalide" &amp;&amp; export NIX_PATH` <i class="conum" data-value="1"></i><b>(1)</b>
 $ mkdir dev/fractals &amp;&amp; cd dev/fractals
@@ -2953,7 +2960,7 @@ Should you start a new shell, type <code>&lt;ctrl&gt;-r</code> then type <code>1
 <div class="listingblock">
 <div class="title">dev/fractalide/fractals/net/http/default.nix</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ pkgs
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ pkgs
 , support
 , edges
 , nodes
@@ -3034,7 +3041,7 @@ You&#8217;d use a <a href="https://github.com/fractalide/fractalide/blob/2312ac7
 </div>
 </div>
 <div class="sect2">
-<h3 id="_incremental_builds"><a class="anchor" href="#_incremental_builds"></a>6.6. Incremental Builds</h3>
+<h3 id="_incremental_builds"><a class="anchor" href="#_incremental_builds"></a>5.6. Incremental Builds</h3>
 <div class="paragraph">
 <p>Incremental Builds speed up the development process, so that one doesn&#8217;t have to compile the entire crate from scratch each time you make a change to the source code.</p>
 </div>
@@ -3047,7 +3054,7 @@ The cache folder can be created from an old result by the <code>buildCache.sh</c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd dev/fractalide
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd dev/fractalide
 $ nix-build --argstr debug true --argstr cache $(./support/buildCache.sh) --argstr subgraph workbench</code></pre>
 </div>
 </div>
@@ -3056,7 +3063,7 @@ $ nix-build --argstr debug true --argstr cache $(./support/buildCache.sh) --args
 </div>
 </div>
 <div class="sect2">
-<h3 id="_there_is_a_code_service_nix_code_file_what_is_it"><a class="anchor" href="#_there_is_a_code_service_nix_code_file_what_is_it"></a>6.7. There is a <code>service.nix</code> file! What is it?</h3>
+<h3 id="_there_is_a_code_service_nix_code_file_what_is_it"><a class="anchor" href="#_there_is_a_code_service_nix_code_file_what_is_it"></a>5.7. There is a <code>service.nix</code> file! What is it?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3066,12 +3073,12 @@ $ nix-build --argstr debug true --argstr cache $(./support/buildCache.sh) --args
 </div>
 </div>
 <div class="sect2">
-<h3 id="_two_ways_to_execute_your_fractal"><a class="anchor" href="#_two_ways_to_execute_your_fractal"></a>6.8. Two ways to execute your fractal</h3>
+<h3 id="_two_ways_to_execute_your_fractal"><a class="anchor" href="#_two_ways_to_execute_your_fractal"></a>5.8. Two ways to execute your fractal</h3>
 <div class="sect3">
-<h4 id="_executing_from_within_fractalide"><a class="anchor" href="#_executing_from_within_fractalide"></a>6.8.1. Executing from within Fractalide</h4>
+<h4 id="_executing_from_within_fractalide"><a class="anchor" href="#_executing_from_within_fractalide"></a>5.8.1. Executing from within Fractalide</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd dev/fractalide
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd dev/fractalide
 $ nix-build --argstr rs workbench
 $ ./result</code></pre>
 </div>
@@ -3105,10 +3112,10 @@ $ ./result</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_executing_from_with_the_fractal"><a class="anchor" href="#_executing_from_with_the_fractal"></a>6.8.2. Executing from with the Fractal</h4>
+<h4 id="_executing_from_with_the_fractal"><a class="anchor" href="#_executing_from_with_the_fractal"></a>5.8.2. Executing from with the Fractal</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cd /dev/fractals/fractal_workbench
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cd /dev/fractals/fractal_workbench
 $ nix-build
 $ ./result</code></pre>
 </div>
@@ -3148,12 +3155,12 @@ $ ./result</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="howto"><a class="anchor" href="#howto"></a>7. HOWTO</h2>
+<h2 id="howto"><a class="anchor" href="#howto"></a>6. HOWTO</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_steps"><a class="anchor" href="#_steps"></a>7.1. Steps</h3>
+<h3 id="_steps"><a class="anchor" href="#_steps"></a>6.1. Steps</h3>
 <div class="sect3">
-<h4 id="_fractalide_installation"><a class="anchor" href="#_fractalide_installation"></a>7.1.1. Fractalide installation</h4>
+<h4 id="_fractalide_installation"><a class="anchor" href="#_fractalide_installation"></a>6.1.1. Fractalide installation</h4>
 <div class="sect4">
 <h5 id="_virtualbox_guest_installation"><a class="anchor" href="#_virtualbox_guest_installation"></a>Virtualbox guest installation</h5>
 <div class="ulist">
@@ -3174,7 +3181,7 @@ $ ./result</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ git clone https://github.com/fractalide/fractalide.git
 $ cd fractalide
 $ nix-build</code></pre>
 </div>
@@ -3184,13 +3191,13 @@ $ nix-build</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ readlink result
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ readlink result
 /nix/store/ymfqavzrgmj3q3aljgwvh769fq9dszp2-fvm</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ tree result
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ tree result
 result
 └── bin
     └── fvm
@@ -3210,7 +3217,7 @@ result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamica
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node test_nand</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build --argstr node test_nand</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3218,7 +3225,7 @@ result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamica
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ readlink result
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ readlink result
 /nix/store/zld4d7zc80wh38qhn00jqgc6lybd2cdi-test_nand</code></pre>
 </div>
 </div>
@@ -3227,7 +3234,7 @@ result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamica
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat result
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cat result
 /nix/store/ymfqavzrgmj3q3aljgwvh769fq9dszp2-fvm/bin/fvm /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand</code></pre>
 </div>
 </div>
@@ -3239,7 +3246,7 @@ result/bin/fvm: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamica
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ cat /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ cat /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
 '/nix/store/ynm9ipggdvxhzi5l2kkz9cgiqgvq2g87-prim_bool:(bool=true)' -&gt; a nand(/nix/store/y919fp98qw33w0cs2wn5wzwgwpwgbchs-maths_boolean_nand) output -&gt; input io_print(/nix/store/4fnk9dmky6jni4f4sbrzl1xsj50m3mb0-maths_boolean_print)
 '/nix/store/ynm9ipggdvxhzi5l2kkz9cgiqgvq2g87-prim_bool:(bool=true)' -&gt; b nand()
 
@@ -3252,7 +3259,7 @@ $ file /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ man nix-build
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ man nix-build
 ...
        --argstr name value
            This option is like --arg, only the value is not a Nix expression but a string. So instead
@@ -3271,7 +3278,7 @@ $ file /nix/store/jk5ibldrvi6cai5aj1j00p8rgi3zw4l7-test_nand/lib/lib.subgraph
 <h6 id="_a_graph_setup_tear_down"><a class="anchor" href="#_a_graph_setup_tear_down"></a>A = (Graph setup + tear down):</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node bench_load
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build --argstr node bench_load
 /nix/store/ij8jri0z1k5n447f9s0x5yfx5p9iqnnf-bench_load
 
 $ sudo nice -n -20 perf stat -r 10 -d ./result
@@ -3284,7 +3291,7 @@ $ sudo nice -n -20 perf stat -r 10 -d ./result
 <h6 id="_b_graph_setup_tear_down_message_pass_increment"><a class="anchor" href="#_b_graph_setup_tear_down_message_pass_increment"></a>B = (Graph setup + tear down + message pass + increment):</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node bench
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build --argstr node bench
 /nix/store/mfl206ccv86wvyi2ra5296l8n1bks24x-bench
 
 $ sudo nice -n -20 perf stat -r 10 -d ./result
@@ -3311,10 +3318,10 @@ $ sudo nice -n -20 perf stat -r 10 -d ./result
 </div>
 </div>
 <div class="sect5">
-<h6 id="__message_passing_increment_b_a"><a class="anchor" href="#__message_passing_increment_b_a"></a>(Message Passing + Increment) = B - A:</h6>
+<h6 id="_message_passing_increment_b_a"><a class="anchor" href="#_message_passing_increment_b_a"></a>(Message Passing + Increment) = B - A:</h6>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">&gt;&gt;&gt; 4.601455409 - 3.684139058
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">&gt;&gt;&gt; 4.601455409 - 3.684139058
 0.9173163509999998</code></pre>
 </div>
 </div>
@@ -3434,7 +3441,7 @@ The request looks like <code>DELETE <a href="http://localhost:8000/todos/1" clas
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -3512,7 +3519,7 @@ get() response -&gt; response http()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -3582,7 +3589,7 @@ post() response -&gt; response http()</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -3674,7 +3681,7 @@ A solution is to add a <code>synch</code> <code>agent</code> which has outgoing 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ subgraph, nodes, edges }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ subgraph, nodes, edges }:
 
 subgraph {
   src = ./.;
@@ -3704,7 +3711,7 @@ subgraph {
 <h5 id="_executing_the_graph"><a class="anchor" href="#_executing_the_graph"></a>Executing the graph</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ nix-build --argstr node workbench_test
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ nix-build --argstr node workbench_test
 $ ./result</code></pre>
 </div>
 </div>
@@ -3766,7 +3773,7 @@ $ ./result</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nix" data-lang="nix">{ config, pkgs, ... }:
+<pre class="highlightjs highlight"><code class="language-nix hljs" data-lang="nix">{ config, pkgs, ... }:
 
 let
   fractalide = import /path/to/your/cloned/fractalide {};
@@ -3784,14 +3791,14 @@ in
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sh" data-lang="sh">$ sudo nixos-rebuild switch -I fractalide=/path/to/your/cloned/fractalide</code></pre>
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ sudo nixos-rebuild switch -I fractalide=/path/to/your/cloned/fractalide</code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_tokio"><a class="anchor" href="#_tokio"></a>7.2. Tokio-*</h3>
+<h3 id="_tokio"><a class="anchor" href="#_tokio"></a>6.2. Tokio-*</h3>
 <div class="paragraph">
 <p>We&#8217;re waiting patiently for the much anticipated <a href="https://github.com/tokio-rs/" class="bare">https://github.com/tokio-rs/</a> code to land. That&#8217;s when we&#8217;ll get services talking to other services and http clients via tokio.</p>
 </div>
