@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+  <loc>http://fractalide.com/sitemap.xml</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/roadmap/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/research/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/hyperflow/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/fractalmarket/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/blog/feed.xml</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/faqs/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/404.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/documentation/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/development-and-analysis/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/contact/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/cardano-stake-pool/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/blog/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/blog/2017-07-13-reproducibility.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/blog/2017-07-10-reusability.html</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://fractalide.com/about_us/</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

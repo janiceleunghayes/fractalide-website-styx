@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="fractalide, styx">
+<meta name="generator" content="Styx 0.7.1" />
+<meta property="og:title" content="Reproducibility - Fractalide" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://fractalide.com/blog/2017-07-13-reproducibility.html" />
+<meta property="og:image" content="/img/logo.png" />
+<title>Reproducibility - Fractalide</title>
+<link href="http://fractalide.com/blog/feed.xml" rel="alternate" type="application/atom+xml" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,900" rel="stylesheet" type="text/css" />
+<link href="/css/bootstrap-fractalide.min.css" rel="stylesheet">
+<link href="/css/custom.css" rel="stylesheet">
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Fractalide">
+</head>
+<body>
+<header>
+  <nav id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar_toggle_collapsed glyphicon glyphicon-menu-hamburger"></span>
+        <span class="navbar_toggle_expanded glyphicon glyphicon-remove"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+      <li class="">
+  <a href="/">Home</a>
+
+</li>
+
+<li class="">
+  <a href="/about_us/">About us</a>
+
+</li>
+
+<li class="dropdown ">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="">
+  <a href="/hyperflow/">Hyperflow</a>
+</li>
+
+<li class="">
+  <a href="/fractalmarket/">Fractalmarket</a>
+</li>
+
+<li class="">
+  <a href="/development-and-analysis/">Services</a>
+</li>
+
+<li class="">
+  <a href="/cardano-stake-pool/">Cardano Stake Pool</a>
+</li>
+
+  </ul>
+</li>
+
+<li class="dropdown ">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="">
+  <a href="/research/">Research</a>
+</li>
+
+<li class="">
+  <a href="/documentation/">Documentation</a>
+</li>
+
+<li class="">
+  <a href="https://github.com/fractalide/">GitHub</a>
+</li>
+
+<li class="">
+  <a href="/faqs/">FAQs</a>
+</li>
+
+  </ul>
+</li>
+
+<li class="">
+  <a href="/roadmap/">Roadmap</a>
+
+</li>
+
+<li class="">
+  <a href="/blog/">Blog</a>
+
+</li>
+
+<li class="">
+  <a href="http://twitter.com/fractalide">
+  <img alt="Twitter" src="/img/twitter-min.png" width="20px">
+</a>
+
+</li>
+
+<li class="">
+  <a href="/blog/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i><span class="sr-only">Atom</span></a>
+
+</li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</header>
+<div class="container">
+  <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Reproducibility</h1>
+      <p class="post-description" itemprop="description"><p>This non-technical post introduces the concept of reproducibility.</p>
+
+<p>Author: Stewart Mackenzie</p>
+</p>
+
+      <p class="post-date">
+        <time datetime="2017-07-13T00:00:00Z">2017-07-13</time>
+        
+      </p>
+    </header>
+
+    <div class="post-content clearfix" itemprop="articleBody">
+      <p>Scientists go to great effort to document their experiments in an attempt to make their experiment reproducibile. Other scientists absolutely need to be able to reproduce the work to falsify it. After all the scientific process is a falsifiable process. The scientific body is not proving something to be true, but indeed always proving something to be false. This is why the Scientific body have little concern for proving the existence of a god.</p>
+
+<p>Without reproducibility the whole show comes to screeching halt.</p>
+
+<p>A package manager is supposed to reproduce an application on your system with high confidence, in most cases they fail miserably, as described by Paul Draper&#8217;s <a href="https://www.lucidchart.com/techblog/2017/03/15/package-management-stop-using-version-ranges/">Package Management: Stop using version ranges</a> blog post.</p>
+
+<p>Not using a package manager essentially means you need to manually download, setup all the program&#8217;s dependencies and transitive dependencies.</p>
+
+<p>As Fractalide is a flow-based programming system, it intrinsically has hundreds of components each with their own lifecycle. It would be inconcievable to manually download and setup every transitive dependency (including which version of <code>libc</code>) every time you want to run it on a different machine. This is the equivalent of building a house of cards then asking a client to reproduce it. Your client should issue a single command, or click and the house of cards is reconstructed immediately.</p>
+
+<p>For this reason <a href="https://nixos.org/nix">nix</a> is chosen to be Fractalide&#8217;s package manager. Nix will deterministically reproduce a hierarchy of components on different machines allowing programmers to accurately reproduce failures and problem so they can be fixed.</p>
+
+
+      
+    </div>
+  </article>
+</div>
+
+<section id="copyright" class="footer_solid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <p class="text_white">
+                        Copyright ©2017 Fractalide. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script crossorigin="anonymous" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script crossorigin="anonymous" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="fractalide, styx">
+<meta name="generator" content="Styx 0.7.1" />
+<meta property="og:title" content="Reusability and Composability - Fractalide" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://fractalide.com/blog/2017-07-10-reusability.html" />
+<meta property="og:image" content="/img/logo.png" />
+<title>Reusability and Composability - Fractalide</title>
+<link href="http://fractalide.com/blog/feed.xml" rel="alternate" type="application/atom+xml" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Nunito+Sans:400,900" rel="stylesheet" type="text/css" />
+<link href="/css/bootstrap-fractalide.min.css" rel="stylesheet">
+<link href="/css/custom.css" rel="stylesheet">
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="Fractalide">
+</head>
+<body>
+<header>
+  <nav id="menu" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar_toggle_collapsed glyphicon glyphicon-menu-hamburger"></span>
+        <span class="navbar_toggle_expanded glyphicon glyphicon-remove"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+      <li class="">
+  <a href="/">Home</a>
+
+</li>
+
+<li class="">
+  <a href="/about_us/">About us</a>
+
+</li>
+
+<li class="dropdown ">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="">
+  <a href="/hyperflow/">Hyperflow</a>
+</li>
+
+<li class="">
+  <a href="/fractalmarket/">Fractalmarket</a>
+</li>
+
+<li class="">
+  <a href="/development-and-analysis/">Services</a>
+</li>
+
+<li class="">
+  <a href="/cardano-stake-pool/">Cardano Stake Pool</a>
+</li>
+
+  </ul>
+</li>
+
+<li class="dropdown ">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <span class="caret"></span></a>
+  <ul class="dropdown-menu">
+    <li class="">
+  <a href="/research/">Research</a>
+</li>
+
+<li class="">
+  <a href="/documentation/">Documentation</a>
+</li>
+
+<li class="">
+  <a href="https://github.com/fractalide/">GitHub</a>
+</li>
+
+<li class="">
+  <a href="/faqs/">FAQs</a>
+</li>
+
+  </ul>
+</li>
+
+<li class="">
+  <a href="/roadmap/">Roadmap</a>
+
+</li>
+
+<li class="">
+  <a href="/blog/">Blog</a>
+
+</li>
+
+<li class="">
+  <a href="http://twitter.com/fractalide">
+  <img alt="Twitter" src="/img/twitter-min.png" width="20px">
+</a>
+
+</li>
+
+<li class="">
+  <a href="/blog/feed.xml"><i class="fa fa-rss-square" aria-hidden="true"></i><span class="sr-only">Atom</span></a>
+
+</li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+</header>
+<div class="container">
+  <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Reusability and Composability</h1>
+      <p class="post-description" itemprop="description"><p>This non-technical post introduces the concepts of reusability and composability and why they are important.</p>
+
+<p>Author: Stewart Mackenzie</p>
+</p>
+
+      <p class="post-date">
+        <time datetime="2017-07-10T00:00:00Z">2017-07-10</time>
+        
+      </p>
+    </header>
+
+    <div class="post-content clearfix" itemprop="articleBody">
+      <p>The phrase <code>Do One Thing and Do It Well</code> derives from the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a>, which is a distillation of good programming habits accumulated over time.</p>
+
+<p><code>DOTADIW</code> is a convention which tends to make programming simpler by constraining possible bugs to small bits of code that do one thing only. When code becomes entangled it becomes difficult to get to the root of the problem. So programmers will go to great lengths to separate concerns into different functions, modules, indeed different executables entirely.</p>
+
+<p>For those of you using a Unix, be it MacOS or Linux this is why there are so many different command line tools such as <code>cat</code>, <code>ls</code>, <code>grep</code> etc. Each pretending to do one thing well.</p>
+
+<p>Once you have a suite of these specialized tools, one needs to compose them. In Unix, each tool has an input (<code>stdin</code> standard input) and two outputs (<code>stdout</code> standard output and <code>stderr</code> standard error). These standard communication channels are shared between all these tools, essentially it means they speak the same language.</p>
+
+<p>When programs conform to <code>DOTADIW</code> and have a means to compose together they automatically become reusable. Indeed the reusability factor of a tool goes even higher when it is used in ways the original designer hadn&#8217;t intended it to be used.</p>
+
+<p>It&#8217;s not a trivial task to achieve reusability, it requires years of programming to get it right, after all, good programmers write good code, great programmers reuse good code.</p>
+
+<p>Fractalide achieves a high degree of component reusablitiy by defining networks of black box Agents, which exchange typed data across predefined connections using message passing, where the connections are specified externally to the processes. These black box Agents can be reconnected endlessly to form different executable Subgraphs without having to be changed internally.</p>
+
+<p>This type of programming is called <a href="https://en.wikipedia.org/wiki/Flow-based_programming">Flow-based Programming</a> and was discovered by J. Paul Morrison in the early 1970s.</p>
+
+<p>A programmer can move much faster when relying on nice composible reusable modules. These modules have been battle hardened by other users, bugs have been squashed and optimizations have been done. It&#8217;s less code a programmer has to write allowing them to focus on the business requirements.</p>
+
+<p>To illustrate the importance of reusability, a private sector space company has gone to great effort to achieve reusable rockets, allowing them to undercut their competition by a significant margin. Typically the rocket industry will drash their first stage and pay for another.</p>
+
+<p><iframe src="//giphy.com/embed/PDxh2xVRbsHe0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen="allowFullScreen"></iframe></p>
+
+<p>Reproducability and composability will only get you so far. To make it really concoction really potent you need a reproducible system. Subject for another <a href="/news/2017-07-13-reproducibility.html">blog post</a>.</p>
+
+
+      
+    </div>
+  </article>
+</div>
+
+<section id="copyright" class="footer_solid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <p class="text_white">
+                        Copyright ©2017 Fractalide. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script crossorigin="anonymous" src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+<script crossorigin="anonymous" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

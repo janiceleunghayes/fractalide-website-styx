@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fractalide</title>
+  
+  <generator>Styx</generator>
+  <updated>2017-07-13T00:00:00Z</updated>
+  <id>http://fractalide.com/blog/feed.xml</id>
+  <link href="http://fractalide.com/blog/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="http://fractalide.com/" rel="alternate"/>
+  <author>
+  <name>Styx</name>
+</author>
+
+  
+  
+  <entry>
+  <id>http://fractalide.com/blog/2017-07-13-reproducibility.html</id>
+  <title>Reproducibility</title>
+  <updated>2017-07-13T00:00:00Z</updated>
+  <link href="http://fractalide.com/blog/2017-07-13-reproducibility.html" rel="alternate" type="text/html"/>
+  <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>This non-technical post introduces the concept of reproducibility.</p>
+
+<p>Author: Stewart Mackenzie</p>
+
+      </div>
+    </summary>
+  <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>Scientists go to great effort to document their experiments in an attempt to make their experiment reproducibile. Other scientists absolutely need to be able to reproduce the work to falsify it. After all the scientific process is a falsifiable process. The scientific body is not proving something to be true, but indeed always proving something to be false. This is why the Scientific body have little concern for proving the existence of a god.</p>
+
+<p>Without reproducibility the whole show comes to screeching halt.</p>
+
+<p>A package manager is supposed to reproduce an application on your system with high confidence, in most cases they fail miserably, as described by Paul Draper&#8217;s <a href="https://www.lucidchart.com/techblog/2017/03/15/package-management-stop-using-version-ranges/">Package Management: Stop using version ranges</a> blog post.</p>
+
+<p>Not using a package manager essentially means you need to manually download, setup all the program&#8217;s dependencies and transitive dependencies.</p>
+
+<p>As Fractalide is a flow-based programming system, it intrinsically has hundreds of components each with their own lifecycle. It would be inconcievable to manually download and setup every transitive dependency (including which version of <code>libc</code>) every time you want to run it on a different machine. This is the equivalent of building a house of cards then asking a client to reproduce it. Your client should issue a single command, or click and the house of cards is reconstructed immediately.</p>
+
+<p>For this reason <a href="https://nixos.org/nix">nix</a> is chosen to be Fractalide&#8217;s package manager. Nix will deterministically reproduce a hierarchy of components on different machines allowing programmers to accurately reproduce failures and problem so they can be fixed.</p>
+
+      </div>
+    </content>
+</entry>
+
+<entry>
+  <id>http://fractalide.com/blog/2017-07-10-reusability.html</id>
+  <title>Reusability and Composability</title>
+  <updated>2017-07-10T00:00:00Z</updated>
+  <link href="http://fractalide.com/blog/2017-07-10-reusability.html" rel="alternate" type="text/html"/>
+  <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>This non-technical post introduces the concepts of reusability and composability and why they are important.</p>
+
+<p>Author: Stewart Mackenzie</p>
+
+      </div>
+    </summary>
+  <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>The phrase <code>Do One Thing and Do It Well</code> derives from the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a>, which is a distillation of good programming habits accumulated over time.</p>
+
+<p><code>DOTADIW</code> is a convention which tends to make programming simpler by constraining possible bugs to small bits of code that do one thing only. When code becomes entangled it becomes difficult to get to the root of the problem. So programmers will go to great lengths to separate concerns into different functions, modules, indeed different executables entirely.</p>
+
+<p>For those of you using a Unix, be it MacOS or Linux this is why there are so many different command line tools such as <code>cat</code>, <code>ls</code>, <code>grep</code> etc. Each pretending to do one thing well.</p>
+
+<p>Once you have a suite of these specialized tools, one needs to compose them. In Unix, each tool has an input (<code>stdin</code> standard input) and two outputs (<code>stdout</code> standard output and <code>stderr</code> standard error). These standard communication channels are shared between all these tools, essentially it means they speak the same language.</p>
+
+<p>When programs conform to <code>DOTADIW</code> and have a means to compose together they automatically become reusable. Indeed the reusability factor of a tool goes even higher when it is used in ways the original designer hadn&#8217;t intended it to be used.</p>
+
+<p>It&#8217;s not a trivial task to achieve reusability, it requires years of programming to get it right, after all, good programmers write good code, great programmers reuse good code.</p>
+
+<p>Fractalide achieves a high degree of component reusablitiy by defining networks of black box Agents, which exchange typed data across predefined connections using message passing, where the connections are specified externally to the processes. These black box Agents can be reconnected endlessly to form different executable Subgraphs without having to be changed internally.</p>
+
+<p>This type of programming is called <a href="https://en.wikipedia.org/wiki/Flow-based_programming">Flow-based Programming</a> and was discovered by J. Paul Morrison in the early 1970s.</p>
+
+<p>A programmer can move much faster when relying on nice composible reusable modules. These modules have been battle hardened by other users, bugs have been squashed and optimizations have been done. It&#8217;s less code a programmer has to write allowing them to focus on the business requirements.</p>
+
+<p>To illustrate the importance of reusability, a private sector space company has gone to great effort to achieve reusable rockets, allowing them to undercut their competition by a significant margin. Typically the rocket industry will drash their first stage and pay for another.</p>
+
+<p><iframe src="//giphy.com/embed/PDxh2xVRbsHe0" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen="allowFullScreen"></iframe></p>
+
+<p>Reproducability and composability will only get you so far. To make it really concoction really potent you need a reproducible system. Subject for another <a href="/news/2017-07-13-reproducibility.html">blog post</a>.</p>
+
+      </div>
+    </content>
+</entry>
+
+</feed>
