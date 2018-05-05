@@ -3,7 +3,7 @@
   <title>Fractalide</title>
   
   <generator>Styx</generator>
-  <updated>2018-05-04T00:00:00Z</updated>
+  <updated>2017-07-13T00:00:00Z</updated>
   <id>http://fractalide.com/blog/feed.xml</id>
   <link href="http://fractalide.com/blog/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="http://fractalide.com/" rel="alternate"/>
@@ -14,47 +14,6 @@
   
   
   <entry>
-  <id>http://fractalide.com/blog/2018-05-04-blockchains.html</id>
-  <title>The benefits of writing your blockchain in Fractalide</title>
-  <updated>2018-05-04T00:00:00Z</updated>
-  <link href="http://fractalide.com/blog/2018-05-04-blockchains.html" rel="alternate" type="text/html"/>
-  <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>Many ICOs are fighting for blockchain developers. It doesn&#8217;t have to be this way.</p>
-
-<p>Author: Stewart Mackenzie</p>
-
-      </div>
-    </summary>
-  <content type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>The blockchain scene is undergoing a Cambrian Explosion. An ICO a day, millions raked in, scammers doing a runner. Yet there is legitimate technology to be found in this madness. It&#8217;s probably not a good idea to throw out the baby with the bath water.</p>
-
-<p>One can send a copy of a digital photo to a friend and keep the original. Nakamoto made it such that if you send digital money to someone, you don&#8217;t get to keep a copy. Probably Nakamoto&#8217;s most important contribution is how this money comes into circulation. The original intention was for coins to come into circulation in a democratic manner. Sadly this is no longer the case. Currently some 40% of bitcoin&#8217;s hashing power is in the hands of but 3 companies.</p>
-
-<p>Some good babies, almost certainly, are Proof of Stake algorithms which emulates Proof of Work. Meaning that a currency no longer needs to consume more electricity than Ireland in hashing power.</p>
-
-<p>Other babies, are solutions that scale up from bitcoins meager amount of transactions to potentially thousands of transactions per second, but more importantly, as you add resources to the network the amount of transactions increases. Hopefully in a linear fashion.</p>
-
-<p>It&#8217;s these solutions that excite people. It&#8217;s the ability for normal people to invest in technologies and communities. Where previously the SEC forbid people to invest in high risk ventures. Understandably, the SEC does this to protect people. Though people&#8217;s livelihoods are being sucked away by politicians inflating currencies for military projects.</p>
-
-<p>After the great cryptocurrency extinction a few coins will stand. Cryptocurrencies in their current state really won&#8217;t cut it. Users need the simplicity of typing a single name and their application appears before them.</p>
-
-<p>problem of competing for blockchain developers
-describe a few examples
-drop in quality of code</p>
-
-<p>smaller teams can achieve more due to reusability</p>
-
-<p>Smooth ramp up from quick test code using untyped racket to typed racket then when optimizations are needed, it&#8217;s possible to drop down into rust.</p>
-
-<p>sharing of apps, components, blockchain consensus algorithms etc</p>
-
-      </div>
-    </content>
-</entry>
-
-<entry>
   <id>http://fractalide.com/blog/2017-07-13-reproducibility.html</id>
   <title>Reproducibility</title>
   <updated>2017-07-13T00:00:00Z</updated>
