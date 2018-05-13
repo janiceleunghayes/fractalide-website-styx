@@ -157,7 +157,7 @@
   <img src="../img/roadmap-min/fractal-min.png"/>
   <h2 class="text_dark_blue">PASCAL</h2>
   <p class="text_dark_blue">
-    The PASCAL release represents the initial release of Hyperflow. It implements the basic infrastructure which allows the building and execution of Fractalide applications in Hyperflow.
+    The Pascal release represents the initial release of Hyperflow. It implements the basic infrastructure which allows the building and execution of Fractalide applications in Hyperflow.
   </p>
   <a role="button" data-toggle="collapse" href="#release_pascal" aria-expanded="true" aria-controls="release_pascal">
     <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -175,11 +175,11 @@
   <div class="roadmap_line_fill"></div>
   <div class="roadmap_info">
     <div class="roadmap_progress">
-      <p>Progress <span class="pull-right">30%</span></p>
+      <p>Progress <span class="pull-right">45%</span></p>
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="30"
-             aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-          <span class="sr-only">30% Complete</span>
+        <div class="progress-bar" role="progressbar" aria-valuenow="45"
+             aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+          <span class="sr-only">45% Complete</span>
         </div>
       </div>
     </div>  <!-- roadmap_progress -->
@@ -190,12 +190,15 @@
       </a>
       <div class="collapse" id="release_pascal_feature_hyperflow_mvp_objectives">
         <ul>
+<li>Fractalide.com website</li>
+<li>Continuous Integration pipeline using Hydra; so users don't need to build dependencies</li>
+<li>Racket2Nix: Wraps Racket packages and their transitive dependencies in Nix</li>
 <li>Racket Flow-based programming scheduler</li>
 <li>Node, agent and graph interfaces</li>
-<li>Design Mode displays a basic text editor</li>
-<li>Graph Mode displays graphs as text only</li>
+<li>Card Paradigm: a HyperCard inspired representation of GUI compositions using Flow-based programming</li>
+<li>Node Mode displays a basic text editor; to write agent source code in</li>
+<li>Graph Mode displays graphs as text only; to compose agents together into apps</li>
 <li>Run Mode renders developed applications</li>
-<li>Basic structure of Hyperflow in place</li>
 </ul>
 
       </div>
@@ -207,8 +210,11 @@
       </a>
       <div class="collapse" id="release_pascal_feature_hyperflow_mvp_workdone">
         <ul>
+<li>Fractalide.com website</li>
+<li>Racket2Nix: Wraps Racket packages in Nix</li>
 <li>Racket Flow-based programming scheduler</li>
-<li>Agent, graph and node interface implemented</li>
+<li>Node, agent and graph interfaces</li>
+<li>Card Paradigm: a HyperCard inspired representation of GUI compositions using Flow-based programming</li>
 </ul>
 
       </div>
@@ -242,9 +248,11 @@
       </a>
       <div class="collapse" id="release_pascal_feature_hyperflow_alpha_objectives">
         <ul>
-<li>Design Mode includes a basic debugger</li>
+<li>Named Data Networking Layer for Apps</li>
+<li>Node Mode includes a basic debugger</li>
 <li>Improved Graph editing in graph mode, possibly with rudimentary graphical movable components</li>
-<li>Improved UX</li>
+<li>Improved UX by upgrading to GTK+ 3</li>
+<li>Improve the graph language such that it'll write to a Nix expression</li>
 </ul>
 
       </div>
@@ -287,10 +295,10 @@
       </a>
       <div class="collapse" id="release_pascal_feature_hyperflow_beta_objectives">
         <ul>
-<li>Information flow debugger</li>
+<li>Graph Mode Information flow debugger</li>
 <li>Graphical construction of the graph</li>
 <li>Support for multiple platforms (Mac OS, Linux and Windows 10)</li>
-<li>Improved UX</li>
+<li>Improved UX by creating a new GTK+ 3 CSS theme</li>
 </ul>
 
       </div>
@@ -333,9 +341,8 @@
       </a>
       <div class="collapse" id="release_pascal_feature_hyperflow_stable_objectives">
         <ul>
-<li>Hyperflow has been upgraded to use typed/racket as much as possible</li>
-<li>The scheduler and core nodes makes use of dependent types that formally specify the system for heightened security</li>
 <li>Extensive documentation is written</li>
+<li>More items to add as we get closer to this release</li>
 </ul>
 
       </div>
@@ -358,14 +365,57 @@
   <img src="../img/roadmap-min/fractal-min.png"/>
   <h2 class="text_dark_blue">FIBONACCI</h2>
   <p class="text_dark_blue">
-    The FIBONACCI release builds out the first user facing Fractalide applications.
+    The Fibonacci release builds out the first user facing Fractalide applications.
   </p>
   <a role="button" data-toggle="collapse" href="#release_fibonacci" aria-expanded="true" aria-controls="release_fibonacci">
     <i class="fa fa-chevron-down" aria-hidden="true"></i>
   </a>
 </div>
 <div id="release_fibonacci" class="collapse in">
-  
+  <div class="roadmap_spot">
+  <img src="/img/roadmap-min/spot-min.png" width="12px"/>
+</div>
+<div class="roadmap_container">
+  <div class="roadmap_line"></div>
+  <div class="roadmap_step">
+    <h2 class="sub_heading_blue">Cardano Wallet</h2>
+  </div>
+  <div class="roadmap_line_fill"></div>
+  <div class="roadmap_info">
+    <div class="roadmap_progress">
+      <p>Progress <span class="pull-right">5%</span></p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="5"
+             aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+          <span class="sr-only">5% Complete</span>
+        </div>
+      </div>
+    </div>  <!-- roadmap_progress -->
+    <div class="roadmap_detail">
+      <a role="button" data-toggle="collapse" href="#release_fibonacci_feature_cardano_wallet_objectives"
+         aria-expanded="false" aria-controls="release_fibonacci_feature_cardano_wallet">
+          <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Objectives <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      </a>
+      <div class="collapse" id="release_fibonacci_feature_cardano_wallet_objectives">
+        <ul>
+<li>Stand alone Cardano Wallet implemented using the Card Paradigm, though it doesn't execute in Hyperflow</li>
+<li>The same Cardano Wallet executes as an app within Hyperflow</li>
+</ul>
+
+      </div>
+    </div> <!-- roadmap_detail -->
+    <div class="roadmap_detail">
+      <a role="button" data-toggle="collapse" href="#release_fibonacci_feature_cardano_wallet_workdone"
+         aria-expanded="false" aria-controls="release_fibonacci_feature_cardano_wallet">
+          <i class="fa fa-check-circle" aria-hidden="true"></i> Work Done <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      </a>
+      <div class="collapse" id="release_fibonacci_feature_cardano_wallet_workdone">
+        
+      </div>
+    </div> <!-- roadmap_detail -->
+  </div> <!-- roadmap_info -->
+</div> <!-- roadmap_container -->
+
 </div>
 
         <div class="roadmap_end">
